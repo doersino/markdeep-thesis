@@ -1,0 +1,110 @@
+<meta charset="utf-8" lang="en">
+
+**UnicodeMath ⟿ MathML**
+    Noah Doersing
+
+---
+
+# Content that goes past the end of a slide is cut off, so be careful!
+
+## test
+
+## test
+
+## test
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+# Content that goes past the end of a slide is cut off, so be careful!
+
+# Content that
+
+# Content that
+
+# Content that
+
+# Content that
+
+# Content
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+# Content that goes past the end of a slide is cut off, so be careful!
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodtempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```
+<script src="lib/bindery/2.2.7/bindery.min.js"></script>
+<script>
+    function loadBindery() {
+        Bindery.makeBook({
+            content: '.md',
+            rules: [
+                Bindery.PageBreak({ selector: 'h1', position: 'before' }),
+                Bindery.PageBreak({ selector: 'hr', position: 'before' }),
+                Bindery.FullBleedSpread({ selector: '.big-figure' }),
+                Bindery.RunningHeader({ render: (page) => page.isLeft ? `${page.number} · Jan Tschichold` : `The Form of the Book · ${page.number}`}),
+            ],
+        });
+    }
+</script>
+
+```
+
+
+
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style.css">
+
+<!-- Bindery stuff -->
+<script src="lib/bindery/2.2.7/bindery.min.js"></script>
+<script>
+    function loadBindery() {
+        Bindery.makeBook({
+            content: '.md',
+            rules: [
+                Bindery.PageBreak({ selector: 'h1', position: 'before' }),
+                Bindery.PageBreak({ selector: 'hr', position: 'before' }),
+                Bindery.FullBleedSpread({ selector: '.big-figure' }),
+                Bindery.RunningHeader({ render: (page) => page.isLeft ? `${page.number} · Jan Tschichold` : `The Form of the Book · ${page.number}`}),
+            ],
+        });
+    }
+</script>
+
+<!-- Markdeep stuff -->
+<script>
+    markdeepOptions = {
+        //tocStyle: 'none',
+        detectMath: false,
+        onLoad: function() {
+            loadMathJax();
+            loadBindery();
+        }
+    };
+</script>
+<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
+<script src="lib/markdeep/1.06/markdeep.min.js" charset="utf-8"></script>
+<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
+
+<!-- MathJax stuff -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX","output/SVG"],
+        TeX: {
+            equationNumbers: {autoNumber: "AMS"},
+            extensions: ["color.js"]
+        },
+        SVG: {
+            font: "TeX"
+        }
+    });
+</script>
+<script>
+    var mathjaxUrl = "lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
+    function loadMathJax() {
+        var script = document.createElement("script");
+        script.src = mathjaxUrl;
+        document.body.appendChild(script);
+    }
+</script>

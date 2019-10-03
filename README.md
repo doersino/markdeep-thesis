@@ -9,3 +9,9 @@ major things addressed by this work:
 * good styling for readability etc.
 
 * maybe a data structure for references??? might be going too far for now, perhaps future work
+
+
+
+* style things (fonts! code! etc.), also page numbers etc.
+* integrate markdeep footnotes into bindery somehow
+* make a non-print view that's larger, for actually writing? restore scroll position on refresh, see torsten's script

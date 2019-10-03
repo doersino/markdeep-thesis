@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 9px;
+}
+
+body {
+    max-width: 100%;
+    font-family: Georgia;
+}
+
+.md h1, .md h2, .md h3 {
+    font-family: -apple-system;
+}
+
+hr {
+    page-break-after: always;
+}
+
+/* TODO import some stuff from markdeep-slides reset */
+
+.markdeepFooter {
+    display: none;
+}
