@@ -1,7 +1,32 @@
 <meta charset="utf-8" lang="en">
-
-**UnicodeMath ⟿ MathML**
-    Noah Doersing
+<section class="titlepage">
+    <div style="">
+        <big>Eberhard Karls Universität Tübingen</big><br>
+        Mathematisch-Naturwissenschaftliche Fakultät<br>
+        Wilhelm-Schickard-Institut für Informatik<br>
+    </div>
+    <div style="margin: 15em 0;">
+        <big>Master Thesis in Media Informatics</big>
+        <br><br>
+        <span style="font-family: var(--heading-font); font-weight: bold; font-size: 3rem;">UnicodeMath ⥅ MathML</span>
+        <br><br><br>
+        Noah Doersing<br>
+        *November 30, 2019*
+    </div>
+    <div style="font-size: 0.8em; font-family: var(--code-font);">
+        **Reviewers:**<br>
+        Prof. Dr. Torsten Grust<br>
+        Database Systems Research Group<br>
+        Wilhelm-Schickard-Institut für Informatik<br>
+        University of Tübingen
+        <br>
+        <br>
+        Prof. Dr. TODO<br>
+        TODO Research Group<br>
+        Wilhelm-Schickard-Institut für Informatik<br>
+        University of Tübingen
+    </div>
+</section>
 
 ---
 
@@ -14,12 +39,45 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-## testing this thing
+* a list of items
+* more
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in *voluptate* **velit** esse
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+
+
+Consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## testing this thing
+
+test
+
+### testing more
+
+1. test
+2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+3. test
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in *volufptate* **velit** esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -28,10 +86,206 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+```sql linenumbers
+-- Combine possible_movements and the board_and_pieces to create the final result.
+-- Result:
+-- x : The x coordinate on the board.
+-- y : The y coordinate on the board.
+-- piece_id: Is either the id of a positioned piece or NULL, if no piece is on that square.
+-- descr: The visual representation of a piece, 'O' or ' '. See board_and_pieces and possible_movements.  Type: CHAR(1).
+board_result (x,y,piece_id,descr) AS (
+  SELECT pb.x AS x, pb.y AS y,
+         string_to_array(STRING_AGG(pb.piece_id, ','), ',') AS piece_id, -- List all ids without NULL (ARRAY_AGG would list with NULLs).
+         MAX(pb.descr) AS descr -- Use MAX(...) because: ' ' < 'O' < any unicode chesspiece.
+  FROM (
+   TABLE possible_movements
+     UNION
+   TABLE board_and_pieces
+  ) AS pb
+  GROUP BY pb.y, pb.x
+  ORDER BY pb.y DESC, pb.x
+)
+-- List in a chess board like fashion.
+SELECT br.y AS " ", ARRAY_TO_STRING(ARRAY_AGG(br.descr ORDER BY br.x), '|') AS "A B C D E F G H "
+  FROM board_result AS br
+GROUP BY br.y
+ORDER BY br.y DESC;
+```
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+
+Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident.
+
+Sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis!
+
+Aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur.
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+
+Deserunt mollit anim id est laborum – lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+# Overview
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+$E = mc^2$
+
+Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+**************************************************************************
+*                    ____                      *                         *
+*                   |    |_____.---.           |                         *
+*                   o     _____|    )----------)-------.                 *
+*                  / \   |     '---'           |     __|__               *
+*                 /___\  |                     |     \   /               *
+*                   |    '-------------.       |      \ /                *
+* A ----------------'                  |       |       o                 *
+*      .-------------------.     o-----)-------'       |                 *
+*      |                   |___.---.   |               |___.---.         *
+* B ---*---.__.---.         ___|    )--*--.__..---.     ____)   )----- Y *
+*           __|    o----*--'   '---'    ______))   )---'   '---'         *
+* C -------'  '---'     |              |     ''---'                      *
+*                       |              o                                 *
+*                       |             / \                     test       *
+*                       |            /___\                               *
+*                       |              |                                 *
+*                       '--------------'                                 *
+**************************************************************************
+
+test
+
+![Figure [robot]: A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot ](https://images-na.ssl-images-amazon.com/images/I/61R2%2Bfcus9L._SY679_.jpg width="200")
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore Figure [robot] et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+testting [^test]
+
+test [^test2]
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+# Vessels
+
+𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
+
+---
+
+[^test]: Testing endnote
+
+[^test2]: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<!-- MathJax stuff TODO revisit this! -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        jax: ["input/TeX","output/SVG"],
+        TeX: {
+            equationNumbers: {autoNumber: "AMS"},
+            extensions: ["color.js"]
+        },
+        SVG: {
+            font: "TeX"
+        }
+    });
+</script>
+<script src="lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG"></script>
 
 <link rel="stylesheet" href="reset.css">
 <link rel="stylesheet" href="style.css">
+
+<script>
+    // restore scroll position after page reload
+    // (via torsten's slides)
+    window.onbeforeunload = function() {
+        window.name = window.pageYOffset;
+    };
+    window.onload = function() {
+        setTimeout(function() {
+            if (window.name.search("^\\d+$") == 0) {
+                window.scrollTo(0, window.name);
+            }
+        }, 1000);
+    }
+</script>
 
 <!-- Bindery stuff -->
 <script src="lib/bindery/2.2.7/bindery.min.js"></script>
@@ -49,12 +303,35 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 marks: Bindery.Marks.NONE,
                 bleed: '0pt',
             },
+            //view: Bindery.View.PREVIEW,
             view: Bindery.View.PRINT,
             rules: [
-                Bindery.PageBreak({ selector: 'h1', position: 'before' }),
-                Bindery.PageBreak({ selector: 'hr', position: 'before' }),
-                Bindery.FullBleedSpread({ selector: '.big-figure' }),
-                Bindery.RunningHeader({ render: (page) => page.isLeft ? `${page.number} · Noah Doersing` : `TODO · ${page.number}`}),
+                Bindery.PageBreak({ selector: 'h1', position: 'before', continue: 'right' }),
+                Bindery.PageBreak({ selector: 'hr', position: 'before', continue: 'right' }),
+                //Bindery.FullBleedSpread({ selector: '.big-figure' }),
+                Bindery.RunningHeader({
+                    render: function (page) {
+                        if (page.number-2 <= 0) {
+                            return "";
+                        }
+                        if (page.isLeft) {
+                            if (page.heading.h1 != null) {
+                                return `${page.number-2}⸺${page.heading.h1}`
+                            }
+                            return `${page.number-2}`
+                        } else {
+                            return `Noah Doersing⸺${page.number-2}`;
+                        }
+                    }
+                }),
+                Bindery.Footnote({
+                    selector: 'sup > a',
+                    render: function (element, number) {
+                        var note = document.querySelector("a[name=\"" + element.getAttribute("href").substr(1) + "\"]").parentNode;
+                        // note.parentNode.removeChild(note);  // doesn't work since bindery has cloned this element already at this point
+                        return note.innerHTML;  //return '<i>' + number + '</i>: Link to ' + element.href;
+                    }
+                }),
             ],
         });
     }
@@ -66,33 +343,13 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         tocStyle: 'long',
         detectMath: false,
         onLoad: function() {
-            loadMathJax();
             loadBindery();
+            setTimeout(function() {
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            }, 1000);
         }
     };
 </script>
 <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
 <script src="lib/markdeep/1.06/markdeep.min.js" charset="utf-8"></script>
 <script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
-
-<!-- MathJax stuff -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        jax: ["input/TeX","output/SVG"],
-        TeX: {
-            equationNumbers: {autoNumber: "AMS"},
-            extensions: ["color.js"]
-        },
-        SVG: {
-            font: "TeX"
-        }
-    });
-</script>
-<script>
-    var mathjaxUrl = "lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
-    function loadMathJax() {
-        var script = document.createElement("script");
-        script.src = mathjaxUrl;
-        document.body.appendChild(script);
-    }
-</script>

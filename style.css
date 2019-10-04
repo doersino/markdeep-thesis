@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,400i,700,700i,800&display=swap');
 @import url('01-iosevka-2.3.1/webfont.css');
+
+:root {
+    --body-font: "PT Serif";
+    --heading-font: "Poppins";
+    --code-font: "Iosevka Web";
+}
 
 * {
     box-sizing: border-box;
@@ -13,11 +19,12 @@ html {
 body {
     max-width: 100%;
     padding: 0;
-    font-family: "PT Serif";
+    font-family: var(--body-font);
 }
 
 .md h1, .md h2, .md h3, .md .tocHeader {
-    font-family: Staatliches;
+    font-family: var(--heading-font);
+    text-transform: uppercase;
     border: 0;
     margin: 1rem 0;
     padding: 0;
@@ -27,24 +34,29 @@ body {
 
 .md h1, .md .tocHeader {
     margin-top: 2em;
+    margin-bottom: 1em;
     font-size: 4em;
     line-height: 1em;
     font-weight: normal;
 }
 
 .md h1::before {
-    /*content: "𝟙";*/
     display: block;
-    font-family: "Iosevka Web";
-    font-weight: 900;
+    font-weight: 800;
     color: #999;
     font-size: 3em;
     line-height: 1em;
     margin-bottom: 3rem;
+    /transform: rotate(-10deg);
 }
 
 .md h2 {
     font-size: 1.5em;
+}
+
+.md h3 {
+    font-size: 1em;
+    font-weight: normal;
 }
 
 hr {
@@ -52,12 +64,64 @@ hr {
     page-break-after: always;
 }
 
+p {
+    text-indent: 1em;
+}
+h2 + p,
+h3 + p {
+    text-indent: 0;
+}
+
+code {
+    font-family: var(--code-font) !important;
+}
 .md pre.listing {
-    resize: none;  /* remove resizability indicator from listings */
+    resize: none;  /* remove resizability indicator from listings */;
+    overflow: visible;
+}
+.md pre.listing code {
+    white-space: pre-line;
+}
+.md pre.listing .linenumbers span.line {
+    margin-left: -0.5rem; /* <- -X */
+}
+.md pre.listing .linenumbers span.line:before {
+    width: 1rem;
+    margin-left: -1.5rem;
+    padding-right: 0.5rem;  /* <- X */
 }
 
 /* TODO import some stuff from markdeep-slides reset */
 
 .markdeepFooter {
     display: none;
+}
+
+
+/* bindery stuff */
+.📖-flow-box {
+    z-index: 100000; /* makes inspecting elements in the safari dev tools way less painful */
+}
+
+.📖-running-header {
+    top: 1cm;
+    font-size: 0.8em;
+    font-family: var(--heading-font);
+}
+
+sup a .bindery-sup {  /* hide bindery footnote indicator */
+    display: none;
+}
+.endnote {
+    display: none; /* hide original endnotes */
+}
+.📖-footnote:first-child:before {
+    content: "⸻";
+    display: block;
+}
+.📖-footnote {
+    line-height: 1.4em;
+}
+.📖-footnote .target {
+    position: absolute;
 }
