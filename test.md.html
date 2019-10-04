@@ -327,7 +327,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 Bindery.Footnote({
                     selector: 'a.footnote-reference',
                     render: function (element, number) {
-                        return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
+                        return "<sup>" + element.innerHTML + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
                     }
                 }),
             ],
@@ -365,8 +365,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
             // prepare endnote reference for later processing in bindery
             element.classList.add("footnote-reference");
-            element.innerHTML = "";
-            element.parentNode.parentNode.replaceChild(element, element.parentNode);
         });
 
         // remove endnotes

@@ -120,7 +120,7 @@ code {
 }
 
 sup a .bindery-sup {  /* hide bindery footnote indicator */
-    /display: none;
+    display: none;
 }
 .endnote {
     display: none; /* hide original endnotes */
