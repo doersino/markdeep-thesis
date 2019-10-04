@@ -243,6 +243,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2
 
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
+## This is a very long headline lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo!
+
 ---
 
 [^test]: Testing endnote
@@ -330,6 +332,15 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
                     }
                 }),
+                Bindery.PageReference({  // TODO
+                  selector: '.longTOC a',
+                  replace: (element, number) => {
+                    console.log(element);
+                    console.log(number);
+                    return element;
+                  },
+                  createTest: (element) => (element) => true
+                })
             ],
         });
     }
@@ -386,14 +397,14 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             }
         });
 
-        newTocEntries = document.createElement("table");
+        newTocEntries = document.createElement("ul");
         tocEntries.forEach(function (element) {
-            var row = document.createElement("tr");
-            row.setAttribute("data-headline-anchor", element.getAttribute("href"));
-            var col1 = document.createElement("td");
+            var row = document.createElement("li");
+            row.setAttribute("data-headline-anchor", element.getAttribute("href").substr(1));
+            var col1 = document.createElement("span");
             col1.appendChild(element);
             row.appendChild(col1);
-            var col2 = document.createElement("td");
+            var col2 = document.createElement("span");
             col2.innerHTML = "?";
             row.appendChild(col2);
             newTocEntries.appendChild(row);

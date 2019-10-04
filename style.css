@@ -97,30 +97,52 @@ code {
     display: none;  /* sorry morgan */
 }
 
-.longTOC table {
-    width: 100%;
+/* via https://www.w3.org/Style/Examples/007/leaders.en.html */
+.longTOC ul {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: none
 }
-.longTOC table tr td:first-child {
-    width: 80%;
+.longTOC ul li:after {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    content:
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
 }
-.longTOC table tr td:last-child {
-    width: 20%;
-    text-align: right;
+.longTOC ul span:first-child {
+    padding-right: 0.33em;
+    background: white
 }
+.longTOC ul span + span {
+    float: right;
+    padding-left: 0.33em;
+    background: white;
+    position: relative;
+    z-index: 1
+}
+
 .md .longTOC .level1 .tocNumber {
     display: inline-block;
-    width: 1em;
+    width: 1.1em;
 }
 .md .longTOC .level2 .tocNumber {
     display: inline-block;
-    width: 2em;
-    margin-left: 1em;
+    width: 1.9em;
+    margin-left: 1.1em;
 }
 .md .longTOC .level3 .tocNumber {
     display: inline-block;
-    width: 3em;
+    width: 2.6em;
     margin-left: 3em;
 }
+
 .md .longTOC .level1 {
     font-weight: 600;
     display: initial;
