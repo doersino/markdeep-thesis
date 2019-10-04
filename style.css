@@ -97,6 +97,16 @@ code {
     display: none;
 }
 
+.longTOC p {
+    text-indent: none !important;
+}
+.longTOC a {
+    display: inline !important;
+}
+.longTOC a.tocTop, .longTOC a.tocTop + br {
+    display: none !important;
+}
+
 
 /* bindery stuff */
 .📖-flow-box {
@@ -110,7 +120,7 @@ code {
 }
 
 sup a .bindery-sup {  /* hide bindery footnote indicator */
-    display: none;
+    /display: none;
 }
 .endnote {
     display: none; /* hide original endnotes */

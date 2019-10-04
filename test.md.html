@@ -5,12 +5,13 @@
         Mathematisch-Naturwissenschaftliche Fakultät<br>
         Wilhelm-Schickard-Institut für Informatik<br>
     </div>
-    <div style="margin: 15em 0;">
-        <big>Master Thesis in Media Informatics</big>
+    <div style="margin: 14em 0;">
+        <big>Master's Thesis in Media Informatics</big>
         <br><br>
         <span style="font-family: var(--heading-font); font-weight: bold; font-size: 3rem;">UnicodeMath ⥅ MathML</span>
         <br><br><br>
-        Noah Doersing<br>
+        <big>Noah Doersing</big>
+        <br><br>
         *November 30, 2019*
     </div>
     <div style="font-size: 0.8em; font-family: var(--code-font);">
@@ -206,7 +207,7 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-testting [^test]
+testting [^test] testingg [^test]
 
 test [^test2]
 
@@ -236,8 +237,7 @@ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2]
 
 # Vessels
 
@@ -247,7 +247,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 [^test]: Testing endnote
 
-[^test2]: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+[^test2]: Lorem ipsum *dolor* sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -325,11 +325,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     }
                 }),
                 Bindery.Footnote({
-                    selector: 'sup > a',
+                    selector: 'a.footnote-reference',
                     render: function (element, number) {
-                        var note = document.querySelector("a[name=\"" + element.getAttribute("href").substr(1) + "\"]").parentNode;
-                        // note.parentNode.removeChild(note);  // doesn't work since bindery has cloned this element already at this point
-                        return note.innerHTML;  //return '<i>' + number + '</i>: Link to ' + element.href;
+                        return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
                     }
                 }),
             ],
@@ -339,10 +337,58 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 <!-- Markdeep stuff -->
 <script>
+    // collect endnotes, write as data attributes into the references to them
+    function processEndnotes() {
+
+        // find all references to end notes
+        var references = Array.from(document.querySelectorAll("sup > a[href^='#endnote-']"));
+        var endnotes = [];
+        references.forEach(function (element) {
+
+            // get endnote
+            var endnoteName = element.getAttribute("href").substr(1);
+            var endnote = document.querySelector("a[name=\"" + endnoteName + "\"]").parentNode;
+
+            // store for later removal
+            if (!endnotes.includes(endnote)) {
+                endnotes.push(endnote);
+            }
+
+            // remove the unneeded reference number
+            endnote = endnote.cloneNode(true);
+            //endnote.childNodes[0].remove();
+            endnote.childNodes[1].remove();
+
+            // base64-endcode
+            var endnoteEncoded = window.btoa(endnote.innerHTML);
+            element.setAttribute("data-footnote-content", endnoteEncoded);
+
+            // prepare endnote reference for later processing in bindery
+            element.classList.add("footnote-reference");
+            element.innerHTML = "";
+            element.parentNode.parentNode.replaceChild(element, element.parentNode);
+        });
+
+        // remove endnotes
+        endnotes.forEach(function(element) {
+            element.parentNode.removeChild(element);
+            // TODO element.remove();?
+        });
+    }
+
+    // coerce the table of contents into a format more suitable for filling in page numbers
+    function processTOC() {
+
+    }
+
+</script>
+<script>
     markdeepOptions = {
         tocStyle: 'long',
         detectMath: false,
         onLoad: function() {
+            processEndnotes();
+            processTOC();
             loadBindery();
             setTimeout(function() {
                 MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
