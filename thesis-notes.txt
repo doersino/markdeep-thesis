@@ -1,27 +1,21 @@
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
 page numbers in toc
-    transform toc into table or something to make it possible to work with (modify markdeep or do it after the fact?)
-    before invoking bindery, write name of a targets into h tag data attributes, then use that?
+    figure out how to do this
     Array.from(document.querySelectorAll("a[name='introduction/testingthisthing']")).forEach(e => console.log(e.parentNode))
 
 mathjax
-    run it after markdeep
-    only then, when it's all done, run bindery
+    run it after markdeep... but how?
+    only then, when it's all done and svgs have been generated, run bindery
 
 force use of https://fonts.google.com/specimen/PT+Serif instead of os-installed pt serif (which on mac has no umlauts)
 same for pt sans narrow
-
-* {
-    line-height: 1.4em;
-} ?
+    => download the webfonts (also goes for all others)
+    => sort of keep track of their licenses, for eventual release
 
 
 gobble parens around citations into citation (both in text view and in references list)
-
 style div.nonumerh1, ...h2 etc.
+fancyquotes with 📖-continues should not have closing thingy, equivalent for 📖-continuation and opening thingy
 
-
-
-
-remove extra pages from the end
+add erklärung

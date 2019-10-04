@@ -14,7 +14,7 @@
         <br><br>
         *November 30, 2019*
     </div>
-    <div style="font-size: 0.8em; font-family: var(--code-font);">
+    <div style="font-size: 0.8em; font-family: var(--reference-font);">
         **Reviewers:**<br>
         Prof. Dr. Torsten Grust<br>
         Database Systems Research Group<br>
@@ -28,6 +28,16 @@
         University of Tübingen
     </div>
 </section>
+
+---
+
+(##) Abstract
+
+test
+
+(##) Notes
+
+markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
 
 ---
 
@@ -45,8 +55,17 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+
+> "Consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+> qu is nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+> consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+> proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -330,6 +349,19 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2
 
 ---
 
+<div style="width: 70%; margin: auto;">
+(##) Selbständigkeitserklärung
+
+Hiermit versichere ich gemäß § 17 Absatz 4 des allgemeinen Teils der geltenden Prüfungsordnung, dass ich diese Arbeit selbständig verfasst, keine anderen als die angegebenen Hilfsmittel und Quellen benutzt habe, alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet habe und dass die Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist sowie dass ich die Arbeit weder vollständig noch in wesentlichen Teilen bereits veröffentlicht habe und dass das in Dateiform eingereichte Exemplar mit den eingereichten gebundenen Exemplaren übereinstimmt.
+
+<br><br>
+<div style="width: 80%; border-bottom: 0.1em solid black; margin-bottom: 0.4em;"></div>
+<span style="font-family: var(--reference-font)">Datum, Ort, Unterschrift</span>
+
+</div>
+
+
+
 [^test]: Testing endnote
 
 [^test2]: Lorem ipsum *dolor* sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -392,6 +424,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             view: Bindery.View.PRINT,
             rules: [
                 Bindery.PageBreak({ selector: 'h1', position: 'before', continue: 'right' }),
+                Bindery.PageBreak({ selector: '.nonumberh1', position: 'before', continue: 'right' }),
                 Bindery.PageBreak({ selector: 'hr', position: 'before', continue: 'right' }),
                 //Bindery.FullBleedSpread({ selector: '.big-figure' }),
                 Bindery.RunningHeader({
