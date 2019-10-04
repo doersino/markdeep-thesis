@@ -119,12 +119,6 @@ code {
     font-family: var(--heading-font);
 }
 
-sup a .bindery-sup {  /* hide bindery footnote indicator */
-    display: none;
-}
-.endnote {
-    display: none; /* hide original endnotes */
-}
 .📖-footnote:first-child:before {
     content: "⸻";
     display: block;
