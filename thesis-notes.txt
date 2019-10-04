@@ -1,0 +1,27 @@
+𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
+
+page numbers in toc
+    transform toc into table or something to make it possible to work with (modify markdeep or do it after the fact?)
+    before invoking bindery, write name of a targets into h tag data attributes, then use that?
+    Array.from(document.querySelectorAll("a[name='introduction/testingthisthing']")).forEach(e => console.log(e.parentNode))
+
+mathjax
+    run it after markdeep
+    only then, when it's all done, run bindery
+
+force use of https://fonts.google.com/specimen/PT+Serif instead of os-installed pt serif (which on mac has no umlauts)
+same for pt sans narrow
+
+* {
+    line-height: 1.4em;
+} ?
+
+
+gobble parens around citations into citation (both in text view and in references list)
+
+style div.nonumerh1, ...h2 etc.
+
+
+
+
+remove extra pages from the end
