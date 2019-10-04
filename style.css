@@ -1,24 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i&display=swap&subset=latin-ext');
+@import url('01-iosevka-2.3.1/webfont.css');
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    font-size: 9px;
+    font-size: 12pt;
 }
 
 body {
     max-width: 100%;
-    font-family: Georgia;
+    padding: 0;
+    font-family: "PT Serif";
 }
 
-.md h1, .md h2, .md h3 {
-    font-family: -apple-system;
+.md h1, .md h2, .md h3, .md .tocHeader {
+    font-family: Staatliches;
+    border: 0;
+    margin: 1rem 0;
+    padding: 0;
+    color: inherit;
+    text-align: left;
+}
+
+.md h1, .md .tocHeader {
+    margin-top: 2em;
+    font-size: 4em;
+    line-height: 1em;
+    font-weight: normal;
+}
+
+.md h1::before {
+    /*content: "𝟙";*/
+    display: block;
+    font-family: "Iosevka Web";
+    font-weight: 900;
+    color: #999;
+    font-size: 3em;
+    line-height: 1em;
+    margin-bottom: 3rem;
+}
+
+.md h2 {
+    font-size: 1.5em;
 }
 
 hr {
+    display: none;
     page-break-after: always;
+}
+
+.md pre.listing {
+    resize: none;  /* remove resizability indicator from listings */
 }
 
 /* TODO import some stuff from markdeep-slides reset */
