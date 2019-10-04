@@ -378,7 +378,28 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
     // coerce the table of contents into a format more suitable for filling in page numbers
     function processTOC() {
+        var toc = document.getElementsByClassName("longTOC")[0].childNodes[1];
+        var tocEntries = [];
+        toc.childNodes.forEach(function (element) {
+            if (element.tagName && element.tagName.toLowerCase() == "a" && !element.classList.contains("tocTop")) {
+                tocEntries.push(element);
+            }
+        });
 
+        newTocEntries = document.createElement("table");
+        tocEntries.forEach(function (element) {
+            var row = document.createElement("tr");
+            row.setAttribute("data-headline-anchor", element.getAttribute("href"));
+            var col1 = document.createElement("td");
+            col1.appendChild(element);
+            row.appendChild(col1);
+            var col2 = document.createElement("td");
+            col2.innerHTML = "?";
+            row.appendChild(col2);
+            newTocEntries.appendChild(row);
+        });
+
+        toc.parentNode.replaceChild(newTocEntries, toc);
     }
 
 </script>

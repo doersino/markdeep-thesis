@@ -94,17 +94,38 @@ code {
 /* TODO import some stuff from markdeep-slides reset */
 
 .markdeepFooter {
-    display: none;
+    display: none;  /* sorry morgan */
 }
 
-.longTOC p {
-    text-indent: none !important;
+.longTOC table {
+    width: 100%;
 }
-.longTOC a {
-    display: inline !important;
+.longTOC table tr td:first-child {
+    width: 80%;
 }
-.longTOC a.tocTop, .longTOC a.tocTop + br {
-    display: none !important;
+.longTOC table tr td:last-child {
+    width: 20%;
+    text-align: right;
+}
+.md .longTOC .level1 .tocNumber {
+    display: inline-block;
+    width: 1em;
+}
+.md .longTOC .level2 .tocNumber {
+    display: inline-block;
+    width: 2em;
+    margin-left: 1em;
+}
+.md .longTOC .level3 .tocNumber {
+    display: inline-block;
+    width: 3em;
+    margin-left: 3em;
+}
+.md .longTOC .level1 {
+    font-weight: 600;
+    display: initial;
+    padding-top: 0;
+    margin: 0;
 }
 
 
