@@ -20,3 +20,8 @@ figure out why chrome seems to forget *part* of the styling (h1 sizes, <code> vi
 
 
 set numbers in toc and headings with proper spacing
+
+
+
+
+print in Chrome via the browser menu item, not cmp+P!

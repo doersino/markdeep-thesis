@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,400,400i,700,700i,800&display=swap');
 @import url('01-iosevka-2.3.1/webfont.css');
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Aleo:400,400i,700,700i&display=swap');
 
 :root {
     --body-font: "PT Serif";
     --heading-font: "Poppins";
     --code-font: "Iosevka Web";
     --reference-font: "PT Sans Narrow";
+    --fancyquote-font: "Aleo";
 }
 
 * {
@@ -22,6 +24,7 @@ body {
     max-width: 100%;
     padding: 0;
     font-family: var(--body-font);
+    color: black;
 }
 
 hr {
@@ -29,7 +32,19 @@ hr {
 }
 
 p {
-    text-indent: 1.2em;
+    /*text-indent: 1.2em;*/ /* TODO revisit – this is a bit complicated: should the indent be missing after figures? or just figures without caption? etc. */
+}
+
+a {
+    color: black !important; /* change this when presenting digitally, I suppose */
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+a.raw {
+    font-family: var(--code-font);
 }
 
 /* title page */
@@ -95,6 +110,15 @@ p {
 }*/
 .md blockquote.fancyquote .author {
     display: block;
+}
+.md blockquote.fancyquote {
+    font-family: var(--fancyquote-font);
+}
+.md blockquote.fancyquote::before,
+.md span.fancyquote::after {
+    font-size: 3rem;
+    vertical-align: -0.4em;
+    font-family: var(--fancyquote-font);
 }
 
 .md h2,
@@ -191,7 +215,7 @@ code {
     overflow: visible;
 }
 .md pre.listing code {
-    white-space: pre-line;
+    white-space: pre-wrap;
 }
 .md pre.listing .linenumbers span.line {
     margin-left: -0.5rem; /* <- -X */
@@ -200,6 +224,9 @@ code {
     width: 1rem;
     margin-left: -1.5rem;
     padding-right: 0.5rem;  /* <- X */
+}
+.md pre.listing.tilde span.line {
+    margin-left: calc(-2.2rem + 1.5rem);
 }
 .md pre.listing.tilde .linenumbers span.line:before {
     margin-left: -2.2rem;  /* increase distance between line numbers and code due to padding */
@@ -328,9 +355,8 @@ blockquote.fancyquote.📖-continuation:before {
 
 
 
-/* footnotes, citations and other kinds of references */
-a.footnote-reference sup {  /* TODO also apply this style to the footnote indexes in the actual footnotes */
-    color: black;
+/* footnotes, citations/bibliography and other kinds of references */
+.bindery-sup {
     font-family: var(--reference-font);
 }
 .📖-footnote:first-child:before {
@@ -346,16 +372,25 @@ a.footnote-reference sup {  /* TODO also apply this style to the footnote indexe
 .📖-footnote > sup:first-child {
     font-family: var(--reference-font);
 }
-a[href^="#citation"] {
+a[href^="#citation-"],
+a[href^="#figure_"],
+a[href^="#table_"],
+a[href^="#listing_"] {
     font-family: var(--reference-font);
-    color: black !important;
 }
+.bib > b:nth-child(2),
+.imagecaption > b:nth-child(2),
+.tablecaption > b:nth-child(2),
+.listingcaption > b:nth-child(2) {
+    font-family: var(--reference-font);
+}
+
 
 /* page numbers */
 .📖-running-header {
     top: 1cm;
     font-size: 0.8em;
-    font-family: var(--heading-font);
+    font-family: var(--heading-font);  /* TODO use reference font? */
 }
 
 /* Bindery stuff */

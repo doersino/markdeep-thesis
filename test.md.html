@@ -45,7 +45,7 @@ test
 
 (###) Notes
 
-This document was generated... TODO markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
+This document was generated with [Markdeep](https://casual-effects.com/markdeep/) and [Bindery](https://evanbrooks.info/bindery/)... TODO markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
 
 ---
 
@@ -324,7 +324,40 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2
 ## This is a very long headline lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo!
 
 ### test
+
+ Maine | Iowa | Colorado
+-------|------|----------
+   1   |  4   |   10
+  ME   |  IA  |   CO
+ Blue  | Red  | Brown
+  [Optional caption]
+
+ Maine | Iowa | Colorado
+-------|------|----------
+   1   |  4   |   10
+  ME   |  IA  |   CO
+ Blue  | Red  | Brown
+[Table [states]: Caption with label.]
+
+There's Table [states]!
+
 ### test
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Python
+def insertionSort(data):
+    for i in range(0, len(data)):
+        j = i;
+
+        while (j > 0) and (data[j] < data[j - 1]):
+            temp = data[j]
+            data[j] = data[j - 1]
+            data[j] = temp
+            --j
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Listing [sort]: An insertion sort]
+
+And Listing [sort], nämlich.
+
 ### test
 ### test
 ### test
@@ -379,6 +412,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2
 ## test
 
 (#) Bibliography
+
+[#Kajiya86]: James T. Kajiya. 1986. The Rendering Equation. In _Proceedings of Computer Graphics and Interactive Techniques (SIGGRAPH '86)_, ACM, 143-150. http://dx.doi.org/10.1145/15922.15902
 
 [#Kajiya86]: James T. Kajiya. 1986. The Rendering Equation. In _Proceedings of Computer Graphics and Interactive Techniques (SIGGRAPH '86)_, ACM, 143-150. http://dx.doi.org/10.1145/15922.15902
 
@@ -561,8 +596,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 marks: Bindery.Marks.NONE,
                 bleed: '0pt',
             },
-            view: Bindery.View.PREVIEW,
-            //view: Bindery.View.PRINT,
+            //view: Bindery.View.PREVIEW,
+            view: Bindery.View.PRINT,
             //view: Bindery.View.FLIPBOOK,
             rules: [
                 Bindery.FullBleedPage({
@@ -573,11 +608,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 Bindery.PageBreak({ selector: '.nonumberh1', position: 'before', continue: 'right' }),
                 Bindery.PageBreak({ selector: 'hr', position: 'before', continue: 'right' }),
                 Bindery.PageBreak({ selector: '.image', position: 'avoid'}),  // figures
+                Bindery.PageBreak({ selector: '.table', position: 'avoid'}),  // figures
                 Bindery.RunningHeader({
                     render: function (page) {
                         var pageNum = page.number-2;
 
-                        if (page.isEmpty || pageNum <= 0) {
+                        if (/*page.isEmpty ||*/ pageNum <= 0) {
                             return "";
                         }
                         if (page.isLeft) {
@@ -594,6 +630,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     selector: 'a.footnote-reference',
                     render: function (element, number) {
                         return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
+                    }
+                }),
+                Bindery.Footnote({
+                    selector: 'p > a[href^="http"]',
+                    render: (element, number) => {
+                        return '<sup>' + number + '</sup> See <a href="' + element.href + '" class="raw">' + element.href + '</a>.';
                     }
                 }),
                 Bindery.PageReference({
