@@ -449,28 +449,17 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
                     }
                 }),
-                Bindery.PageReference({  // TODO
-                    selector: '.longTOC a',
-                    /*replace: (element, number) => {
-                        var t = element.getAttribute("data-headline-anchor");
-                        console.log(element.parentNode);
-                        //console.log(element);
-                        //console.log(number);
-                        return element;
-                    },*/
+                Bindery.PageReference({
+                    selector: '.longTOC li',
                     replace: (element, number) => {
-                        console.log(element);
-                        console.log(number);
-
-                        element.innerHTML += `<span class='num'>${number-2}</span>`;  /* TODO insert span later? */
+                        element.innerHTML += `<span class='num'>${number-2}</span>`;
                         return element;
                     },
                     createTest: function (element) {
-                        const href = element.getAttribute('href');
+                        const href = element.querySelector("a").getAttribute('href');
                         if (!href) return null;
                         return el => el.querySelector("a.target.heading-target[name='" + href.substr(1) + "']");
                     }
-                    //createTest: (element) => (element) => true
                 })
             ],
         });
@@ -520,6 +509,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
     // coerce the table of contents into a format more suitable for filling in page numbers
     function processTOC() {
+
+        // extract toc entries
         var toc = document.getElementsByClassName("longTOC")[0].childNodes[1];
         var tocEntries = [];
         toc.childNodes.forEach(function (element) {
@@ -530,36 +521,39 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             }
         });
 
-        newTocEntries = document.createElement("ul");
-        tocEntries.forEach(function (element) {  // TODO refactor
-            var row = document.createElement("li");
-            //row.setAttribute("data-headline-anchor", element.getAttribute("href").substr(1));
-            var col1 = document.createElement("span");
+        // generate new toc
+        newToc = document.createElement("ol");
+        tocEntries.forEach(function (element) {
+
+            // extract heading level
+            var level = element.classList[0];
+            element.removeAttribute("class");
+
+            // replace href with unique, tocN.N-style target
             var tocN = element.querySelector("span").innerHTML;
             tocN = "toc" + tocN.split("&nbsp;")[0];
-            //console.log(document.querySelector("a[name='" + tocN + "']"));  // sanity check
             element.setAttribute("href", "#" + tocN);
-            col1.appendChild(element);
-            row.appendChild(col1);
-            /*var col2 = document.createElement("span");
-            col2.innerHTML = "?";
-            row.appendChild(col2);*/
-            newTocEntries.appendChild(row);
+
+            // assemble new toc entry
+            var row = document.createElement("li");
+            row.classList.add(level);
+            var span = document.createElement("span");
+            span.appendChild(element);
+            row.appendChild(span);
+
+            newToc.appendChild(row);
         });
 
-        toc.parentNode.replaceChild(newTocEntries, toc);
+        // replace old toc with new one
+        toc.parentNode.replaceChild(newToc, toc);
 
         // each heading the text has three anchors in front of it, of the format
-        // name, supersectionname/.../name, and tocN.N. the toc links to the
-        // middle one, so pull this into a data attribute of the heading. (since
-        // the anchors frequently end up on the page before the heading after
-        // bindery is done processing)
+        // name, supersectionname/.../name, and tocN.N. the toc (now) links to
+        // the last one, so pull this one into the heading. (since the anchors
+        // frequently end up on the page before the heading after bindery is
+        // done processing)
         var headings = document.querySelectorAll(".md h1, .md h2, .md h3");
         headings.forEach(function (element) {
-            //var anchor = element.previousSibling.previousSibling.getAttribute("name");
-            //element.setAttribute("data-headline-anchor", anchor);
-            /*var anchor = element.previousSibling.getAttribute("name");
-            element.setAttribute("id", anchor);*/
             var anchor = element.previousSibling;
             anchor = anchor.cloneNode(true);
             anchor.classList.add("heading-target");

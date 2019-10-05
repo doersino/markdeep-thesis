@@ -100,13 +100,14 @@ code {
 }
 
 /* via https://www.w3.org/Style/Examples/007/leaders.en.html */
-.longTOC ul {
+.longTOC ol {
     max-width: 40em;
     padding: 0;
     overflow-x: hidden;
     list-style: none
 }
-.longTOC ul li:after {
+.longTOC ol li:after {
+    font-weight: normal;
     float: left;
     width: 0;
     white-space: nowrap;
@@ -118,11 +119,11 @@ code {
         "· · · · · · · · · · · · · · · · · · · · "
         "· · · · · · · · · · · · · · · · · · · · "
 }
-.longTOC ul span:first-child {
+.longTOC ol span:first-child {
     padding-right: 0.33em;
-    background: white
+    background: white;
 }
-.longTOC ul span + span {
+.longTOC ol span + span {
     float: right;
     padding-left: 0.33em;
     background: white;
@@ -147,7 +148,6 @@ code {
 
 .md .longTOC .level1 {
     font-weight: 600;
-    display: initial;
     padding-top: 0;
     margin: 0;
 }
