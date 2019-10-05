@@ -132,16 +132,16 @@ code {
 
 .md .longTOC .level1 .tocNumber {
     display: inline-block;
-    width: 1.1em;
+    min-width: 1.1em;
 }
 .md .longTOC .level2 .tocNumber {
     display: inline-block;
-    width: 1.9em;
+    min-width: 1.9em;
     margin-left: 1.1em;
 }
 .md .longTOC .level3 .tocNumber {
     display: inline-block;
-    width: 2.6em;
+    min-width: 2.6em;
     margin-left: 3em;
 }
 

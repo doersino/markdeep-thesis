@@ -371,8 +371,8 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-<!-- MathJax stuff TODO revisit this! -->
-<script type="text/x-mathjax-config">
+<!-- MathJax stuff TODO revisit this! need to load mathjax dynamically once markdeep is done, then manually trigger typeset?, then invoke bindery once mathjax sends the "End" signal? -->
+<!--<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         jax: ["input/TeX","output/SVG"],
         TeX: {
@@ -384,8 +384,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         }
     });
 </script>
-<script src="lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script src="lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG"></script>-->
 
+<!-- Stylesheets and scroll position restoring -->
 <link rel="stylesheet" href="reset.css">
 <link rel="stylesheet" href="style.css">
 
@@ -449,13 +450,27 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     }
                 }),
                 Bindery.PageReference({  // TODO
-                  selector: '.longTOC a',
-                  replace: (element, number) => {
-                    console.log(element);
-                    console.log(number);
-                    return element;
-                  },
-                  createTest: (element) => (element) => true
+                    selector: '.longTOC a',
+                    /*replace: (element, number) => {
+                        var t = element.getAttribute("data-headline-anchor");
+                        console.log(element.parentNode);
+                        //console.log(element);
+                        //console.log(number);
+                        return element;
+                    },*/
+                    replace: (element, number) => {
+                        //var t = document.querySelector("body > .md");
+                        //if (t != null) t.remove();
+
+                        console.log(element);
+                        console.log(number);
+                        let row = document.createElement('div');
+                        row.classList.add('toc-row');
+                        row.innerHTML = element.textContent;
+                        row.innerHTML += `<span class='num'>${number}</span>`;
+                        return row;
+                    },
+                    //createTest: (element) => (element) => true
                 })
             ],
         });
@@ -508,16 +523,22 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         var toc = document.getElementsByClassName("longTOC")[0].childNodes[1];
         var tocEntries = [];
         toc.childNodes.forEach(function (element) {
+
+            // ignore <br>s and (Top) link
             if (element.tagName && element.tagName.toLowerCase() == "a" && !element.classList.contains("tocTop")) {
                 tocEntries.push(element);
             }
         });
 
         newTocEntries = document.createElement("ul");
-        tocEntries.forEach(function (element) {
+        tocEntries.forEach(function (element) {  // TODO refactor
             var row = document.createElement("li");
-            row.setAttribute("data-headline-anchor", element.getAttribute("href").substr(1));
+            //row.setAttribute("data-headline-anchor", element.getAttribute("href").substr(1));
             var col1 = document.createElement("span");
+            var tocN = element.querySelector("span").innerHTML;
+            tocN = "toc" + tocN.split("&nbsp;")[0];
+            //console.log(document.querySelector("a[name='" + tocN + "']"));  // sanity check
+            element.setAttribute("href", "#" + tocN);
             col1.appendChild(element);
             row.appendChild(col1);
             var col2 = document.createElement("span");
@@ -527,9 +548,24 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         });
 
         toc.parentNode.replaceChild(newTocEntries, toc);
+
+        // each heading the text has three anchors in front of it, of the format
+        // name, supersectionname/.../name, and tocN.N. the toc links to the
+        // middle one, so pull this into a data attribute of the heading. (since
+        // the anchors frequently end up on the page before the heading after
+        // bindery is done processing)
+        var headings = document.querySelectorAll(".md h1, .md h2, .md h3");
+        headings.forEach(function (element) {
+            //var anchor = element.previousSibling.previousSibling.getAttribute("name");
+            //element.setAttribute("data-headline-anchor", anchor);
+            var anchor = element.previousSibling.getAttribute("name");
+            element.setAttribute("id", anchor);
+        });
+        //document.querySelectorAll("a.target").forEach(e => e.remove());
     }
 
 </script>
+
 <script>
     markdeepOptions = {
         tocStyle: 'long',
@@ -537,13 +573,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         onLoad: function() {
             processEndnotes();
             processTOC();
+
             loadBindery();
-            setTimeout(function() {
+            /*setTimeout(function() {
                 MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-            }, 1000);
+            }, 1000);*/
         }
     };
 </script>
-<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
 <script src="lib/markdeep/1.06/markdeep.min.js" charset="utf-8"></script>
-<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>

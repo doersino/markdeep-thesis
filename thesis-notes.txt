@@ -18,4 +18,7 @@ gobble parens around citations into citation (both in text view and in reference
 style div.nonumerh1, ...h2 etc.
 fancyquotes with 📖-continues should not have closing thingy, equivalent for 📖-continuation and opening thingy
 
-add erklärung
+
+
+
+generally support more heading levels that h1-3?
