@@ -462,16 +462,13 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         console.log(element);
                         console.log(number);
 
-                        let row = document.createElement('div');
-                        row.classList.add('toc-row');
-                        row.innerHTML = element.textContent;
-                        row.innerHTML += `<span class='num'>${number}</span>`;
-                        return row;
+                        element.innerHTML += `<span class='num'>${number-2}</span>`;  /* TODO insert span later? */
+                        return element;
                     },
                     createTest: function (element) {
                         const href = element.getAttribute('href');
                         if (!href) return null;
-                        return el => el.querySelectorAll("a.target[name='" + href.substr(1) + "']")[0];
+                        return el => el.querySelector("a.target.heading-target[name='" + href.substr(1) + "']");
                     }
                     //createTest: (element) => (element) => true
                 })
@@ -544,9 +541,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             element.setAttribute("href", "#" + tocN);
             col1.appendChild(element);
             row.appendChild(col1);
-            var col2 = document.createElement("span");
+            /*var col2 = document.createElement("span");
             col2.innerHTML = "?";
-            row.appendChild(col2);
+            row.appendChild(col2);*/
             newTocEntries.appendChild(row);
         });
 
@@ -561,8 +558,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         headings.forEach(function (element) {
             //var anchor = element.previousSibling.previousSibling.getAttribute("name");
             //element.setAttribute("data-headline-anchor", anchor);
-            var anchor = element.previousSibling.getAttribute("name");
-            element.setAttribute("id", anchor);
+            /*var anchor = element.previousSibling.getAttribute("name");
+            element.setAttribute("id", anchor);*/
+            var anchor = element.previousSibling;
+            anchor = anchor.cloneNode(true);
+            anchor.classList.add("heading-target");
+            element.appendChild(anchor);
         });
         //document.querySelectorAll("a.target").forEach(e => e.remove());
     }
