@@ -32,7 +32,7 @@ hr {
 }
 
 p {
-    /*text-indent: 1.2em;*/ /* TODO revisit – this is a bit complicated: should the indent be missing after figures? or just figures without caption? etc. */
+    /*text-indent: 1.2em;*/ /* TODO revisit – this is a bit complicated: should the indent be missing after figures? or just figures without caption? etc., also see https://www.thebookdesigner.com/2012/04/paragraphing-style/ */
 }
 
 a {
