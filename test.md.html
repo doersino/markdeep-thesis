@@ -459,17 +459,20 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         return element;
                     },*/
                     replace: (element, number) => {
-                        //var t = document.querySelector("body > .md");
-                        //if (t != null) t.remove();
-
                         console.log(element);
                         console.log(number);
+
                         let row = document.createElement('div');
                         row.classList.add('toc-row');
                         row.innerHTML = element.textContent;
                         row.innerHTML += `<span class='num'>${number}</span>`;
                         return row;
                     },
+                    createTest: function (element) {
+                        const href = element.getAttribute('href');
+                        if (!href) return null;
+                        return el => el.querySelectorAll("a.target[name='" + href.substr(1) + "']")[0];
+                    }
                     //createTest: (element) => (element) => true
                 })
             ],
