@@ -3,9 +3,9 @@
 <!-- TODO improve titlepage: make a class for this, set height to 100%, use flex or something for spacing -->
 <section class="title-page">
     <div class="title-page-top">
-        <big>Eberhard Karls Universität Tübingen</big><br>
-        Mathematisch-Naturwissenschaftliche Fakultät<br>
-        Wilhelm-Schickard-Institut für Informatik<br>
+        <big>Eberhard Karls Universität Tübingen</big><br>
+        Mathematisch-Naturwissenschaftliche Fakultät<br>
+        Wilhelm-Schickard-Institut für Informatik<br>
     </div>
     <div class="title-page-middle">
         <big>Master's Thesis in Media Informatics</big>
@@ -23,14 +23,14 @@
         <div style="display: inline-block; margin-right: 2em; vertical-align: top;">
             Prof. Dr. Torsten Grust<br>
             Database Systems Research Group<br>
-            Wilhelm-Schickard-Institut für Informatik<br>
-            University of Tübingen
+            Wilhelm-Schickard-Institut für Informatik<br>
+            University of Tübingen
         </div>
         <div style="display: inline-block; margin-right: 2em; vertical-align: top;">
             Prof. Dr. TODO<br>
             TODO Research Group<br>
-            Wilhelm-Schickard-Institut für Informatik<br>
-            University of Tübingen
+            Wilhelm-Schickard-Institut für Informatik<br>
+            University of Tübingen
         </div>
     </div>
 </section>
@@ -49,6 +49,7 @@ markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
 
 # Introduction
 > "This is a quote."
+>
 >      -- This quote
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -231,9 +232,21 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 $$E = mc^2$$
 
-Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$
+<!--Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ test Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
 
-$E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$
+$E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit
+$E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+
+$E = mc^2$ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$
 
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -370,7 +383,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2
 ---
 
 <div style="width: 70%; margin: 5rem auto 0;">
-(##) Selbständigkeitserklärung
+(##) Selbstständigkeitserklärung
 
 Hiermit versichere ich gemäß § 17 Absatz 4 des allgemeinen Teils der geltenden Prüfungsordnung, dass ich diese Arbeit selbständig verfasst, keine anderen als die angegebenen Hilfsmittel und Quellen benutzt habe, alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet habe und dass die Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist sowie dass ich die Arbeit weder vollständig noch in wesentlichen Teilen bereits veröffentlicht habe und dass das in Dateiform eingereichte Exemplar mit den eingereichten gebundenen Exemplaren übereinstimmt.
 
@@ -611,14 +624,20 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
     function postprocessMathJax() {
         // TODO pull out svgs, remove the rest, to ideally remove the bindery page breaking issues
+        var svgs = document.querySelectorAll(".MathJax_SVG svg");
+        svgs.forEach(function (element) {
+            element.parentNode.parentNode.replaceChild(element, element.parentNode);
+        });
+        document.querySelectorAll(".MathJax_Preview").forEach(e => e.remove());
+        document.querySelectorAll("script[type='math/tex']").forEach(e => e.remove());
     }
 
-    function restoreScrollPosition() {
+    function restoreScrollPosition() {  // TODO call this once bindery is done!
         setTimeout(function() {
             if (window.name.search("^\\d+$") == 0) {
                 window.scrollTo(0, window.name);
             }
-        }, 1000);
+        }, 2000);
     }
 </script>
 

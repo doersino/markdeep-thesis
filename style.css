@@ -93,6 +93,9 @@ p {
     margin-top: -20rem;
     margin-bottom: 20rem;
 }*/
+.md blockquote.fancyquote .author {
+    display: block;
+}
 
 .md h2,
 .md .nonumberh2 {
