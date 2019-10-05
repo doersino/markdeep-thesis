@@ -1,8 +1,6 @@
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
-mathjax
-    run it after markdeep... but how?
-    only then, when it's all done and svgs have been generated, run bindery
+marry mathjax/markdeep with unicodemathml
 
 force use of https://fonts.google.com/specimen/PT+Serif instead of os-installed pt serif (which on mac has no umlauts)
 same for pt sans narrow
@@ -12,7 +10,7 @@ same for pt sans narrow
 
 
 gobble parens around citations into citation (both in text view and in references list)
-style admonitions
+style admonitions better
 
 
 fix line numbers being restarted when a code block is broken on a page
@@ -20,5 +18,4 @@ fix line numbers being restarted when a code block is broken on a page
 avoid page breaks for non-image figures: code, i guess?
 
 
-
-does mathjax ignore <code>?
+figure out why chrome seems to forget *part* of the styling (h1 sizes, <code> visibility, admonition title border-bottom, etc.) when entering print mode
