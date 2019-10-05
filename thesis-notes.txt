@@ -13,9 +13,10 @@ gobble parens around citations into citation (both in text view and in reference
 style admonitions better
 
 
-fix line numbers being restarted when a code block is broken on a page
-
 avoid page breaks for non-image figures: code, i guess?
 
 
 figure out why chrome seems to forget *part* of the styling (h1 sizes, <code> visibility, admonition title border-bottom, etc.) when entering print mode
+
+
+set numbers in toc and headings with proper spacing

@@ -41,9 +41,11 @@
 
 test
 
-(##) Notes
+<br><br>
 
-markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
+(###) Notes
+
+This document was generated... TODO markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
 
 ---
 
@@ -148,11 +150,7 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
 
 ```sql linenumbers
 -- Combine possible_movements and the board_and_pieces to create the final result.
@@ -387,17 +385,14 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2
 ---
 
 <div style="width: 70%; margin: 5rem auto 0;">
-(##) Selbstständigkeitserklärung
+    (##) Selbstständigkeitserklärung
 
-Hiermit versichere ich gemäß § 17 Absatz 4 des allgemeinen Teils der geltenden Prüfungsordnung, dass ich diese Arbeit selbständig verfasst, keine anderen als die angegebenen Hilfsmittel und Quellen benutzt habe, alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet habe und dass die Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist sowie dass ich die Arbeit weder vollständig noch in wesentlichen Teilen bereits veröffentlicht habe und dass das in Dateiform eingereichte Exemplar mit den eingereichten gebundenen Exemplaren übereinstimmt.
+    Hiermit versichere ich gemäß § 17 Absatz 4 des allgemeinen Teils der geltenden Prüfungsordnung, dass ich diese Arbeit selbständig verfasst, keine anderen als die angegebenen Hilfsmittel und Quellen benutzt habe, alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet habe und dass die Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist sowie dass ich die Arbeit weder vollständig noch in wesentlichen Teilen bereits veröffentlicht habe und dass das in Dateiform eingereichte Exemplar mit den eingereichten gebundenen Exemplaren übereinstimmt.
 
-<br><br>
-<div style="width: 80%; border-bottom: 0.1em solid black; margin-bottom: 0.4em;"></div>
-<span style="font-family: var(--reference-font)">Datum, Ort, Unterschrift</span>
-
+    <br><br>
+    <div style="width: 80%; border-bottom: 0.1em solid black; margin-bottom: 0.4em;"></div>
+    <span style="font-family: var(--reference-font)">Datum, Ort, Unterschrift</span>
 </div>
-
-
 
 [^test]: Testing endnote
 
@@ -408,104 +403,9 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-<!-- MathJax stuff TODO revisit this! need to load mathjax dynamically once markdeep is done, then manually trigger typeset?, then invoke bindery once mathjax sends the "End" signal? -->
-<!--<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        jax: ["input/TeX","output/SVG"],
-        TeX: {
-            equationNumbers: {autoNumber: "AMS"},
-            extensions: ["color.js"]
-        },
-        SVG: {
-            font: "TeX"
-        }
-    });
-</script>
-<script src="lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG"></script>-->
-
-<!-- Stylesheets and scroll position restoring -->
 <link rel="stylesheet" href="reset.css">
 <link rel="stylesheet" href="style.css">
 
-<script>
-    // restore scroll position after page reload
-    // (via torsten's slides)
-    window.onbeforeunload = function() {
-        window.name = window.pageYOffset;
-    };
-</script>
-
-<!-- Bindery stuff -->
-<script src="lib/bindery/2.2.8/bindery.min.js"></script>
-<script>
-    function loadBindery() {
-        var book = Bindery.makeBook({
-            content: '.md',
-            pageSetup: {
-                size: { width: '21cm', height: '29.7cm' },
-                margin: { top: '2cm', inner: '3cm', outer: '2cm', bottom: '2cm' },
-            },
-            printSetup: {
-                layout: Bindery.Layout.PAGES,
-                paper: Bindery.Paper.AUTO,
-                marks: Bindery.Marks.NONE,
-                bleed: '0pt',
-            },
-            //view: Bindery.View.PREVIEW,
-            view: Bindery.View.PRINT,
-            rules: [
-                Bindery.FullBleedPage({
-                    selector: '.title-page',
-                    continue: 'same'
-                }),
-                Bindery.PageBreak({ selector: 'h1', position: 'before', continue: 'right' }),
-                Bindery.PageBreak({ selector: '.nonumberh1', position: 'before', continue: 'right' }),
-                Bindery.PageBreak({ selector: 'hr', position: 'before', continue: 'right' }),
-                Bindery.PageBreak({ selector: '.image', position: 'avoid'}),  // figures
-                Bindery.RunningHeader({
-                    render: function (page) {
-                        var pageNum = page.number-2;
-
-                        if (page.isEmpty || pageNum <= 0) {
-                            return "";
-                        }
-                        if (page.isLeft) {
-                            if (page.heading.h1 != null) {
-                                return `${pageNum}⁓${page.heading.h1}`  // alternatives: ⸺, ⸻
-                            }
-                            return `${pageNum}`
-                        } else {
-                            return `Noah Doersing⁓${pageNum}`;
-                        }
-                    }
-                }),
-                Bindery.Footnote({
-                    selector: 'a.footnote-reference',
-                    render: function (element, number) {
-                        return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
-                    }
-                }),
-                Bindery.PageReference({
-                    selector: '.longTOC li',
-                    replace: (element, number) => {
-                        var pageNum = number-2;
-
-                        element.innerHTML += `<span class='num'>${pageNum}</span>`;
-                        return element;
-                    },
-                    createTest: function (element) {
-                        const href = element.querySelector("a").getAttribute('href');
-                        if (!href) return null;
-                        return el => el.querySelector("a.target.heading-target[name='" + href.substr(1) + "']");
-                    }
-                })
-            ],
-        });
-        console.log(book);
-    }
-</script>
-
-<!-- Markdeep stuff -->
 <script>
     // collect endnotes, write as data attributes into the references to them
     function processEndnotes() {
@@ -598,7 +498,20 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             anchor.classList.add("heading-target");
             element.appendChild(anchor);
         });
-        //document.querySelectorAll("a.target").forEach(e => e.remove());
+    }
+
+    // ~~read computed line numbers~~ generate line numbers in js and write
+    // them, thus keeping them from restarting when a code block is split onto
+    // multiple pages by bindery
+    function solidifyCodeLinenumbers() {
+        document.styleSheets[0].addRule('.md pre.listing .linenumbers span.line:before', 'content: attr(data-linenumber) !important;');
+        document.querySelectorAll("pre .linenumbers").forEach(function (element) {
+            var i = 1;
+            element.querySelectorAll(".line").forEach(function (element) {
+                var linenumber = i++;
+                element.setAttribute("data-linenumber", linenumber);
+            });
+        });
     }
 
     function loadMathJaxAndThenBindery() {
@@ -615,7 +528,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                         'console.log(document.querySelector(".md"));' +
                         'postprocessMathJax();' +
                         'loadBindery();' +
-                        'restoreScrollPosition();' +
                      '});';
         // for reference, see https://docs.mathjax.org/en/v1.1-latest/startup.html#startup-sequence
         // https://github.com/mathjax/mathjax-docs/wiki/Event-when-typesetting-is-done%3F-Rescaling-after-rendering...
@@ -636,16 +548,98 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         document.querySelectorAll("script[type='math/tex']").forEach(e => e.remove());
     }
 
-    function restoreScrollPosition() {  // TODO call this once bindery is done!
-        setTimeout(function() {
-            if (window.name.search("^\\d+$") == 0) {
-                window.scrollTo(0, window.name);
-            }
-        }, 2000);
-    }
-</script>
+    function loadBindery() {
+        var book = Bindery.makeBook({
+            content: '.md',
+            pageSetup: {
+                size: { width: '21cm', height: '29.7cm' },
+                margin: { top: '2cm', inner: '3cm', outer: '2cm', bottom: '2cm' },
+            },
+            printSetup: {
+                layout: Bindery.Layout.PAGES,
+                paper: Bindery.Paper.AUTO,
+                marks: Bindery.Marks.NONE,
+                bleed: '0pt',
+            },
+            view: Bindery.View.PREVIEW,
+            //view: Bindery.View.PRINT,
+            //view: Bindery.View.FLIPBOOK,
+            rules: [
+                Bindery.FullBleedPage({
+                    selector: '.title-page',
+                    continue: 'same'
+                }),
+                Bindery.PageBreak({ selector: 'h1', position: 'before', continue: 'right' }),
+                Bindery.PageBreak({ selector: '.nonumberh1', position: 'before', continue: 'right' }),
+                Bindery.PageBreak({ selector: 'hr', position: 'before', continue: 'right' }),
+                Bindery.PageBreak({ selector: '.image', position: 'avoid'}),  // figures
+                Bindery.RunningHeader({
+                    render: function (page) {
+                        var pageNum = page.number-2;
 
-<script>
+                        if (page.isEmpty || pageNum <= 0) {
+                            return "";
+                        }
+                        if (page.isLeft) {
+                            if (page.heading.h1 != null) {
+                                return `${pageNum}⁓${page.heading.h1}`  // alternatives: ⸺, ⸻
+                            }
+                            return `${pageNum}`
+                        } else {
+                            return `Noah Doersing⁓${pageNum}`;
+                        }
+                    }
+                }),
+                Bindery.Footnote({
+                    selector: 'a.footnote-reference',
+                    render: function (element, number) {
+                        return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
+                    }
+                }),
+                Bindery.PageReference({
+                    selector: '.longTOC li',
+                    replace: (element, number) => {
+                        var pageNum = number-2;
+
+                        element.innerHTML += `<span class='num'>${pageNum}</span>`;
+                        return element;
+                    },
+                    createTest: function (element) {
+                        const href = element.querySelector("a").getAttribute('href');
+                        if (!href) return null;
+                        return el => el.querySelector("a.target.heading-target[name='" + href.substr(1) + "']");
+                    }
+                })
+            ],
+        });
+        //console.log(book);
+        tryRestoringScrollPosition();
+    }
+
+    // restore scroll position after page reload
+    // (via torsten's slides)
+    window.onbeforeunload = function() {
+        window.name = window.pageYOffset;
+    };
+
+    // wait until bindery appears to be done, then wait another 100ms for good measure
+    function tryRestoringScrollPosition() {
+        var to = setInterval(function() {
+            //console.log("tryin'");
+            var retry = true;
+            try {
+                retry = document.querySelector(".📖-root").classList.contains("📖-in-progress");
+            } catch(e) {}
+
+            if (!retry && window.name.search("^\\d+$") == 0) {
+                clearInterval(to);
+                setTimeout(function() {
+                    window.scrollTo(0, window.name);
+                }, 100);  // <- this constant might need adjusting for more complex documents!
+            }
+        }, 10);
+    }
+
     markdeepOptions = {
         tocStyle: 'long',
         detectMath: false,
@@ -654,13 +648,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             // preprocess
             processEndnotes();
             processTOC();
+            solidifyCodeLinenumbers();
             document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
 
             loadMathJaxAndThenBindery();
-            /*setTimeout(function() {
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-            }, 1000);*/
         }
     };
 </script>
+<script src="lib/bindery/2.2.8/bindery.min.js"></script>
 <script src="lib/markdeep/1.06/markdeep.min.js" charset="utf-8"></script>
