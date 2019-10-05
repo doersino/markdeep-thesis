@@ -32,6 +32,21 @@ p {
     text-indent: 1em;
 }
 
+/* title page */
+.title-page {
+    height: calc(100% - var(--bindery-margin-top) - var(--bindery-margin-bottom));
+    margin: var(--bindery-margin-top) var(--bindery-margin-outer) var(--bindery-margin-outer);
+
+    /* evenly space children */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.title-page-bottom {
+    font-size: 0.8em;
+    font-family: var(--reference-font);
+}
+
 /* headings */
 .md h1,
 .md .nonumberh1,
@@ -70,6 +85,14 @@ p {
     margin-bottom: 3rem;
     /transform: rotate(-10deg);  /* TODO */
 }
+
+/* TODO either make this work or scrap it */
+/*.md h1 + p + .fancyquote {
+    width: 50%;
+    margin-left: 50%;
+    margin-top: -20rem;
+    margin-bottom: 20rem;
+}*/
 
 .md h2,
 .md .nonumberh2 {
@@ -153,6 +176,7 @@ h4 + p,
 }
 .longTOC a {
     color: inherit !important;
+    padding-right: 0.4em;
 }
 
 /* code listings */
@@ -176,6 +200,115 @@ code {
 }
 .md pre.listing.tilde .linenumbers span.line:before {
     margin-left: -2.2rem;  /* increase distance between line numbers and code due to padding */
+}
+
+/* highlight.js/src/styles/github.css */
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* admonitions */  /* TODO revisit, along with code blocks with background */
+.admonition p {
+    text-indent: 0;
+}
+.md .admonition {
+    border-radius: 0;
+    padding: .25rem 0.4rem;
+    border-left-width: 0.2rem !important;
+}
+.md .admonition::before {
+    display: none !important;
+}
+.md .admonition-title {
+    border-width: 0;
+    text-transform: uppercase;
+    margin-bottom: -0.8rem;
+    padding-bottom: 0;
+    font-size: 0.8em;
+    font-family: var(--heading-font);
+    font-weight: normal;
 }
 
 /* TODO import some stuff from markdeep-slides reset */
@@ -231,3 +364,4 @@ a[href^="#citation"] {
 .markdeepFooter {
     display: none;  /* sorry morgan */
 }
+

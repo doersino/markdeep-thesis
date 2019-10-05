@@ -8,14 +8,17 @@ force use of https://fonts.google.com/specimen/PT+Serif instead of os-installed 
 same for pt sans narrow
     => download the webfonts (also goes for all others)
     => sort of keep track of their licenses, for eventual release
+    => although chrome seems to use the webfonts either way, so whatever
 
 
 gobble parens around citations into citation (both in text view and in references list)
 style admonitions
 
-take a look at drawings – line thickness good?
+
+fix line numbers being restarted when a code block is broken on a page
+
+avoid page breaks for non-image figures: code, i guess?
 
 
 
-
-generally support more heading levels that h1-3?
+does mathjax ignore <code>?

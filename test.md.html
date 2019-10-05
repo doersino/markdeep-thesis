@@ -1,31 +1,37 @@
 <meta charset="utf-8" lang="en">
-<section class="titlepage">
-    <div style="">
+
+<!-- TODO improve titlepage: make a class for this, set height to 100%, use flex or something for spacing -->
+<section class="title-page">
+    <div class="title-page-top">
         <big>Eberhard Karls Universität Tübingen</big><br>
         Mathematisch-Naturwissenschaftliche Fakultät<br>
         Wilhelm-Schickard-Institut für Informatik<br>
     </div>
-    <div style="margin: 14em 0;">
+    <div class="title-page-middle">
         <big>Master's Thesis in Media Informatics</big>
         <br><br>
-        <span style="font-family: var(--heading-font); font-weight: bold; font-size: 3rem;">UnicodeMath ⥅ MathML</span>
+        <span style="font-family: var(--heading-font); font-weight: bold; font-size: 3.25rem;" id="thesis-title">UnicodeMath ⥅ MathML</span>
         <br><br><br>
         <big>Noah Doersing</big>
         <br><br>
         *November 30, 2019*
     </div>
-    <div style="font-size: 0.8em; font-family: var(--reference-font);">
-        **Reviewers:**<br>
-        Prof. Dr. Torsten Grust<br>
-        Database Systems Research Group<br>
-        Wilhelm-Schickard-Institut für Informatik<br>
-        University of Tübingen
-        <br>
-        <br>
-        Prof. Dr. TODO<br>
-        TODO Research Group<br>
-        Wilhelm-Schickard-Institut für Informatik<br>
-        University of Tübingen
+    <div class="title-page-bottom">
+        <div style="display: inline-block; margin-right: 2em; vertical-align: top;">
+            **Reviewers:**
+        </div>
+        <div style="display: inline-block; margin-right: 2em; vertical-align: top;">
+            Prof. Dr. Torsten Grust<br>
+            Database Systems Research Group<br>
+            Wilhelm-Schickard-Institut für Informatik<br>
+            University of Tübingen
+        </div>
+        <div style="display: inline-block; margin-right: 2em; vertical-align: top;">
+            Prof. Dr. TODO<br>
+            TODO Research Group<br>
+            Wilhelm-Schickard-Institut für Informatik<br>
+            University of Tübingen
+        </div>
     </div>
 </section>
 
@@ -42,6 +48,8 @@ markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
 ---
 
 # Introduction
+> "This is a quote."
+>      -- This quote
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -214,11 +222,19 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-$E = mc^2$
-
-Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ amet, consectetur adipisicing elit, sed do eiusmod
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+$$E = mc^2$$
+
+Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$
+
+$E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$
+
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -353,7 +369,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2
 
 ---
 
-<div style="width: 70%; margin: auto;">
+<div style="width: 70%; margin: 5rem auto 0;">
 (##) Selbständigkeitserklärung
 
 Hiermit versichere ich gemäß § 17 Absatz 4 des allgemeinen Teils der geltenden Prüfungsordnung, dass ich diese Arbeit selbständig verfasst, keine anderen als die angegebenen Hilfsmittel und Quellen benutzt habe, alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet habe und dass die Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist sowie dass ich die Arbeit weder vollständig noch in wesentlichen Teilen bereits veröffentlicht habe und dass das in Dateiform eingereichte Exemplar mit den eingereichten gebundenen Exemplaren übereinstimmt.
@@ -400,20 +416,13 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     window.onbeforeunload = function() {
         window.name = window.pageYOffset;
     };
-    window.onload = function() {
-        setTimeout(function() {
-            if (window.name.search("^\\d+$") == 0) {
-                window.scrollTo(0, window.name);
-            }
-        }, 1000);
-    }
 </script>
 
 <!-- Bindery stuff -->
-<script src="lib/bindery/2.2.7/bindery.min.js"></script>
+<script src="lib/bindery/2.2.8/bindery.min.js"></script>
 <script>
     function loadBindery() {
-        Bindery.makeBook({
+        var book = Bindery.makeBook({
             content: '.md',
             pageSetup: {
                 size: { width: '21cm', height: '29.7cm' },
@@ -428,22 +437,28 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             //view: Bindery.View.PREVIEW,
             view: Bindery.View.PRINT,
             rules: [
+                Bindery.FullBleedPage({
+                    selector: '.title-page',
+                    continue: 'same'
+                }),
                 Bindery.PageBreak({ selector: 'h1', position: 'before', continue: 'right' }),
                 Bindery.PageBreak({ selector: '.nonumberh1', position: 'before', continue: 'right' }),
                 Bindery.PageBreak({ selector: 'hr', position: 'before', continue: 'right' }),
-                //Bindery.FullBleedSpread({ selector: '.big-figure' }),
+                Bindery.PageBreak({ selector: '.image', position: 'avoid'}),  // figures
                 Bindery.RunningHeader({
                     render: function (page) {
-                        if (page.number-2 <= 0) {
+                        var pageNum = page.number-2;
+
+                        if (page.isEmpty || pageNum <= 0) {
                             return "";
                         }
                         if (page.isLeft) {
                             if (page.heading.h1 != null) {
-                                return `${page.number-2}⸺${page.heading.h1}`
+                                return `${pageNum}⁓${page.heading.h1}`  // alternatives: ⸺, ⸻
                             }
-                            return `${page.number-2}`
+                            return `${pageNum}`
                         } else {
-                            return `Noah Doersing⸺${page.number-2}`;
+                            return `Noah Doersing⁓${pageNum}`;
                         }
                     }
                 }),
@@ -456,7 +471,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 Bindery.PageReference({
                     selector: '.longTOC li',
                     replace: (element, number) => {
-                        element.innerHTML += `<span class='num'>${number-2}</span>`;
+                        var pageNum = number-2;
+
+                        element.innerHTML += `<span class='num'>${pageNum}</span>`;
                         return element;
                     },
                     createTest: function (element) {
@@ -467,6 +484,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 })
             ],
         });
+        console.log(book);
     }
 </script>
 
@@ -566,6 +584,42 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         //document.querySelectorAll("a.target").forEach(e => e.remove());
     }
 
+    function loadMathJaxAndThenBindery() {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src  = "lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
+
+        var config = 'MathJax.Hub.Config({' +
+                        'extensions: ["tex2jax.js"],' +
+                        'jax: ["input/TeX","output/SVG"]' +
+                     '});' +
+                     'MathJax.Hub.Startup.onload();' +
+                     'MathJax.Hub.Register.StartupHook("End",function () {' +
+                        'console.log(document.querySelector(".md"));' +
+                        'postprocessMathJax();' +
+                        'loadBindery();' +
+                        'restoreScrollPosition();' +
+                     '});';
+        // for reference, see https://docs.mathjax.org/en/v1.1-latest/startup.html#startup-sequence
+        // https://github.com/mathjax/mathjax-docs/wiki/Event-when-typesetting-is-done%3F-Rescaling-after-rendering...
+
+        if (window.opera) {script.innerHTML = config}
+        else {script.text = config}
+
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+
+    function postprocessMathJax() {
+        // TODO pull out svgs, remove the rest, to ideally remove the bindery page breaking issues
+    }
+
+    function restoreScrollPosition() {
+        setTimeout(function() {
+            if (window.name.search("^\\d+$") == 0) {
+                window.scrollTo(0, window.name);
+            }
+        }, 1000);
+    }
 </script>
 
 <script>
@@ -573,10 +627,13 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         tocStyle: 'long',
         detectMath: false,
         onLoad: function() {
+
+            // preprocess
             processEndnotes();
             processTOC();
+            document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
 
-            loadBindery();
+            loadMathJaxAndThenBindery();
             /*setTimeout(function() {
                 MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             }, 1000);*/
