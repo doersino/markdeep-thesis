@@ -24,7 +24,24 @@ body {
     font-family: var(--body-font);
 }
 
-.md h1, .md h2, .md h3, .md .tocHeader {
+hr {
+    display: none;
+}
+
+p {
+    text-indent: 1em;
+}
+
+/* headings */
+.md h1,
+.md .nonumberh1,
+.md h2,
+.md .nonumberh2,
+.md h3,
+.md .nonumberh3,
+.md h4,
+.md .nonumberh4,
+.md .tocHeader {
     font-family: var(--heading-font);
     text-transform: uppercase;
     border: 0;
@@ -34,7 +51,9 @@ body {
     text-align: left;
 }
 
-.md h1, .md .tocHeader {
+.md h1,
+.md .nonumberh1,
+.md .tocHeader {
     margin-top: 2em;
     margin-bottom: 1em;
     font-size: 4em;
@@ -49,56 +68,31 @@ body {
     font-size: 3em;
     line-height: 1em;
     margin-bottom: 3rem;
-    /transform: rotate(-10deg);
+    /transform: rotate(-10deg);  /* TODO */
 }
 
-.md h2, {
+.md h2,
+.md .nonumberh2 {
     font-size: 1.5em;
 }
 
-.md h3 {
+.md h3,
+.md .nonumberh3,
+.md h4,
+.md .nonumberh4 {
     font-size: 1em;
     font-weight: normal;
 }
-
-hr {
-    display: none;
-    page-break-after: always;
-}
-
-p {
-    text-indent: 1em;
-}
 h2 + p,
-h3 + p {
+.nonumberh2 + p,
+h3 + p,
+.nonumberh3 + p,
+h4 + p,
+.nonumberh4 + p {
     text-indent: 0;
 }
 
-code {
-    font-family: var(--code-font) !important;
-}
-.md pre.listing {
-    resize: none;  /* remove resizability indicator from listings */;
-    overflow: visible;
-}
-.md pre.listing code {
-    white-space: pre-line;
-}
-.md pre.listing .linenumbers span.line {
-    margin-left: -0.5rem; /* <- -X */
-}
-.md pre.listing .linenumbers span.line:before {
-    width: 1rem;
-    margin-left: -1.5rem;
-    padding-right: 0.5rem;  /* <- X */
-}
-
-/* TODO import some stuff from markdeep-slides reset */
-
-.markdeepFooter {
-    display: none;  /* sorry morgan */
-}
-
+/* table of contents */
 /* via https://www.w3.org/Style/Examples/007/leaders.en.html */
 .longTOC ol {
     max-width: 40em;
@@ -128,53 +122,77 @@ code {
     padding-left: 0.33em;
     background: white;
     position: relative;
-    z-index: 1
+    z-index: 1;
+    width: 1.8em;
+    text-align: right;
 }
 
-.md .longTOC .level1 .tocNumber {
+.md .longTOC .tocNumber {
     display: inline-block;
+}
+.md .longTOC .level1 .tocNumber {
     min-width: 1.1em;
 }
 .md .longTOC .level2 .tocNumber {
-    display: inline-block;
     min-width: 1.9em;
     margin-left: 1.1em;
 }
 .md .longTOC .level3 .tocNumber {
-    display: inline-block;
     min-width: 2.6em;
     margin-left: 3em;
 }
-
-.md .longTOC .level1 {
+/* level 4 headings don't show up in the toc
+.md .longTOC .level4 .tocNumber {
+    min-width: 3.3em;
+    margin-left: 5.6em;
+}*/
+.md .longTOC .level1 { /* override styles set by markdeep */
     font-weight: 600;
     padding-top: 0;
     margin: 0;
 }
-
 .longTOC a {
     color: inherit !important;
 }
 
+/* code listings */
+code {
+    font-family: var(--code-font) !important;
+}
+.md pre.listing {
+    resize: none;  /* remove resizability indicator from listings */;
+    overflow: visible;
+}
+.md pre.listing code {
+    white-space: pre-line;
+}
+.md pre.listing .linenumbers span.line {
+    margin-left: -0.5rem; /* <- -X */
+}
+.md pre.listing .linenumbers span.line:before {
+    width: 1rem;
+    margin-left: -1.5rem;
+    padding-right: 0.5rem;  /* <- X */
+}
+.md pre.listing.tilde .linenumbers span.line:before {
+    margin-left: -2.2rem;  /* increase distance between line numbers and code due to padding */
+}
+
+/* TODO import some stuff from markdeep-slides reset */
 
 
-a[href^="#citation"] {
-    font-family: var(--reference-font);
-    color: black !important;
+/* page break fixes */
+span.fancyquote.📖-continues:after {
+    display: none;
+}
+blockquote.fancyquote.📖-continuation:before {
+    display: none;
 }
 
 
-/* bindery stuff */
-.📖-flow-box {
-    z-index: 100000; /* makes inspecting elements in the safari dev tools way less painful */
-}
 
-.📖-running-header {
-    top: 1cm;
-    font-size: 0.8em;
-    font-family: var(--heading-font);
-}
 
+/* footnotes, citations and other kinds of references */
 a.footnote-reference sup {  /* TODO also apply this style to the footnote indexes in the actual footnotes */
     color: black;
     font-family: var(--reference-font);
@@ -188,4 +206,28 @@ a.footnote-reference sup {  /* TODO also apply this style to the footnote indexe
 }
 .📖-footnote .target {
     position: absolute;
+}
+.📖-footnote > sup:first-child {
+    font-family: var(--reference-font);
+}
+a[href^="#citation"] {
+    font-family: var(--reference-font);
+    color: black !important;
+}
+
+/* page numbers */
+.📖-running-header {
+    top: 1cm;
+    font-size: 0.8em;
+    font-family: var(--heading-font);
+}
+
+/* Bindery stuff */
+.📖-flow-box {
+    z-index: 100000; /* makes inspecting elements in the safari dev tools way less painful */
+}
+
+/* Markdeep stuff */
+.markdeepFooter {
+    display: none;  /* sorry morgan */
 }

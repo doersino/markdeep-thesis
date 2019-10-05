@@ -1,9 +1,5 @@
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
-page numbers in toc
-    figure out how to do this
-    Array.from(document.querySelectorAll("a[name='introduction/testingthisthing']")).forEach(e => console.log(e.parentNode))
-
 mathjax
     run it after markdeep... but how?
     only then, when it's all done and svgs have been generated, run bindery
@@ -15,8 +11,9 @@ same for pt sans narrow
 
 
 gobble parens around citations into citation (both in text view and in references list)
-style div.nonumerh1, ...h2 etc.
-fancyquotes with 📖-continues should not have closing thingy, equivalent for 📖-continuation and opening thingy
+style admonitions
+
+take a look at drawings – line thickness good?
 
 
 
