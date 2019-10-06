@@ -1,6 +1,6 @@
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
-* bundle code into its own js file, with only the essential stuff (stylesheets, bindery, markdeep) in the main .md.html file
+* provide user with a set of options?
 * try out markdeep includes (for individual chapters) => thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?
 
 * style admonitions better
