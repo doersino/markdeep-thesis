@@ -1,5 +1,8 @@
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
+* bundle code into its own js file, with only the essential stuff (stylesheets, bindery, markdeep) in the main .md.html file
+* try out markdeep includes (for individual chapters) => thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?
+
 * style admonitions better
 * gobble parens around citations into citation (both in text view and in references list)
 * figure out how best to avoid page breaks for captioned code
