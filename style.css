@@ -39,6 +39,10 @@ a {
     color: black !important; /* change this when presenting digitally, I suppose */
     text-decoration: none;
 }
+/*a[href^="http"] {
+    text-decoration: underline !important;
+    text-decoration-style: wavy;
+}*/
 a:hover {
     text-decoration: underline;
 }
