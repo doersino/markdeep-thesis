@@ -75,7 +75,7 @@
         max-width: 100%;
     }
     ```
-
+* reference renaming: from names to numbers? rename to numbers in bibliography, then find all occurrences in the text?
 
 
 
