@@ -1,8 +1,9 @@
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
-* provide user with a set of options?
+* provide user with a set of options? paper size, margins, main font size, author name, bindery view,
 * try out markdeep includes (for individual chapters) => thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?
 
+* style all code listings like tilde ones?
 * style admonitions better
 * gobble parens around citations into citation (both in text view and in references list)
 * figure out how best to avoid page breaks for captioned code

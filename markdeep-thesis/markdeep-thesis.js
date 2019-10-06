@@ -209,18 +209,6 @@ function loadBindery() {
                     }
                 }
             }),
-            Bindery.Footnote({
-                selector: 'a.footnote-reference',
-                render: function (element, number) {
-                    return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
-                }
-            }),
-            Bindery.Footnote({
-                selector: 'p > a[href^="http"]',
-                render: (element, number) => {
-                    return '<sup>' + number + '</sup> See <a href="' + element.href + '" class="raw">' + element.href + '</a>.';
-                }
-            }),
             Bindery.PageReference({
                 selector: '.longTOC li',
                 replace: (element, number) => {
@@ -234,7 +222,19 @@ function loadBindery() {
                     if (!href) return null;
                     return el => el.querySelector("a.target.heading-target[name='" + href.substr(1) + "']");
                 }
-            })
+            }),
+            Bindery.Footnote({
+                selector: 'a.footnote-reference',
+                render: function (element, number) {
+                    return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
+                }
+            }),
+            Bindery.Footnote({
+                selector: 'p > a[href^="http"]',
+                render: (element, number) => {
+                    return '<sup>' + number + '</sup> See <a href="' + element.href + '" class="url">' + element.href + '</a>.';
+                }
+            }),
         ],
     });
 

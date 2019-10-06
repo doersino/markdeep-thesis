@@ -12,6 +12,8 @@
     --code-font: "Iosevka Web";
     --reference-font: "PT Sans Narrow";
     --fancyquote-font: "Aleo";
+
+    --base-font-size: 12pt;
 }
 
 * {
@@ -19,7 +21,7 @@
 }
 
 html {
-    font-size: 12pt;
+    font-size: var(--base-font-size);
 }
 
 body {
@@ -49,7 +51,7 @@ a:hover {
     text-decoration: underline;
 }
 
-a.raw {
+a.url {
     font-family: var(--code-font);
 }
 
@@ -187,15 +189,15 @@ h4 + p,
     display: inline-block;
 }
 .md .longTOC .level1 .tocNumber {
-    min-width: 1.1em;
+    min-width: 1.4em;
 }
 .md .longTOC .level2 .tocNumber {
-    min-width: 1.9em;
-    margin-left: 1.1em;
+    min-width: 2.2em;
+    margin-left: 1.4em;
 }
 .md .longTOC .level3 .tocNumber {
-    min-width: 2.6em;
-    margin-left: 3em;
+    min-width: 2.9em;
+    margin-left: 3.6em;
 }
 /* level 4 headings don't show up in the toc
 .md .longTOC .level4 .tocNumber {
@@ -213,11 +215,13 @@ h4 + p,
 }
 
 /* code listings */
-code {
+.md code {
     font-family: var(--code-font) !important;
+    font-size: 0.97em;  /* since iosevka has a slightly higher x-height than pt serif */
 }
-.md pre.listing {
-    resize: none;  /* remove resizability indicator from listings */;
+.md pre.listing {  /* TODO maybe style all listings like tilde listings? */
+    font-size: 0.8rem;
+    resize: none;  /* remove resizability indicator from listings */
     overflow: visible;
 }
 .md pre.listing code {
