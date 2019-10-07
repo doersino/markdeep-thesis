@@ -14,6 +14,8 @@
     --fancyquote-font: "Aleo";
 
     --base-font-size: 12pt;
+    --small-font-size: 0.8em; /* TODO or rem? use it anyway! */
+    --inline-code-font-size: 0.97em;  /* since iosevka has a slightly higher x-height than pt serif */
 }
 
 * {
@@ -37,6 +39,7 @@ hr {
 
 p {
     /*text-indent: 1.2em;*/ /* TODO revisit – this is a bit complicated: should the indent be missing after figures? or just figures without caption? etc., also see https://www.thebookdesigner.com/2012/04/paragraphing-style/ */
+    /*hyphens: auto;*/ /* TODO not really necessary, works only in chrome */
 }
 
 a {
@@ -53,6 +56,7 @@ a:hover {
 
 a.url {
     font-family: var(--code-font);
+    font-size: var(--inline-code-font-size);
 }
 
 /* title page */
@@ -217,7 +221,7 @@ h4 + p,
 /* code listings */
 .md code {
     font-family: var(--code-font) !important;
-    font-size: 0.97em;  /* since iosevka has a slightly higher x-height than pt serif */
+    font-size: var(--inline-code-font-size);
 }
 .md pre.listing {  /* TODO maybe style all listings like tilde listings? */
     font-size: 0.8rem;
