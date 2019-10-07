@@ -230,7 +230,7 @@ function loadBindery() {
                 }
             }),
             Bindery.Footnote({
-                selector: 'p > a[href^="http"]',
+                selector: 'p a[href^="http"], blockquote a[href^="http"]',
                 render: (element, number) => {
                     return '<sup>' + number + '</sup> See <a href="' + element.href + '" class="url">' + element.href + '</a>.';
                 }
