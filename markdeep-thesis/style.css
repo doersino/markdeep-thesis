@@ -42,6 +42,8 @@ p {
     /*hyphens: auto;*/ /* TODO not really necessary, works only in chrome */
 }
 
+
+/* various kinds of links */
 a {
     color: black !important; /* change this when presenting digitally, I suppose */
     text-decoration: none;
@@ -53,10 +55,32 @@ a {
 a:hover {
     text-decoration: underline;
 }
-
 a.url {
     font-family: var(--code-font);
     font-size: var(--inline-code-font-size);
+}
+.md a.target {  /* remove extra space before headings */
+    position: absolute;  /* or display: hidden; */
+}
+
+/* lists */
+.md ol {
+    padding-left: 2.5rem;  /* this is otherwise defined in terms of px by the browser.*/
+}
+.md ul {
+    padding-left: 2.5rem;
+}
+
+/* various */
+.md img {
+    max-width: 100%;
+}
+.md div.imagecaption {
+    margin: 0.5rem 0 0;  /* no margin-bottom since images are in div.image, which has display: inline-block, preventing margin collapse */
+}
+.md div.tablecaption,
+.md div.listingcaption {
+    margin: 0.5rem 0 1rem;
 }
 
 /* title page */
@@ -187,10 +211,12 @@ h4 + p,
     z-index: 1;
     width: 1.8em;
     text-align: right;
+    font-variant-numeric: tabular-nums;
 }
 
 .md .longTOC .tocNumber {
     display: inline-block;
+    font-variant-numeric: tabular-nums;
 }
 .md .longTOC .level1 .tocNumber {
     min-width: 1.4em;
