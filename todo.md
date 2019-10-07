@@ -1,7 +1,6 @@
 𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
 
-* provide user with a set of options? paper size, margins, main font size, author name, bindery view,
-* try out markdeep includes (for individual chapters) => thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?
+* provide user with a set of options? paper size, margins, main font size, author name, bindery view,...
 
 * style all code listings like tilde ones?
 * style admonitions better
@@ -24,6 +23,7 @@
 ## release
 
 * test the entire thing with the markdeep demo, fix whatever issues crop up, document which markdeep features aren't supported
+* document that markdeep includes (for individual chapters => thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?) don't work
 
 ```
 I've made another¹ thing that bends Markdeep to my will:
