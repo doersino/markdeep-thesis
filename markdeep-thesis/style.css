@@ -44,9 +44,10 @@ p {
 
 
 /* various kinds of links */
-a {
-    color: black !important; /* change this when presenting digitally, I suppose */
+.md a, a {
+    color: black !important; /* change this when presenting digitally, I suppose? */
     text-decoration: none;
+    font-family: inherit;
 }
 /*a[href^="http"] {
     text-decoration: underline !important;
