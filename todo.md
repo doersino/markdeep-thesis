@@ -1,5 +1,3 @@
-𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
-
 * provide user with a set of options? paper size, margins, main font size, author name, bindery view,...
 
 * force use of https://fonts.google.com/specimen/PT+Serif instead of os-installed pt serif (which on mac has no umlauts)
@@ -7,8 +5,6 @@
     * download and rename the webfonts (also goes for all others)
     * sort of keep track of their licenses, for eventual release
     * although chrome seems to use the webfonts either way, so whatever
-* style all code listings like tilde ones? like in default markdeep-slides theme, make widths etc. based on em
-* style admonitions better
 * revisit running heads, see https://www.thebookdesigner.com/2014/03/how-to-design-running-heads-for-your-book/
 
 * make markdeep drawings a bit smaller – use zoom? or whatever machinery i used for markdeep-slides

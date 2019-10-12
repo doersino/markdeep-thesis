@@ -10,11 +10,11 @@
     <div class="title-page-middle">
         <big>Master's Thesis in Media Informatics</big>
         <br><br>
-        <span style="font-family: var(--heading-font); font-weight: bold; font-size: 3.25rem;" id="thesis-title">UnicodeMath ⥅ MathML</span>
+        <span style="font-family: var(--heading-font); font-weight: bold; font-size: 3.5rem;" id="thesis-title">UnicodeMath ⥅ MathML</span>
         <br><br><br>
         <big>Noah Doersing</big>
         <br><br>
-        *November TODO, 2019*
+        *November 30, 2019*
     </div>
     <div class="title-page-bottom">
         <div style="display: inline-block; margin-right: 2em; vertical-align: top;">
@@ -24,13 +24,13 @@
             Prof. Dr. Torsten Grust<br>
             Database Systems Research Group<br>
             Wilhelm-Schickard-Institut für Informatik<br>
-            University of Tübingen
+            Universität Tübingen
         </div>
         <div style="display: inline-block; margin-right: 2em; vertical-align: top;">
-            Prof. Dr. TODO<br>
-            TODO Research Group<br>
+            Prof. Dr. Thomas Walter<br>
+            Direktor des ZDV/Arbeitsbereich Informationsdienste<br>
             Wilhelm-Schickard-Institut für Informatik<br>
-            University of Tübingen
+            Universität Tübingen
         </div>
     </div>
 </section>
@@ -107,12 +107,36 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     I'm a note. Don't mind me, I'm just sitting here.
 
 !!! note
-    Another note.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 !!! Tip
     Close the door on the way out.
 
 !!! WARNING
+    I'm a warning, perhaps. *Something might happen!*
+
+!!! ERROR
+    I'm a warning, perhaps. *Something might happen!*
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+!!! Tip: this is a long tip Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!
+    Close the door on the way out.
+
+!!! note: nothing left to chance
+    Another note.
+
+!!! WARNING: test
     I'm a warning, perhaps. *Something might happen!*
 
 !!! ERROR: Seriously
@@ -207,6 +231,26 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+
+```python
+import sys
+import csv
+import re
+import os
+import math
+
+prefix = "db1-ws1920-"
+
+def status(s):
+    print('\033[1m' + s + '\033[0m')
+def blue(s):
+    print('\033[94m' + s + '\033[0m')
+def red(s):
+    print('\033[91m' + s + '\033[0m')
+
+def numberformat(p):
+    return float(p) if float(p) != math.ceil(float(p)) else int(float(p))
+```
 
 Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident.

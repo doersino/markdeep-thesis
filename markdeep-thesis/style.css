@@ -14,8 +14,11 @@
     --fancyquote-font: "Aleo";
 
     --base-font-size: 10.5pt;
-    --small-font-size: 0.8em; /* TODO or rem? use it anyway! */
+    --small-font-size: 0.8em;
     --inline-code-font-size: 0.97em;  /* since iosevka has a slightly higher x-height than pt serif */
+    --code-listing-font-size: var(--small-font-size);
+
+    --hairline-width: 1px;
 }
 
 * {
@@ -64,6 +67,7 @@ a.url {
     position: absolute;  /* or display: hidden; */
 }
 
+
 /* lists */
 .md ol {
     padding-left: 2.5rem;  /* this is otherwise defined in terms of px by the browser.*/
@@ -71,6 +75,7 @@ a.url {
 .md ul {
     padding-left: 2.5rem;
 }
+
 
 /* various */
 .md img {
@@ -84,6 +89,7 @@ a.url {
     margin: 0.5rem 0 1rem;
 }
 
+
 /* title page */
 .title-page {
     height: calc(100% - var(--bindery-margin-top) - var(--bindery-margin-bottom));
@@ -95,9 +101,10 @@ a.url {
     justify-content: space-between;
 }
 .title-page-bottom {
-    font-size: 0.8em;
+    font-size: var(--small-font-size);
     font-family: var(--reference-font);
 }
+
 
 /* headings */
 .md h1,
@@ -158,6 +165,7 @@ h4 + p,
 .nonumberh4 + p {
     text-indent: 0;
 }
+
 
 /* table of contents */
 /* via https://www.w3.org/Style/Examples/007/leaders.en.html */
@@ -225,15 +233,20 @@ h4 + p,
     padding-right: 0.4em;
 }
 
+
 /* code listings */
 .md code {
     font-family: var(--code-font) !important;
     font-size: var(--inline-code-font-size);
 }
-.md pre.listing {  /* TODO maybe style all listings like tilde listings? */
-    font-size: 0.8rem;
-    resize: none;  /* remove resizability indicator from listings */
+.md pre.listing {
+    font-size: var(--code-listing-font-size);
+    resize: none;  /* remove resizability indicator */
     overflow: visible;
+    border-top: var(--hairline-width) solid #ccc;
+    border-bottom: var(--hairline-width) solid #ccc;
+    background-color: #f8f8f8;
+    padding: 0.25rem 0.5rem;
 }
 .md pre.listing code {
     white-space: pre-wrap;
@@ -245,12 +258,6 @@ h4 + p,
     width: 1rem;
     margin-left: -1.5rem;
     padding-right: 0.5rem;  /* <- X */
-}
-.md pre.listing.tilde span.line {
-    margin-left: calc(-2.2rem + 1.5rem);
-}
-.md pre.listing.tilde .linenumbers span.line:before {
-    margin-left: -2.2rem;  /* increase distance between line numbers and code due to padding */
 }
 
 /* highlight.js/src/styles/github.css */
@@ -340,27 +347,57 @@ h4 + p,
   font-weight: bold;
 }
 
+
 /* admonitions */  /* TODO revisit, along with code blocks with background */
 .admonition p {
     text-indent: 0;
 }
 .md .admonition {
+    padding: .3rem .6rem;
+    border-left-width: calc(2 * var(--hairline-width)) !important;
+    background-color: #e4eefe;
+    border-color: #a6c7fd;
     border-radius: 0;
-    padding: .25rem 0.4rem;
-    border-left-width: 0.2rem !important;
 }
 .md .admonition::before {
     display: none !important;
 }
 .md .admonition-title {
+    font-size: var(--small-font-size);
+    font-family: var(--heading-font);
+    margin: -.3rem -.6rem -.6rem -.6rem;
+    padding: .2rem .6rem .2rem;
     border-width: 0;
     text-transform: uppercase;
-    margin-bottom: -0.8rem;
-    padding-bottom: 0;
-    font-size: 0.8em;
-    font-family: var(--heading-font);
-    opacity: 0.7;
+    font-weight: normal;
+    background-color: #a6c7fd;
 }
+.md .admonition.tip {
+    background-color: #ddf7e1;
+    border-color: #91e39c;
+}
+.md .admonition.tip .admonition-title {
+    background-color: #91e39c;
+}
+.md .admonition.warn,
+.md .admonition.warning {
+    background-color: #ffebd8;
+    border-color: #fec288;
+}
+.md .admonition.warn .admonition-title,
+.md .admonition.warning .admonition-title {
+    background-color: #fec288;
+}
+.md .admonition.error {
+    background-color: #ffdce2;
+    border-color: #fe8da2;
+}
+.md .admonition.error .admonition-title {
+    background-color: #fe8da2;
+}
+
+
+
 
 /* fancy quotes */
 .md blockquote.fancyquote .author {
@@ -386,18 +423,19 @@ blockquote.fancyquote.📖-continuation:before {
 }
 
 
-
-
 /* footnotes, citations/bibliography and other kinds of references */
 .bindery-sup {
     font-family: var(--reference-font);
 }
-.📖-footnote:first-child:before {
-    content: "⸻";
-    display: block;
-}
 .📖-footnote {
+    font-size: var(--small-font-size);
     line-height: 1.4em;
+}
+.📖-footnote:first-child:before {
+    content: "⸻⸻";
+    font-size: 1rem;
+    letter-spacing: -0.1em;
+    display: block;
 }
 .📖-footnote .target {
     position: absolute;
@@ -422,7 +460,7 @@ a[href^="#listing_"] {
 /* page numbers */
 .📖-running-header {
     top: 1cm;
-    font-size: 0.8em;
+    font-size: var(--small-font-size);
     font-family: var(--heading-font);  /* TODO use reference font? */
 }
 
