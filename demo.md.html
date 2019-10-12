@@ -451,6 +451,16 @@ And Listing [sort], nämlich.
 ### test
 ### test
 
+<math class="unicodemath" xmlns="http://www.w3.org/1998/Math/MathML">
+  <mfenced open="(" close=")" separators="">
+    <mrow>
+      <mi>a</mi>
+      <mo>+</mo>
+      <mi>b</mi>
+    </mrow>
+  </mfenced>
+</math>
+
 ## test
 
 # test
@@ -482,6 +492,39 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+<script>
+    var markdeepThesisOptions = {
+          mathJax: ["TeX", "MathML"]  // TODO if none, don't load mathjax, if values, insert into jax: ["input/TeX", "input/MathML", "output/SVG"] line
+        , pageSize: {width: '21cm', height: '29.7cm'}  // TODO => bindery config
+        , pageMargins: {top: '2.5cm', inner: '3.5cm', outer: '2.5cm', bottom: '2.5cm'}  // TODO => bindery config
+        , view: "print"  // TODO or ... => translate, bindery config
+        , extraBinderyRules: []  // TODO to be merged with bindery rules list
+        , runningHeader: ""  // TODO function, or just author setting?
+        , titlePage: {  // TODO after markdeep done, insert rendered div.titlepage at start of .md (maybe specify thesis title inline, with (#)?)
+              institution: "Eberhard Karls Universität Tübingen"
+            , instututionExtra: `Mathematisch-Naturwissenschaftliche Fakultät
+                                 Wilhelm-Schickard-Institut für Informatik`
+            , thesisKind: "Master's Thesis in Media Informatics"
+            , thesisTitle: "UnicodeMath ⥅ MathML"
+            , thesisAuthor: "Noah Doersing"
+            , thesisDate: "November 30, 2019"
+            , reviewers: [
+                  `Prof. Dr. Torsten Grust
+                   Database Systems Research Group
+                   Wilhelm-Schickard-Institut für Informatik
+                   Universität Tübingen
+                  `
+                , `Prof. Dr. Thomas Walter
+                   Direktor des ZDV/Arbeitsbereich Informationsdienste
+                   Wilhelm-Schickard-Institut für Informatik
+                   Universität Tübingen
+                  `
+              ]
+          }
+        , fontSize: 10.5  // TODO in pt, set css var
+        , markdeepDiagramScale: 1.0  // TODO same machinery as for markdeep-slides
+    }
+</script>
 <link rel="stylesheet" href="markdeep-thesis/style.css">
 <script src="markdeep-thesis/markdeep-thesis.js"></script>
 <script src="markdeep-thesis/lib/markdeep/1.06/markdeep.min.js" charset="utf-8"></script>

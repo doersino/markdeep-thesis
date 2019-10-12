@@ -138,7 +138,7 @@ function loadMathJaxAndThenBindery() {
     var config = `
         MathJax.Hub.Config({
             extensions: ["tex2jax.js"],
-            jax: ["input/TeX","output/SVG"]
+            jax: ["input/TeX", "input/MathML", "output/SVG"]
         });
         MathJax.Hub.Startup.onload();
         MathJax.Hub.Register.StartupHook("End",function () {
