@@ -100,9 +100,47 @@ a.url {
     flex-direction: column;
     justify-content: space-between;
 }
-.title-page-bottom {
+.title-page .title-top {
+    text-align: center;
+}
+.title-page .title-institution {
+    font-size: 1.25rem;
+}
+.title-page .title-institution-extra {
+
+}
+.title-page .title-kind {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.title-page .title-title {
+    display: block;
+    font-family: var(--heading-font);
+    font-weight: bold;
+    font-size: 3.5rem;
+    line-height: 1em;
+    text-align: left;
+}
+.title-page .title-author {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+}
+.title-page .title-date {
+    font-style: italic;
+}
+.title-bottom {
     font-size: var(--small-font-size);
     font-family: var(--reference-font);
+    text-align: center;
+}
+.title-bottom .thesis-reviewer {
+    text-align: left;
+    display: inline-block;
+    margin-right: 2em;
+    vertical-align: top;
+}
+.title-bottom .thesis-reviewer:first-child {
+    font-weight: bold;
 }
 
 
