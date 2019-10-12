@@ -1,4 +1,5 @@
 * provide user with a set of options? paper size, margins, main font size, author name, bindery view,...
+    * define a set of defaults, apply using https://stackoverflow.com/a/36496720
 * make markdeep drawings a bit smaller – use zoom? or whatever machinery i used for markdeep-slides
 
 * force use of https://fonts.google.com/specimen/PT+Serif instead of os-installed pt serif (which on mac has no umlauts)

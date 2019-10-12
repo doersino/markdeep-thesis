@@ -1,19 +1,25 @@
-markdeepOptions = {
+var markdeepOptions = {
     tocStyle: 'long',   // important for toc processing (see further down)
     detectMath: false,  // since we're rolling our own mathjax here
     onLoad: function() {
-
-        // preprocess
-        processEndnotes();
-        processTOC();
-        solidifyCodeLinenumbers();
-
-        // remove empty <p>s (this makes some weird layout stuff less weird)
-        document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
-
-        loadMathJaxAndThenBindery();
+        processMarkdeepThesisOptions();
+        postprocessMarkdeep();
+        loadMathJaxAndBindery();
     }
 };
+
+function processMarkdeepThesisOptions() {
+    // TODO implement, provide defaults, etc.
+}
+
+function postprocessMarkdeep() {
+    processEndnotes();
+    processTOC();
+    solidifyCodeLinenumbers();
+
+    // remove empty <p>s (this makes some weird layout stuff less weird)
+    document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
+}
 
 // collect endnotes and write their contents as data attributes into the
 // references to them. this enables bindery to convert them to footnotes
@@ -130,14 +136,14 @@ function solidifyCodeLinenumbers() {
 // postprocessing step and then bindery.
 // for reference, see https://docs.mathjax.org/en/v1.1-latest/startup.html#startup-sequence
 // and https://github.com/mathjax/mathjax-docs/wiki/Event-when-typesetting-is-done%3F-Rescaling-after-rendering...
-function loadMathJaxAndThenBindery() {
+function loadMathJaxAndBindery() {
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src  = "markdeep-thesis/lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
 
     var config = `
         MathJax.Hub.Config({
-            extensions: ["tex2jax.js"],
+            extensions: ["tex2jax.js", "mml2jax.js"],
             jax: ["input/TeX", "input/MathML", "output/SVG"]
         });
         MathJax.Hub.Startup.onload();
