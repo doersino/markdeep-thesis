@@ -13,7 +13,7 @@
     --reference-font: "PT Sans Narrow";
     --fancyquote-font: "Aleo";
 
-    --base-font-size: 12pt;
+    --base-font-size: 10.5pt;
     --small-font-size: 0.8em; /* TODO or rem? use it anyway! */
     --inline-code-font-size: 0.97em;  /* since iosevka has a slightly higher x-height than pt serif */
 }
@@ -112,7 +112,7 @@ a.url {
     font-family: var(--heading-font);
     text-transform: uppercase;
     border: 0;
-    margin: 1rem 0;
+    margin: 2rem 0 1rem;
     padding: 0;
     color: inherit;
     text-align: left;
@@ -121,8 +121,8 @@ a.url {
 .md h1,
 .md .nonumberh1,
 .md .tocHeader {
-    margin-top: 2em;
-    margin-bottom: 1em;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
     font-size: 4em;
     line-height: 1em;
     font-weight: normal;
@@ -134,28 +134,8 @@ a.url {
     color: #999;
     font-size: 3em;
     line-height: 1em;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     /transform: rotate(-10deg);  /* TODO */
-}
-
-/* TODO either make this work or scrap it */
-/*.md h1 + p + .fancyquote {
-    width: 50%;
-    margin-left: 50%;
-    margin-top: -20rem;
-    margin-bottom: 20rem;
-}*/
-.md blockquote.fancyquote .author {
-    display: block;
-}
-.md blockquote.fancyquote {
-    font-family: var(--fancyquote-font);
-}
-.md blockquote.fancyquote::before,
-.md span.fancyquote::after {
-    font-size: 3rem;
-    vertical-align: -0.4em;
-    font-family: var(--fancyquote-font);
 }
 
 .md h2,
@@ -379,10 +359,22 @@ h4 + p,
     padding-bottom: 0;
     font-size: 0.8em;
     font-family: var(--heading-font);
-    font-weight: normal;
+    opacity: 0.7;
 }
 
-/* TODO import some stuff from markdeep-slides reset */
+/* fancy quotes */
+.md blockquote.fancyquote .author {
+    display: block;
+}
+.md blockquote.fancyquote {
+    font-family: var(--fancyquote-font);
+}
+.md blockquote.fancyquote::before,
+.md span.fancyquote::after {
+    font-size: 3rem;
+    vertical-align: -0.4em;
+    font-family: var(--fancyquote-font);
+}
 
 
 /* page break fixes */

@@ -2,22 +2,22 @@
 
 * provide user with a set of options? paper size, margins, main font size, author name, bindery view,...
 
-* decrease font size a bit, increase margins a touch, etc. (check my bsc thesis for reference)
-* style all code listings like tilde ones?
-* style admonitions better
 * force use of https://fonts.google.com/specimen/PT+Serif instead of os-installed pt serif (which on mac has no umlauts)
     * same for pt sans narrow
     * download and rename the webfonts (also goes for all others)
     * sort of keep track of their licenses, for eventual release
     * although chrome seems to use the webfonts either way, so whatever
+* style all code listings like tilde ones? like in default markdeep-slides theme, make widths etc. based on em
+* style admonitions better
 * revisit running heads, see https://www.thebookdesigner.com/2014/03/how-to-design-running-heads-for-your-book/
-* make markdeep drawings a bit smaller – use zoom? or whatever machinery i used for markdeep-slides
 
+* make markdeep drawings a bit smaller – use zoom? or whatever machinery i used for markdeep-slides
 * gobble parens around citations into citation (both in text view and in references list)
     * similar for some other references, like section X etc.
-* figure out how best to avoid page breaks for captioned code
-* marry mathjax/markdeep with unicodemathml
+* figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
 * maybe reference renaming: from names to numbers? rename to numbers in bibliography, then find all occurrences in the text?
+
+* (just for my thesis) marry mathjax/markdeep with unicodemathml
 
 
 
@@ -25,7 +25,7 @@
 ## release
 
 * test the entire thing with the markdeep demo, fix whatever issues crop up, document which markdeep features aren't supported
-* document that markdeep includes (for individual chapters => thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?) don't work
+* document that markdeep includes (for individual chapters, e.g. thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?) don't work as of now
 
 ```
 I've made another¹ thing that bends Markdeep to my will:

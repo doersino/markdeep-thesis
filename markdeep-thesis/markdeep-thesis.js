@@ -171,7 +171,7 @@ function loadBindery() {
         content: '.md',
         pageSetup: {
             size: { width: '21cm', height: '29.7cm' },
-            margin: { top: '2cm', inner: '3cm', outer: '2cm', bottom: '2cm' },
+            margin: { top: '2.5cm', inner: '3.5cm', outer: '2.5cm', bottom: '2.5cm' },
         },
         printSetup: {
             layout: Bindery.Layout.PAGES,
