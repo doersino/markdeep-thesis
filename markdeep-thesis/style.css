@@ -460,6 +460,14 @@ blockquote.fancyquote.📖-continuation:before {
     display: none;
 }
 
+/* working around a bindery bug, see https://github.com/evnbr/bindery/issues/62 */
+.📖-continuation {
+    list-style: initial !important;
+}
+li.📖-continuation:first-child {
+    list-style: none !important;
+}
+
 
 /* footnotes, citations/bibliography and other kinds of references */
 .bindery-sup {

@@ -10,19 +10,21 @@ var markdeepOptions = {
 
 var options;
 function processMarkdeepThesisOptions() {
-    var defaultOptions = {
+    options = {
           view: "print"
         , titlePage: null
-        , fontSize: 10.5  // TODO in pt, set css var
+        , fontSize: 10.5
         , pageSize: {width: '21cm', height: '29.7cm'}
         , pageMargins: {top: '2.5cm', inner: '3.5cm', outer: '2.5cm', bottom: '2.5cm'}
         , extraBinderyRules: []  // this option is why bindery must be loaded before the options are defined in demo.md.html
-        , runningHeader: (p => `${page.number}`)
+        , runningHeader: (p => `${p.number}`)
         , markdeepDiagramScale: 1.0
         , mathJax: ["TeX"]
-    };  // TODO implement
+    };
 
-    options = Object.assign({}, defaultOptions, markdeepThesisOptions);
+    if (typeof markdeepThesisOptions !== 'undefined') {
+        options = Object.assign({}, options, markdeepThesisOptions);
+    }
 
     // handle font size – all other options are handled by later functions
     document.documentElement.style.setProperty('--base-font-size', options.fontSize + "pt");
@@ -345,7 +347,7 @@ function loadBindery() {
                 }
             }),
             Bindery.Footnote({
-                selector: 'p a[href^="http"], blockquote a[href^="http"]',
+                selector: 'p a[href^="http"], blockquote a[href^="http"], li a[href^="http"]',
                 render: (element, number) => {
                     return '<sup>' + number + '</sup> See <a href="' + element.href + '" class="url">' + element.href + '</a>.';
                 }
