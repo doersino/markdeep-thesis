@@ -386,7 +386,7 @@ h4 + p,
 }
 
 
-/* admonitions */  /* TODO revisit, along with code blocks with background */
+/* admonitions */
 .admonition p {
     text-indent: 0;
 }
@@ -453,11 +453,23 @@ h4 + p,
 
 
 /* page break fixes */
+p.📖-continues {
+    text-align-last: justify;
+}
+p.📖-continuation {
+    text-indent: 0;
+}
 span.fancyquote.📖-continues:after {
     display: none;
 }
 blockquote.fancyquote.📖-continuation:before {
     display: none;
+}
+.md pre.listing.📖-continues {
+    border-bottom: none;
+}
+.md pre.listing.📖-continuation {
+    border-top: none;
 }
 
 /* working around a bindery bug, see https://github.com/evnbr/bindery/issues/62 */
