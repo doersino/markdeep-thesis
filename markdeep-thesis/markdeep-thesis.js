@@ -11,8 +11,8 @@ var markdeepOptions = {
 var options;
 function processMarkdeepThesisOptions() {
     var defaultOptions = {
-        , view: "print"
-        , titlePage: titlePage
+          view: "print"
+        , titlePage: null
         , fontSize: 10.5  // TODO in pt, set css var
         , pageSize: {width: '21cm', height: '29.7cm'}
         , pageMargins: {top: '2.5cm', inner: '3.5cm', outer: '2.5cm', bottom: '2.5cm'}
@@ -40,6 +40,10 @@ function postprocessMarkdeep() {
 }
 
 function renderTitlePage() {
+    if (!options.titlePage) {
+        return;
+    }
+
     function e(n) {
         return (n || "").trim().split("\n").join("<br>");
     }
@@ -56,17 +60,23 @@ function renderTitlePage() {
             <div class="title-date">${e(options.titlePage.thesisDate)}</div>
         </div>
         <div class="title-bottom">
-            <div class="thesis-reviewer">
-                Reviewers:
-            </div>
-    `  // TODO handle case where no reviewers set, or single reviewer
-    options.titlePage.reviewers.forEach(function (r) {
+    `
+    if (options.titlePage.reviewers) {
         titlePageMarkup += `
-            <div class="thesis-reviewer">
-                ${e(r)}
-            </div>
-        `
-    });
+
+                <div class="thesis-reviewer">
+                    Reviewers:
+                </div>
+        `  // TODO handle case where no reviewers set, or single reviewer
+        options.titlePage.reviewers.forEach(function (r) {
+            titlePageMarkup += `
+                <div class="thesis-reviewer">
+                    ${e(r)}
+                </div>
+            `
+        });
+    }
+
     titlePageMarkup += `
         </div>
     </div>
