@@ -1,10 +1,10 @@
 @import url('reset.css');
 
-@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i&display=swap&subset=latin-ext');
-@import url('https://fonts.googleapis.com/css?family=Poppins:200,400,400i,700,700i,800&display=swap');
-@import url('01-iosevka-2.3.1/webfont.css');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Aleo:400,400i,700,700i&display=swap');
+@import url('lib/webfonts/google-fonts/pt-serif/webfont.css');
+@import url('lib/webfonts/google-fonts/poppins/webfont.css');
+@import url('lib/webfonts/iosevka/2.3.1/webfont.css');
+@import url('lib/webfonts/google-fonts/pt-sans-narrow/webfont.css');
+@import url('lib/webfonts/google-fonts/aleo/webfont.css');
 
 :root {
     --body-font: "PT Serif";
@@ -403,11 +403,11 @@ h4 + p,
 .md .admonition-title {
     font-size: var(--small-font-size);
     font-family: var(--heading-font);
+    font-weight: 500;
     margin: -.3rem -.6rem -.6rem -.6rem;
     padding: .2rem .6rem .2rem;
     border-width: 0;
     text-transform: uppercase;
-    font-weight: normal;
     background-color: #a6c7fd;
 }
 .md .admonition.tip {

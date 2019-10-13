@@ -16,6 +16,7 @@ function postprocessMarkdeep() {
     processEndnotes();
     processTOC();
     solidifyCodeLinenumbers();
+    scaleDiagrams();
 
     // remove empty <p>s (this makes some weird layout stuff less weird)
     document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
@@ -129,6 +130,27 @@ function solidifyCodeLinenumbers() {
             var linenumber = i++;
             element.setAttribute("data-linenumber", linenumber);
         });
+    });
+}
+
+// scale diagrams: markdeep diagrams have their width and height attributes set
+// to absoulute pixel values, which can't easily be scaled with css. so we
+// need to move this width and height information into a new viewbox
+// attribute, then we can set a new width and height depending on the desired
+// zoom factor
+function scaleDiagrams() {
+    // this factor works well as a baseline
+    var zoom = 0.8;  // TODO read from options
+
+    document.querySelectorAll("svg.diagram").forEach(function(diag) {
+        var w = diag.getAttribute("width"),
+            h = diag.getAttribute("height");
+
+        diag.removeAttribute("width");
+        diag.removeAttribute("height");
+        diag.setAttribute("viewBox", "0 0 " + w + " " + h);
+        diag.style.width  = w * zoom;
+        diag.style.height = h * zoom;
     });
 }
 
