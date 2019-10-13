@@ -1,12 +1,16 @@
 * fix multiple 1.1 in demo doc. WHY
     * => solidifyCodeLinenumbers(); but for headings, ugh
-* make links in footnotes create a new footnote somehow? not super important
 * make footnotes markers not increase the height of the line they occur in!
+
 * expose hooks: after markdeep, after markdeep processing, after mathjax, after bindery
+* figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
+
+future work:
+* maybe reference renaming: from names to numbers? rename to numbers in bibliography, then find all occurrences in the text?
 * gobble parens around citations into citation (both in text view and in references list)
     * similar for some other references, like section X etc.
-* figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
-* maybe reference renaming: from names to numbers? rename to numbers in bibliography, then find all occurrences in the text?
+* make links in footnotes create a new footnote somehow? not super important
+    * idea: put footnote content in display: none element right after footnote reference, then bindery should be able to pick up on contained links
 
 
 ## release
