@@ -8,11 +8,28 @@ var markdeepOptions = {
     }
 };
 
+var options;
 function processMarkdeepThesisOptions() {
-    // TODO implement, provide defaults, etc.
+    var defaultOptions = {
+        , view: "print"
+        , titlePage: titlePage
+        , fontSize: 10.5  // TODO in pt, set css var
+        , pageSize: {width: '21cm', height: '29.7cm'}
+        , pageMargins: {top: '2.5cm', inner: '3.5cm', outer: '2.5cm', bottom: '2.5cm'}
+        , extraBinderyRules: []  // this option is why bindery must be loaded before the options are defined in demo.md.html
+        , runningHeader: (p => `${page.number}`)
+        , markdeepDiagramScale: 1.0
+        , mathJax: ["TeX"]
+    };  // TODO implement
+
+    options = Object.assign({}, defaultOptions, markdeepThesisOptions);
+
+    // handle font size – all other options are handled by later functions
+    document.documentElement.style.setProperty('--base-font-size', options.fontSize + "pt");
 }
 
 function postprocessMarkdeep() {
+    renderTitlePage();
     processEndnotes();
     processTOC();
     solidifyCodeLinenumbers();
@@ -20,6 +37,45 @@ function postprocessMarkdeep() {
 
     // remove empty <p>s (this makes some weird layout stuff less weird)
     document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
+}
+
+function renderTitlePage() {
+    function e(n) {
+        return (n || "").trim().split("\n").join("<br>");
+    }
+    var titlePageMarkup = `
+    <div class="title-page">
+        <div class="title-top">
+            <div class="title-institution">${e(options.titlePage.institution)}</div>
+            <div class="title-institution-extra">${e(options.titlePage.institutionExtra)}</div>
+        </div>
+        <div class="title-middle">
+            <div class="title-kind">${e(options.titlePage.thesisKind)}</div>
+            <div class="title-title">${e(options.titlePage.thesisTitle)}</div>
+            <div class="title-author">${e(options.titlePage.thesisAuthor)}</div>
+            <div class="title-date">${e(options.titlePage.thesisDate)}</div>
+        </div>
+        <div class="title-bottom">
+            <div class="thesis-reviewer">
+                Reviewers:
+            </div>
+    `  // TODO handle case where no reviewers set, or single reviewer
+    options.titlePage.reviewers.forEach(function (r) {
+        titlePageMarkup += `
+            <div class="thesis-reviewer">
+                ${e(r)}
+            </div>
+        `
+    });
+    titlePageMarkup += `
+        </div>
+    </div>
+    <hr>
+    `
+
+    var tmp = document.createElement('div');
+    tmp.innerHTML = titlePageMarkup;
+    document.querySelector(".md").insertAdjacentElement('afterbegin', tmp);
 }
 
 // collect endnotes and write their contents as data attributes into the
@@ -140,7 +196,7 @@ function solidifyCodeLinenumbers() {
 // zoom factor
 function scaleDiagrams() {
     // this factor works well as a baseline
-    var zoom = 0.8;  // TODO read from options
+    var zoom = options.markdeepDiagramScale;
 
     document.querySelectorAll("svg.diagram").forEach(function(diag) {
         var w = diag.getAttribute("width"),
@@ -159,14 +215,36 @@ function scaleDiagrams() {
 // for reference, see https://docs.mathjax.org/en/v1.1-latest/startup.html#startup-sequence
 // and https://github.com/mathjax/mathjax-docs/wiki/Event-when-typesetting-is-done%3F-Rescaling-after-rendering...
 function loadMathJaxAndBindery() {
+    // TODO options.mathJax
+    var extensions = [];
+    var jax = [];
+    options.mathJax.forEach(o => {
+        switch (o) {
+            case "TeX":
+                extensions.push("tex2jax.js");
+                jax.push("input/TeX");
+                break;
+
+            case "MathML":
+                extensions.push("mml2jax.js");
+                jax.push("input/MathML");
+                break;
+
+            case "AsciiMath":
+                extensions.push("asciimath2jax.js");
+                jax.push("input/AsciiMath");
+                break;
+        }
+    });
+
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src  = "markdeep-thesis/lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
 
     var config = `
         MathJax.Hub.Config({
-            extensions: ["tex2jax.js", "mml2jax.js"],
-            jax: ["input/TeX", "input/MathML", "output/SVG"]
+            extensions: ["${extensions.join("\",\"")}"],
+            jax: ["${jax.join("\",\"")}", "output/SVG"]
         });
         MathJax.Hub.Startup.onload();
         MathJax.Hub.Register.StartupHook("End",function () {
@@ -195,11 +273,19 @@ function postprocessMathJax() {
 // loads bindery with the appropriate options
 // TODO expose some of these to the user of markdeep-thesis?
 function loadBindery() {
+    var view;
+    switch (options.view) {
+        case "print": view = Bindery.View.PRINT; break;
+        case "preview": view = Bindery.View.PREVIEW; break;
+        case "flipbook": view = Bindery.View.FLIPBOOK; break;
+        default: view = Bindery.View.PRINT; break;
+    }
+
     var book = Bindery.makeBook({
         content: '.md',
         pageSetup: {
-            size: { width: '21cm', height: '29.7cm' },
-            margin: { top: '2.5cm', inner: '3.5cm', outer: '2.5cm', bottom: '2.5cm' },
+            size: options.pageSize,
+            margin: options.pageMargins,
         },
         printSetup: {
             layout: Bindery.Layout.PAGES,
@@ -207,9 +293,7 @@ function loadBindery() {
             marks: Bindery.Marks.NONE,
             bleed: '0pt',
         },
-        //view: Bindery.View.PREVIEW,
-        view: Bindery.View.PRINT,
-        //view: Bindery.View.FLIPBOOK,
+        view: view,
         rules: [
             Bindery.FullBleedPage({
                 selector: '.title-page',
@@ -222,19 +306,12 @@ function loadBindery() {
             Bindery.PageBreak({ selector: '.table', position: 'avoid'}),  // figures
             Bindery.RunningHeader({
                 render: function (page) {
-                    var pageNum = page.number-2;
+                    page.number = page.number-2;
 
-                    if (/*page.isEmpty ||*/ pageNum <= 0) {
+                    if (page.number <= 0) {
                         return "";
                     }
-                    if (page.isLeft) {
-                        if (page.heading.h1 != null) {
-                            return `${pageNum}⁓${page.heading.h1}`  // alternatives: ⸺, ⸻
-                        }
-                        return `${pageNum}`
-                    } else {
-                        return `Noah Doersing⁓${pageNum}`;
-                    }
+                    return options.runningHeader(page);
                 }
             }),
             Bindery.PageReference({
@@ -263,6 +340,7 @@ function loadBindery() {
                     return '<sup>' + number + '</sup> See <a href="' + element.href + '" class="url">' + element.href + '</a>.';
                 }
             }),
+            ...options.extraBinderyRules
         ],
     });
 

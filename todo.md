@@ -1,8 +1,3 @@
-* provide user with a set of options? paper size, margins, main font size, author name, bindery view,...
-    * define a set of defaults, apply using https://stackoverflow.com/a/36496720
-
-* revisit running heads, see https://www.thebookdesigner.com/2014/03/how-to-design-running-heads-for-your-book/
-
 * gobble parens around citations into citation (both in text view and in references list)
     * similar for some other references, like section X etc.
 * figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
@@ -37,6 +32,7 @@ demo:
 
 note in readme:
 
+* no page number on first two pages (title page and intentionally left blank)
 * this is kinda fragile
 * only one style: what i used for my own msc thesis, might not really be standard across the world
 * liable to break with markdeep and bindery updates if they change the generated markup
