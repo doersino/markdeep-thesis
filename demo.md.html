@@ -2,23 +2,21 @@
 
 <script>
 var titlePage = {
-      institution: "Eberhard Karls Universität Tübingen"
-    , institutionExtra: `Mathematisch-Naturwissenschaftliche Fakultät
-                         Wilhelm-Schickard-Institut für Informatik`
-    , thesisKind: "Master's Thesis in Media Informatics"
-    , thesisTitle: "UnicodeMath ⥅ MathML"
+      institution: "Monsters University"
+    , institutionExtra: `Faculty of Natural Sciences
+                         Institute of Space Systems`
+    , thesisKind: "Master's Thesis in Applied Thesology"
+    , thesisTitle: "Novel Typesetting Tools for Undergraduate and Graduate Theses"
     , thesisAuthor: "Noah Doersing"
-    , thesisDate: "November 30, 2019"
+    , thesisDate: "November 31, 3019"
     , reviewers: [
-          `Prof. Dr. Torsten Grust
-           Database Systems Research Group
-           Wilhelm-Schickard-Institut für Informatik
-           Universität Tübingen
+          `Harry Q. Bovik
+           Senior Computer Scientist
+           Carnegie Mellon University
           `
-        , `Prof. Dr. Thomas Walter
-           Direktor des ZDV/Arbeitsbereich Informationsdienste
-           Wilhelm-Schickard-Institut für Informatik
-           Universität Tübingen
+        , `Albus Dumbledore
+           Headmaster
+           Hogwarts School of Witchcraft and Wizardry
           `
       ]
   }
@@ -26,89 +24,53 @@ var titlePage = {
 
 (##) Abstract
 
-Eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit:
 
-Veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+1. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua,
+2. ut enim ad minim veniam, quis nostrud exercitation ullamco,
+3. laboris nisi ut aliquip ex ea commodo consequat – duis aute irure dolor in reprehenderit in voluptate velit.
 
-Ancillary contributions include TODO markdeep-slides, -thesis
-
-<br><br>
-
-(###) Notes
-
-This document was generated with [Markdeep](https://casual-effects.com/markdeep/) and [Bindery](https://evanbrooks.info/bindery/)... TODO markdeep (morgan), bindery, fonts, unicodemath/murray, mathml, torsten, etc.
+Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 ---
 
 # Introduction
-> "This is a quote. There are many like it, but this one's mine. Yup yup."
+
+Lorem ipsum dolor sit amet, consectetur *adipisicing* elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, cillum dolore eu fugiat nulla pariatur. **Excepteur sint occaecat cupidatat**, non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+> "Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 >
->      -- This quote
+>      -- Nulla pariatur
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident – sunt in culpa.
 
-```latex
-$E = mc^2$
+## Quid novi?
+
+Qui officia deserunt mollit anim id est laborum.
+
+```python
+# generate initial state
+if initialCondition == 'middle':
+    initialState = list('0' * width)
+    initialState[int(width/2)] = '1'
+elif initialCondition == 'left':
+    initialState = '1' + '0' * (width-1)
+elif initialCondition == 'right':
+    initialState = '0' * (width-1) + '1'
+elif initialCondition == 'random':
+    initialState = [str(randint(0,1)) for b in range(0,width)]
+else:
+    initialState = (initialCondition[0:width])[::-1].zfill(width)[::-1]
 ```
 
-Lorem ipsum dolor `mfrac` sit amet, consectetur adipisicing `<mfrac test="abc">`elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+Lorem ipsum dolor `mfrac` sit amet, consectetur adipisicing `[str(randint(0,1)) for b in range(0,width)]` elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
 
-> "Consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-> qu is nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-> consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-> cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-> proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 !!!
-    I'm a note. Don't mind me, I'm just sitting here.
-
-!!! note
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-!!! Tip
-    Close the door on the way out.
-
-!!! WARNING
-    I'm a warning, perhaps. *Something might happen!*
-
-!!! ERROR
-    I'm a warning, perhaps. *Something might happen!*
+    Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -117,23 +79,21 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-!!! Tip: this is a long tip Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam!
-    Close the door on the way out.
+!!! Tip: Lorem ipsum dolor sit amet
+    Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-!!! note: nothing left to chance
-    Another note.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-!!! WARNING: test
-    I'm a warning, perhaps. *Something might happen!*
+!!! note
+    At ipsum vitae est lacinia tincidunt. Maecenas elit orci,gravida ut, molestie non, venenatis vel, lorem. Sedlacinia. Suspendisse potenti.
 
-!!! ERROR: Seriously
-    Watch out, something **bad** could happen.
+!!! WARNING: reprehenderit
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
 
-    This is still more error text.
+!!! ERROR: Dolore
+    ...eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ C linenumbers
 void insertion_sort(int data[], int length) {
@@ -142,6 +102,7 @@ void insertion_sort(int data[], int length) {
     }
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[Listing [sort]: An insertion sort]
 
 Consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -153,40 +114,27 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [#Kajiya86]
 
-## testing this thing
+## Lorem ipsum dolor sit amet – eiusmod
 
-test
+Dolor:
 
-### testing more
+* Lorem ipsum dolor sit amet, consectetur,
+* adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo,
+* consequat!
 
-test
+### Morbi dictum
 
-#### testing all the much
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-1. test
-2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-3. test
+#### Lorem!
 
-Lorem!
+Phasellus orci. Etiam tempor elit auctor magna. Nullam nibh velit, vestibulum ut, eleifend non, pulvinar eget, enim. Classaptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos.
 
-* A list of items: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-* More
-* Even more
+#### Ipsum!
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in *volufptate* **velit** esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Integer velit mauris, convallis acongue sed, placerat id, odio. Etiam venenatis tortor sed lectus. Nulla non orci. In egestas porttitor quam. Duis nec diameget nibh mattis tempus. Curabitus accumsan pede id odio. Nunc vitae libero. Aenean condimentum diam et turpis.Vestibulum non risus. Ut consectetuer gravida elit. Aenean est nunc, varius sed, alquam eu, feugiat sit amet, metus. Sedvenenatis odio id eros.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+At ipsum vitae est lacinia tincidunt. Maecenas elit orci,gravida ut, molestie non, venenatis vel, lorem. Sedlacinia. Suspendisse potenti. Sed ultricies cursuslectus. In id magna sit amet nibh suspicit euismod.Integer enim. Donec sapien ante, accumsan ut,sodales commodo, auctor quis, lacus. Maecenas a elitlacinia urna posuere sodales. Curabitur pede pede,molestie id, blandit vitae, varius ac, purus. Mauris atipsum vitae est lacinia tincidunt. Maecenas elit orci, gravida ut, molestie non, venenatis vel,lorem. Sed lacinia. Suspendisse potenti. Sed ultrucies cursus lectus. In id magna sit amet nibhsuspicit euismod. Integer enim. Donec sapien ante, accumsan ut, sodales commodo, auctorquis, lacus. Maecenas a elit lacinia urna posuere sodales. Curabitur pede pede, molestie id,blandit vitae, varius ac, purus.
 
 ```sql linenumbers
 -- Combine possible_movements and the board_and_pieces to create the final result.
@@ -214,99 +162,58 @@ GROUP BY br.y
 ORDER BY br.y DESC;
 ```
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+Lorem Ipsum dolor sit amet, consectetuer adipiscingelit. Duis tellus. Donec ante dolor, iaculis nec, gravidaac, cursus in, eros. Mauris vestibulum, felis et egestasullamcorper, purus nibh vehicula sem, eu egestas antenisl non justo. Fusce tincidunt, lorem nev dapibusconsectetuer, leo orci mollis ipsum, eget suscipit erospurus in ante.
 
-```python
-import sys
-import csv
-import re
-import os
-import math
+### Maecenas a elitlacinia
 
-prefix = "db1-ws1920-"
+At ipsum vitae est lacinia tincidunt. Maecenas elit orci,gravida ut, molestie non, venenatis vel, lorem. Sedlacinia. Suspendisse potenti. Sed ultricies cursuslectus. In id magna sit amet nibh suspicit euismod.Integer enim. Donec sapien ante, accumsan ut,sodales commodo, auctor quis, lacus. Maecenas a elitlacinia urna posuere sodales. Curabitur pede pede,molestie id, blandit vitae, varius ac, purus. Mauris atipsum vitae est lacinia tincidunt. Maecenas elit orci, gravida ut, molestie non.
 
-def status(s):
-    print('\033[1m' + s + '\033[0m')
-def blue(s):
-    print('\033[94m' + s + '\033[0m')
-def red(s):
-    print('\033[91m' + s + '\033[0m')
+Venenatis vel, lorem. Sed lacinia. Suspendisse potenti. Sed ultrucies cursus lectus. In id magna sit amet nibhsuspicit euismod. Integer enim. Donec sapien ante, accumsan ut, sodales commodo, auctorquis, lacus. Maecenas a elit lacinia urna posuere sodales. Curabitur pede pede, molestie id,blandit vitae, varius ac, purus. Morbi dictum. Vestibulum adipiscing pulvinar quam. In aliquam rhoncus sem. In mi erat, sodaleseget, pretium interdum, malesuada ac, augue. Aliquam sollicitudin, massa ut vestibulum posuere, massa arcu elementumpurus, eget vehicula lorem metus vel libero. Sed in dui id lectus commodo elementum.
 
-def numberformat(p):
-    return float(p) if float(p) != math.ceil(float(p)) else int(float(p))
-```
+### Eto ne
 
-Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident.
+Etiam rhoncus tortor. Proin alorem. Ut nec velit. Quisque varius. Proin nonummy justo dictum sapien tincidunt iaculis. Duis lobortis pellentesque risus.Aenean ut tortor imperdiet dolor scelerisque bibendum. Fusce metus nibh, adipiscing id, ullamcorper at, consequat anulla.
 
-Sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis!
+*Quid Novi?*
 
-Aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur.
+Lorem Ipsum dolor sit amet,consectetur adipisicing elit, sed doeiusmod tempor incididunt ut laboreet dolore magna aliqua. Ut enim adminim veniam, quis nostrudexercitation ullamco laboris nisi utaliquip ex ea commodo consequat.Duis aute irure dolor inreprehenderit in coluptate velit essecillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatatnon proident, sunt in culpa quiofficia deserunt mollit anim id estlaborum. Phasellus orci. Etiam tempor elit auctor magna. Nullam nibh velit, vestibulum ut, eleifend non, pulvinar eget, enim. Classaptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Integer velit mauris, convallis acongue sed, placerat id, odio. Etiam venenatis tortor sed lectus. Nulla non orci. In egestas porttitor quam. Duis nec diameget nibh mattis tempus. Curabitus accumsan pede id odio. Nunc vitae libero. Aenean condimentum diam et turpis.Vestibulum non risus. Ut consectetuer gravida elit. Aenean est nunc, varius sed, alquam eu, feugiat sit amet, metus. Sedvenenatis odio id eros.
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+$$
+\frac{1}{\displaystyle 1+
+   \frac{1}{\displaystyle 2+
+   \frac{1}{\displaystyle 3+x}}} +
+ \frac{1}{1+\frac{1}{2+\frac{1}{3+x}}}
+$$
 
-Deserunt mollit anim id est laborum – lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Phasellus placerat purus vel mi. In hac habitasse platea dictumst. Donec aliquam porta odio. Ut facilisis. Donec ornareipsum ut massa. In tellus tellus, imperdiet ac, accumsan at, aliquam vitae, velit.
 
 # Overview
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur $n > 2$ adipisicing $n, m \in \mathbb{N}$ elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam:
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+$$
+\underbrace{n(n-1)(n-2)\dots(n-m+1)}_{\mbox{total of $m$ factors}}
+$$
+
+Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat.
+
+$$
+\begin{align}
+a_1& =b_1+c_1\\
+a_2& =b_2+c_2-d_2+e_2
+\end{align}
+$$
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 $$E = mc^2$$
 
-<!--Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ test Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+## Dolore eu fugiat nulla pariatur
 
-$E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit
-$E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-
-$E = mc^2$ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum. $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ $E = mc^2$ Lorem ipsum dolor $E = mc^2$ sit $E = mc^2$ $E = mc^2$ $E = mc^2$
-
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+Consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -330,154 +237,196 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 *                       '--------------'                                 *
 **************************************************************************
 
-test
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis at tellus at urna condimentum mattis. Nibh tellus molestie nunc non blandit massa enim nec dui. Id semper risus in hendrerit gravida. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Varius vel pharetra vel turpis nunc eget lorem. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus. A arcu cursus vitae congue mauris rhoncus aenean. Volutpat blandit aliquam etiam erat velit scelerisque. Rhoncus urna neque viverra justo nec ultrices dui sapien. Donec massa sapien faucibus et molestie ac feugiat. Tristique senectus et netus et malesuada fames ac turpis egestas. Mauris in aliquam sem fringilla ut morbi tincidunt. Scelerisque fermentum dui faucibus in ornare. Mi quis hendrerit dolor magna eget est. Dolor sit amet consectetur adipiscing elit duis tristique. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in. Eget gravida cum sociis natoque penatibus et magnis dis.
 
-![Figure [robot]: A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot A picture of a robot ](https://images-na.ssl-images-amazon.com/images/I/61R2%2Bfcus9L._SY679_.jpg width="200")
+Laoreet suspendisse interdum consectetur libero id faucibus. Sed tempus urna et pharetra pharetra massa. Sit amet justo donec enim diam vulputate ut pharetra sit. Et malesuada fames ac turpis egestas integer. Arcu cursus euismod quis viverra. Habitant morbi tristique senectus et netus et malesuada fames. Vitae nunc sed velit dignissim sodales ut. Lacinia quis vel eros donec ac odio tempor orci. Mattis molestie a iaculis at erat pellentesque adipiscing. Nunc lobortis mattis aliquam faucibus. Bibendum est ultricies integer quis auctor elit sed. Praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla. Ac placerat vestibulum lectus mauris ultrices eros. Feugiat vivamus at augue eget arcu dictum varius duis at. Massa vitae tortor condimentum lacinia. Posuere ac ut consequat semper viverra nam libero.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore Figure [robot] et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Turpis tincidunt id aliquet risus feugiat in. Scelerisque felis imperdiet proin fermentum. Adipiscing elit ut aliquam purus. Arcu dui vivamus arcu felis bibendum ut tristique. Ut sem nulla pharetra diam sit amet nisl suscipit. Porttitor eget dolor morbi non arcu risus quis varius quam. Scelerisque varius morbi enim nunc faucibus a pellentesque sit. At varius vel pharetra vel. Egestas sed sed risus pretium. Ultrices gravida dictum fusce ut placerat orci nulla. Faucibus et molestie ac feugiat. Eget duis at tellus at urna condimentum mattis pellentesque. Risus nec feugiat in fermentum posuere urna. Consectetur a erat nam at. Condimentum mattis pellentesque id nibh tortor id. Feugiat pretium nibh ipsum consequat nisl vel pretium lectus. Non nisi est sit amet facilisis. Leo a diam sollicitudin tempor id eu nisl nunc mi.
 
-testting [^test] testingg [^test]
+Sed risus pretium quam vulputate dignissim. Lobortis elementum nibh tellus molestie nunc non. Convallis convallis tellus id interdum velit laoreet id. Pulvinar mattis nunc sed blandit libero volutpat. Hendrerit dolor magna eget est lorem ipsum dolor sit amet. Lectus magna fringilla urna porttitor rhoncus dolor purus non enim. Nec feugiat nisl pretium fusce id velit. Etiam tempor orci eu lobortis elementum nibh tellus molestie. Diam quis enim lobortis scelerisque fermentum dui faucibus. Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus. Enim neque volutpat ac tincidunt vitae semper quis. Bibendum enim facilisis gravida neque convallis a cras semper.
 
-[^test]: Testing endnote
+Facilisi morbi tempus iaculis urna. Arcu vitae elementum curabitur vitae nunc sed velit dignissim. Viverra nibh cras pulvinar mattis. Tempus egestas sed sed risus pretium quam. Amet nulla facilisi morbi tempus iaculis. Auctor neque vitae tempus quam. Iaculis eu non diam phasellus. Amet tellus cras adipiscing enim eu turpis egestas pretium. Lobortis elementum nibh tellus molestie nunc non blandit massa enim. Egestas purus viverra accumsan in nisl. Habitasse platea dictumst vestibulum rhoncus est pellentesque. Libero enim sed faucibus turpis in eu. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Bibendum ut tristique et egestas quis ipsum. Elit eget gravida cum sociis natoque penatibus et magnis. Cursus euismod quis viverra nibh cras pulvinar mattis nunc. Quis varius quam quisque id diam.
 
-test [^test2]
+![Figure [dumby]: Lorem ipsum dolor sit amet, consectetur.](https://upload.wikimedia.org/wikipedia/en/f/fe/Dumbledore_and_Elder_Wand.JPG width="200")
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+tempor incididunt ut labore Figure [dumby] et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco[^test] laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+cillum dolore eu fugiat nulla pariatur. Excepteur[^test2] sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [#Kajiya86]
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+[^test]: Rhoncus dolor purus non enim. Nec feugiat nisl pretium fusce id velit.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+[^test2]: Lorem ipsum *dolor* sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim [veniam, quis nostrud exercitation](https://github.com/doersino) ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui. [#Bovik98]
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum. [^test2]
 
-# Vessels
+# Lorem ipsum
 
-𐃢𐃤𐃭𐃣𐃯𐃰𐃪𐃥𐃦𐃡𐃨𐃩
+## Dolor sit amet, consectetur adipisicing
 
-## This is a very long headline lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo!
+## Elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 
-### test
+### Cullamco laboris
 
- Maine | Iowa | Colorado
--------|------|----------
-   1   |  4   |   10
-  ME   |  IA  |   CO
- Blue  | Red  | Brown
-  [Optional caption]
+### Nisi ut aliquip ex ea commodo
 
- Maine | Iowa | Colorado
--------|------|----------
-   1   |  4   |   10
-  ME   |  IA  |   CO
- Blue  | Red  | Brown
-[Table [states]: Caption with label.]
+### Consequat?
 
-There's Table [states]!
+## Duis aute irure dolor
 
-### test
+## In reprehenderit in voluptate velit esse
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Python
-def insertionSort(data):
-    for i in range(0, len(data)):
-        j = i;
+### Cillum dolore eu
 
-        while (j > 0) and (data[j] < data[j - 1]):
-            temp = data[j]
-            data[j] = data[j - 1]
-            data[j] = temp
-            --j
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-[Listing [sort]: An insertion sort]
+### Fugiat
 
-And Listing [sort], nämlich.
+## Nulla pariatur!
 
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
-### test
+### Excepteur
 
-<math class="unicodemath" xmlns="http://www.w3.org/1998/Math/MathML">
-  <mfenced open="(" close=")" separators="">
-    <mrow>
-      <mi>a</mi>
-      <mo>+</mo>
-      <mi>b</mi>
-    </mrow>
-  </mfenced>
-</math>
+### Sint
 
-## test
+#### Occaecat
 
-# test
+#### Cupidatat
 
-## test
+### Mon
 
-(#) Bibliography
+### Proident
+
+### Sunt
+
+### In
+
+### Culpa
+
+### Qui
+
+### Officia
+
+### Deserunt
+
+### Mollit
+
+### Anim
+
+### Id
+
+### Est
+
+### Laborum
+
+## Duis aute irure dolor
+
+### In reprehenderit in voluptate velit esse
+
+## Cillum dolore eu
+
+### Fugiat
+
+## Nulla pariatur!
+
+## Excepteur
+
+## Sint
+
+#### Occaecat
+
+#### Cupidatat
+
+#### Mon
+
+#### Proident
+
+
+# Sunt
+
+## In
+
+## Culpa
+
+### Qui
+
+### Officia
+
+## Deserunt
+
+### Mollit
+
+### Anim
+
+## Lorem ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque purus semper eget duis at tellus. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus. Mi proin sed libero enim sed. In vitae turpis massa sed elementum tempus egestas. Dapibus ultrices in iaculis nunc sed augue lacus viverra. Eget gravida cum sociis natoque penatibus et magnis dis parturient. Vitae congue eu consequat ac felis donec. Orci ac auctor augue mauris augue neque gravida in fermentum. Urna duis convallis convallis tellus id interdum velit laoreet. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Id neque aliquam vestibulum morbi blandit cursus. Ultricies mi eget mauris pharetra et ultrices. Dapibus ultrices in iaculis nunc sed augue lacus viverra vitae. Posuere morbi leo urna molestie at.
+
+Eu turpis egestas pretium aenean. Nunc consequat interdum varius sit amet mattis vulputate enim. Porttitor rhoncus dolor purus non enim praesent elementum facilisis. Rhoncus mattis rhoncus urna neque viverra justo nec. Consequat id porta nibh venenatis cras sed felis eget. Faucibus a pellentesque sit amet.
+
+Porttitor eget dolor morbi non. Sodales ut etiam sit amet nisl purus in mollis. Fermentum dui faucibus in ornare quam viverra orci. Integer enim neque volutpat ac tincidunt vitae semper. Donec ac odio tempor orci dapibus. Elementum pulvinar etiam non quam lacus suspendisse faucibus. Aliquet nibh praesent tristique magna sit amet purus gravida quis. Mi bibendum neque egestas congue quisque egestas diam. Quam id leo in vitae turpis massa sed elementum. Tortor consequat id porta nibh venenatis cras sed felis eget. Congue eu consequat ac felis donec et odio.
+
+
+# Conclusion
+
+The has been the best thing you've read today.
+
+
+# Bibliography
 
 [#Kajiya86]: James T. Kajiya. 1986. The Rendering Equation. In _Proceedings of Computer Graphics and Interactive Techniques (SIGGRAPH '86)_, ACM, 143-150. http://dx.doi.org/10.1145/15922.15902
 
+[#Bovik98]: Bovik, H. "Breath-First Techniques for the Game of Life",  in Artificial Intelligences Health, 5(88-108), 1998.
+
+[#Bovik35]: Bovik, H. and Rude, B. "Program Vilification Overview: 1970-1986," in Tourette's, 7(97-124),1986.
+
+[#Nesis74]: Nesis, T. K. and Bovik, H. "Propulsion by Means of Cogno-Magnetic Forces", in Proc. 3rdIntl. Conf. on Cognitive Para-Psychology, Cairo, Aug-Oct 1985.
+
+[#Fink74]: Fink, A. R. and Bovik, H. "Self Coercing Codes" in Bitstring Magazine, 1,1. 1985.
+
+[#Kim74]: Kim, Stengel, Wu, Boudaoud, Spjut, Akşit, Albert, Greer, Jeong, Lopes, Majercik, Shirley, McGuire, and Luebke, Matching Prescription & Visual Acuity: Towards AR for Humans, SIGGRAPH 2019 Emerging Technology, ACM SIGGRAPH Emerging Technologies, July 28, 2019, 2 pages - Emerging Technologies Best in Show Award
+
+[#McGuire53]: McGuire, Optimizing and Deploying Ray-Traced Dynamic Global Illumination, ACM SIGGRAPH NVIDIA Sponsored Talk, July 30, 2019, 90 pages
+
+[#McGuire96]: McGuire, Shirley, and Wyman, Introduction to Real-Time Ray Tracing, SIGGRAPH 2019 course
+
+[#McGuire34]: Keller, Viitanen, Barré-Brisebois, Schied, McGuire, Are We Done with Ray Tracing?, SIGGRAPH 2019 course, SIGGRAPH 2019 course
+
+[#McGuire74]: Majercik, Guertin, Nowrouzezahrai, and McGuire, Dynamic Diffuse Global Illumination with Ray-Traced Irradiance Fields, Journal of Computer Graphics Techniques (JCGT), vol. 8, 2019. I3D2019 Best Presentation Award
+
 [#Kajiya86]: James T. Kajiya. 1986. The Rendering Equation. In _Proceedings of Computer Graphics and Interactive Techniques (SIGGRAPH '86)_, ACM, 143-150. http://dx.doi.org/10.1145/15922.15902
+
+[#Bovik98]: Bovik, H. "Breath-First Techniques for the Game of Life",  in Artificial Intelligences Health, 5(88-108), 1998.
+
+[#Bovik35]: Bovik, H. and Rude, B. "Program Vilification Overview: 1970-1986," in Tourette's, 7(97-124),1986.
+
+[#Nesis74]: Nesis, T. K. and Bovik, H. "Propulsion by Means of Cogno-Magnetic Forces", in Proc. 3rdIntl. Conf. on Cognitive Para-Psychology, Cairo, Aug-Oct 1985.
+
+[#Fink74]: Fink, A. R. and Bovik, H. "Self Coercing Codes" in Bitstring Magazine, 1,1. 1985.
+
+[#Kim74]: Kim, Stengel, Wu, Boudaoud, Spjut, Akşit, Albert, Greer, Jeong, Lopes, Majercik, Shirley, McGuire, and Luebke, Matching Prescription & Visual Acuity: Towards AR for Humans, SIGGRAPH 2019 Emerging Technology, ACM SIGGRAPH Emerging Technologies, July 28, 2019, 2 pages - Emerging Technologies Best in Show Award
+
+[#McGuire53]: McGuire, Optimizing and Deploying Ray-Traced Dynamic Global Illumination, ACM SIGGRAPH NVIDIA Sponsored Talk, July 30, 2019, 90 pages
+
+[#McGuire96]: McGuire, Shirley, and Wyman, Introduction to Real-Time Ray Tracing, SIGGRAPH 2019 course
+
+[#McGuire34]: Keller, Viitanen, Barré-Brisebois, Schied, McGuire, Are We Done with Ray Tracing?, SIGGRAPH 2019 course, SIGGRAPH 2019 course
+
+[#McGuire74]: Majercik, Guertin, Nowrouzezahrai, and McGuire, Dynamic Diffuse Global Illumination with Ray-Traced Irradiance Fields, Journal of Computer Graphics Techniques (JCGT), vol. 8, 2019. I3D2019 Best Presentation Award
 
 ---
 
 <div style="width: 70%; margin: 5rem auto 0;">
-    (##) Selbstständigkeitserklärung
+    (##) Declaration of Authorship
 
-    Hiermit versichere ich gemäß § 17 Absatz 4 des allgemeinen Teils der geltenden Prüfungsordnung, dass ich diese Arbeit selbständig verfasst, keine anderen als die angegebenen Hilfsmittel und Quellen benutzt habe, alle wörtlich oder sinngemäß aus anderen Werken übernommenen Aussagen als solche gekennzeichnet habe und dass die Arbeit weder vollständig noch in wesentlichen Teilen Gegenstand eines anderen Prüfungsverfahrens gewesen ist sowie dass ich die Arbeit weder vollständig noch in wesentlichen Teilen bereits veröffentlicht habe und dass das in Dateiform eingereichte Exemplar mit den eingereichten gebundenen Exemplaren übereinstimmt.
+    I hereby declare that the thesis submitted is my own unaided work. All direct or indi- rect sources used are acknowledged as references.
+
+    I am aware that the thesis in digital form can be examined for the use of unauthor- ized aid and in order to determine whether the thesis as a whole or parts incorpo- rated in it may be deemed as plagiarism. For the comparison of my work with exist- ing sources I agree that it shall be entered in a database where it shall also remain after examination, to enable comparison with future theses submitted. Further rights of reproduction and usage, however, are not granted here.
+
+    This paper was not previously presented to another examination board and has not been published.
 
     <br><br>
     <div style="width: 80%; border-bottom: 0.1em solid black; margin-bottom: 0.4em;"></div>
-    <span style="font-family: var(--reference-font)">Datum, Ort, Unterschrift</span>
+    <span style="font-family: var(--reference-font)">City, date and signature</span>
 </div>
-
-[^test2]: Lorem ipsum *dolor* sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 <link rel="stylesheet" href="markdeep-thesis/style.css">
 <script src="markdeep-thesis/lib/bindery/2.2.8/bindery.min.js"></script>
