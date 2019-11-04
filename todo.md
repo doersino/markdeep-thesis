@@ -1,8 +1,8 @@
 * fix multiple 1.1 in demo doc. WHY
     * => solidifyCodeLinenumbers(); but for headings, ugh
-* make footnotes markers not increase the height of the line they occur in!
+* make footnotes markers somehow not increase the height of the line they occur in!
 
-* expose hooks: after markdeep, after markdeep processing, after mathjax, after bindery
+* expose hooks via options: after markdeep, after markdeep processing, after mathjax, after bindery
 * figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
 
 future work:
