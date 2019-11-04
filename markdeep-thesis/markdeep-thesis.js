@@ -314,6 +314,7 @@ function loadBindery() {
             Bindery.PageBreak({ selector: 'h1', position: 'before', continue: 'right' }),
             Bindery.PageBreak({ selector: '.nonumberh1', position: 'before', continue: 'right' }),
             Bindery.PageBreak({ selector: 'hr', position: 'before', continue: 'right' }),
+            Bindery.PageBreak({ selector: '.pagebreak', position: 'before' }),  // just write <span class="pagebreak"></span> to force a page break
             Bindery.PageBreak({ selector: '.image', position: 'avoid'}),  // figures
             Bindery.PageBreak({ selector: '.table', position: 'avoid'}),  // figures
             Bindery.RunningHeader({
