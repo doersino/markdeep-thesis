@@ -33,8 +33,8 @@ function processMarkdeepThesisOptions() {
 function postprocessMarkdeep() {
     renderTitlePage();
     processEndnotes();
-    processTOC();
-    solidifyCodeLinenumbers();
+    processTOCAndSectionHeadings();
+    solidifyCodeLineNumbers();
     scaleDiagrams();
 
     // remove empty <p>s (this makes some weird layout stuff less weird)
@@ -133,8 +133,9 @@ function processEndnotes() {
 }
 
 // coerce the table of contents into a format more suitable for inserting page
-// numbers (later on, with bindery)
-function processTOC() {
+// numbers (later on, with bindery), also solidify section numbers in headings
+// in the text
+function processTOCAndSectionHeadings() {
 
     // extract toc entries
     var toc = document.getElementsByClassName("longTOC")[0].childNodes[1];
@@ -173,24 +174,34 @@ function processTOC() {
     // replace old toc with new one
     toc.parentNode.replaceChild(newToc, toc);
 
-    // each heading the text has three anchors in front of it, of the format
+    // each heading in the text has three anchors in front of it, of the format
     // name, supersectionname/.../name, and tocN.N – the toc (now) links to
     // the last one, so pull this one into the heading. (required since the
     // anchors frequently end up on the page before the heading after bindery is
     // done processing)
-    var headings = document.querySelectorAll(".md h1, .md h2, .md h3");
+    var headings = document.querySelectorAll(".md h1, .md h2, .md h3, .md h4, .md h5, .md h6");
     headings.forEach(function (element) {
         var anchor = element.previousSibling;
         anchor = anchor.cloneNode(true);
         anchor.classList.add("heading-target");
         element.appendChild(anchor);
+
+        // solidify section numbers
+        var sectionNumber = anchor.name.substr(3);
+        element.setAttribute("data-sectionnumber", sectionNumber);
     });
+
+    // display newly-solidified section numbers instead of css couters (which
+    // are buggy in bindery in a similar way as listing line numbers)
+    for (i = 1; i <= 6; i++) {
+        document.styleSheets[0].addRule('.md h' + i + ':before', 'content: attr(data-sectionnumber) !important;');
+    }
 }
 
 // generate line numbers of code listings in js and write them to css, thus
 // keeping them from restarting when a code block is split onto multiple pages
 // by bindery
-function solidifyCodeLinenumbers() {
+function solidifyCodeLineNumbers() {
     document.styleSheets[0].addRule('.md pre.listing .linenumbers span.line:before', 'content: attr(data-linenumber) !important;');
     document.querySelectorAll("pre .linenumbers").forEach(function (element) {
         var i = 1;

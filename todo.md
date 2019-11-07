@@ -1,5 +1,3 @@
-* fix multiple 1.1 in demo doc. WHY
-    * => solidifyCodeLinenumbers(); but for headings, ugh
 * make footnotes markers somehow not increase the height of the line they occur in!
 
 * expose hooks via options: after markdeep, after markdeep processing, after mathjax, after bindery
