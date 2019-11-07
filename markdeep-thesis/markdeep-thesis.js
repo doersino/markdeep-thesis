@@ -330,7 +330,7 @@ function loadBindery() {
             Bindery.PageReference({
                 selector: '.longTOC li',
                 replace: (element, number) => {
-                    var pageNum = number-2;
+                    var pageNum = number;  // no need to subtract 2 here since the modified page object from the RunningHeader setting above seems to be reused here
 
                     element.innerHTML += `<span class='num'>${pageNum}</span>`;
                     return element;
