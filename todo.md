@@ -1,5 +1,3 @@
-* make footnotes markers somehow not increase the height of the line they occur in!
-
 * expose hooks via options: after markdeep, after markdeep processing, after mathjax, after bindery
 * figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
 

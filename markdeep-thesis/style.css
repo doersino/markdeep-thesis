@@ -484,6 +484,10 @@ li.📖-continuation:first-child {
 /* footnotes, citations/bibliography and other kinds of references */
 .bindery-sup {
     font-family: var(--reference-font);
+    vertical-align: top;
+    position: relative;
+    top: -0.4em;
+    font-size: 0.7em;
 }
 .📖-footnote {
     font-size: var(--small-font-size);
