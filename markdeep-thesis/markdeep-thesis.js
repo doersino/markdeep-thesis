@@ -20,6 +20,11 @@ function processMarkdeepThesisOptions() {
         , runningHeader: (p => `${p.number}`)
         , markdeepDiagramScale: 1.0
         , mathJax: ["TeX"]
+        , hookAfterMarkdeep: Function.prototype
+        , hookAfterMarkdeepPostprocessing: Function.prototype
+        , hookAfterMathJax: Function.prototype
+        , hookAfterMathJaxPostprocessing: Function.prototype
+        , hookAfterBindery: Function.prototype
     };
 
     if (typeof markdeepThesisOptions !== 'undefined') {
@@ -28,6 +33,8 @@ function processMarkdeepThesisOptions() {
 
     // handle font size – all other options are handled by later functions
     document.documentElement.style.setProperty('--base-font-size', options.fontSize + "pt");
+
+    options.hookAfterMarkdeep();
 }
 
 function postprocessMarkdeep() {
@@ -39,6 +46,8 @@ function postprocessMarkdeep() {
 
     // remove empty <p>s (this makes some weird layout stuff less weird)
     document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
+
+    options.hookAfterMarkdeepPostprocessing();
 }
 
 function renderTitlePage() {
@@ -272,7 +281,9 @@ function loadMathJaxAndBindery() {
         MathJax.Hub.Startup.onload();
         MathJax.Hub.Register.StartupHook("End",function () {
             //console.log(document.querySelector(".md"));
+            options.hookAfterMathJax();
             postprocessMathJax();
+            options.hookAfterMathJaxPostprocessing();
             loadBindery();
         });
     `;
@@ -374,6 +385,7 @@ function loadBindery() {
 
 // restore scroll position once bindery appears to be done and another 100ms
 // (for good measure) have passed by
+// TODO keep scroll position in local storage instead of window name
 function tryRestoringScrollPosition() {
     var to = setInterval(function() {
         var retry = true;
@@ -383,6 +395,7 @@ function tryRestoringScrollPosition() {
 
         if (!retry && window.name.search("^\\d+$") == 0) {
             clearInterval(to);
+            options.hookAfterBindery();
             setTimeout(function() {
                 window.scrollTo(0, window.name);
             }, 100);  // <- this constant might need adjusting for more complex documents!
@@ -391,6 +404,7 @@ function tryRestoringScrollPosition() {
 }
 
 // store scroll position before unloading the page
+// TODO keep scroll position in local storage instead of window name
 window.onbeforeunload = function() {
     window.name = window.pageYOffset;
 };
