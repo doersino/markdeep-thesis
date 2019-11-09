@@ -20,7 +20,7 @@ function processMarkdeepThesisOptions() {
         , runningHeader: (p => `${p.number}`)
         , markdeepDiagramScale: 1.0
         , mathJax: ["TeX"]
-        , hookAfterMarkdeep: Function.prototype
+        , hookAfterMarkdeep: Function.prototype  // turns out this is a good way of specifying a noop function: https://stackoverflow.com/a/33458430
         , hookAfterMarkdeepPostprocessing: Function.prototype
         , hookAfterMathJax: Function.prototype
         , hookAfterMathJaxPostprocessing: Function.prototype
