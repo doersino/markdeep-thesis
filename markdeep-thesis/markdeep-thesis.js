@@ -67,6 +67,7 @@ function renderTitlePage() {
         <div class="title-middle">
             <div class="title-kind">${e(options.titlePage.thesisKind)}</div>
             <div class="title-title">${e(options.titlePage.thesisTitle)}</div>
+            <div class="title-subtitle">${e(options.titlePage.thesisSubtitle)}</div>
             <div class="title-author">${e(options.titlePage.thesisAuthor)}</div>
             <div class="title-date">${e(options.titlePage.thesisDate)}</div>
         </div>
