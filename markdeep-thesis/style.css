@@ -36,8 +36,16 @@ body {
     color: black;
 }
 
-hr {
+hr:not(.ignore) {
     display: none;
+}
+hr.ignore {
+    border: 0;
+    border-bottom: var(--hairline-width) solid black;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
 }
 
 p {
