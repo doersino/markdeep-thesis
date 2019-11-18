@@ -125,9 +125,9 @@ function processEndnotes() {
         // remove the soon-to-be-obsolete endnote number
         endnote.childNodes[1].remove();
 
-        // base64-endcode the referenced contents and store in the reference
+        // encode the referenced contents and store in the reference
         // (this is hacky, but easy!)
-        var endnoteEncoded = window.btoa(endnote.innerHTML);
+        var endnoteEncoded = encodeURIComponent(endnote.innerHTML);
         element.setAttribute("data-footnote-content", endnoteEncoded);
 
         // prepare endnote reference for later processing in bindery
@@ -367,7 +367,7 @@ function loadBindery() {
             Bindery.Footnote({
                 selector: 'a.footnote-reference',
                 render: function (element, number) {
-                    return "<sup>" + number + "</sup>" + window.atob(element.getAttribute("data-footnote-content"));
+                    return "<sup>" + number + "</sup>" + decodeURIComponent(element.getAttribute("data-footnote-content"));
                 }
             }),
             Bindery.Footnote({
