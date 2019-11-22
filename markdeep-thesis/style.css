@@ -15,7 +15,7 @@
 
     --base-font-size: 10.5pt;
     --small-font-size: 0.8rem;
-    --inline-code-font-size: 0.97em;  /* since iosevka has a slightly higher x-height than pt serif */
+    --inline-code-font-size: 0.96em;  /* since iosevka has a slightly higher x-height than pt serif */
     --code-listing-font-size: var(--small-font-size);
 
     --hairline-width: 1px;
