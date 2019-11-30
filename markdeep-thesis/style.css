@@ -78,10 +78,12 @@ a.url {
 
 /* lists */
 .md ol {
-    padding-left: 2.5rem;  /* this is otherwise defined in terms of px by the browser.*/
+    padding-left: 2rem;  /* this is otherwise defined in terms of px by the browser.*/
+    text-align: justify !important;
 }
 .md ul {
-    padding-left: 2.5rem;
+    padding-left: 2rem;
+    text-align: justify !important;
 }
 
 
@@ -248,11 +250,11 @@ h4 + p,
 }
 .longTOC ol span + span {
     float: right;
-    padding-left: 0.33em;
+    padding-left: 0.1em;
     background: white;
     position: relative;
     z-index: 1;
-    width: 1.8em;
+    width: 2.2em;
     text-align: right;
     font-variant-numeric: tabular-nums;
 }
@@ -491,6 +493,9 @@ blockquote.fancyquote.📖-continuation:before {
 /* working around a bindery bug, see https://github.com/evnbr/bindery/issues/62 */
 .📖-continuation {
     list-style: initial !important;
+}
+ol.📖-continuation {
+    list-style: decimal !important;
 }
 li.📖-continuation:first-child {
     list-style: none !important;
