@@ -1,5 +1,3 @@
-@import url('reset.css');
-
 @import url('lib/webfonts/google-fonts/pt-serif/webfont.css');
 @import url('lib/webfonts/google-fonts/poppins/webfont.css');
 @import url('lib/webfonts/iosevka/2.3.1/webfont.css');
@@ -44,8 +42,8 @@ hr.ignore {
     border-bottom: var(--hairline-width) solid black;
     width: 50%;
     margin-left: 25%;
-    margin-top: 2.5em;
-    margin-bottom: 2.5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 p {
@@ -79,13 +77,13 @@ a.url {
 /* lists */
 .md ol {
     padding-left: 2rem;  /* this is otherwise defined in terms of px by the browser.*/
-    text-align: justify !important;
 }
 .md ul {
     padding-left: 2rem;
+}
+.md li {
     text-align: justify !important;
 }
-
 
 /* various */
 .md img {
@@ -103,7 +101,7 @@ a.url {
 /* title page */
 .title-page {
     height: calc(100% - var(--bindery-margin-top) - var(--bindery-margin-bottom));
-    margin: var(--bindery-margin-top) var(--bindery-margin-outer) var(--bindery-margin-outer);
+    margin: var(--bindery-margin-top) var(--bindery-margin-outer) var(--bindery-margin-outer) var(--bindery-margin-inner);
 
     /* evenly space children */
     display: flex;
@@ -127,20 +125,20 @@ a.url {
     display: block;
     font-family: var(--heading-font);
     font-weight: bold;
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 1em;
     text-align: left;
 }
 .title-page .title-subtitle {
     display: block;
     font-family: var(--heading-font);
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1em;
     text-align: left;
     margin-top: 1rem;
 }
 .title-page .title-author {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 2rem 0;
 }
 .title-page .title-date {
@@ -250,11 +248,10 @@ h4 + p,
 }
 .longTOC ol span + span {
     float: right;
-    padding-left: 0.1em;
     background: white;
     position: relative;
     z-index: 1;
-    width: 2.2em;
+    width: 2.1em;
     text-align: right;
     font-variant-numeric: tabular-nums;
 }
