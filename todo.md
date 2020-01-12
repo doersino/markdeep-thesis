@@ -1,7 +1,5 @@
-* figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
 * md thesis release: emit better error if footnote def not found
-* fix continued lists => upgrade bindery
-* re-gen pdf
+* improve demo and re-gen pdf
 
 future work:
 * keep scroll position in local storage instead of window name
@@ -29,25 +27,5 @@ https://github.com/doersino/markdeep-thesis
 ¹ Previously: https://github.com/doersino/markdeep-slides
 ```
 
-demo:
-
-=> come up with some weird area of study and subject
-=> reviewing profs: morgan, bovik
-=> reference Bovik, H. "Breath-First Techniques for the Game of Life",  in Artificial Intelligences Health, 5(88-108), 1998.
-
-note in readme:
-
-* no page number on first two pages (title page and intentionally left blank)
-* this is kinda fragile
-* only one style: what i used for my own msc thesis, might not really be standard across the world
-* liable to break with markdeep and bindery updates if they change the generated markup
-* advertise markdeep-slides
-* only print in chrome etc.
-* (figure out why chrome seems to forget *part* of the styling (h1 sizes, <code> visibility, admonition title border-bottom, etc.) when entering print mode)
-    * => print in Chrome via the browser menu item, not cmp+P!
-* major things addressed by this work:
-    * page breaking, with custom header/footer/page number, i.e. not the ones automatically inserted by the browser in print view, which are ugly
-    * footnotes at the bottom of the corresponding pages instead of markdeep's default endnotes
-    * custom aspect ratio/paper formats: a4, letter, ...
-        * => try this out!
-    * good styling for readability etc.
+upgrade.md:
+bindery https://unpkg.com/browse/bindery@2.2.9/dist/
