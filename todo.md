@@ -1,6 +1,7 @@
 * figure out how best to avoid page breaks for captioned code and tables? possible/reasonable at all? or just better to use full-page figures for them? hack bindery to move figures that don't fit on the current page to the top of the next page?
 * md thesis release: emit better error if footnote def not found
 * fix continued lists => upgrade bindery
+* re-gen pdf
 
 future work:
 * keep scroll position in local storage instead of window name
