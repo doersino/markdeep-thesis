@@ -1,10 +1,32 @@
 /*
 
-Taken from
-https://github.com/doersino/markdeep-slides/blob/master/markdeep-slides/reset.css,
-see the comment at the top of that file for an explanation of what this
-stylesheet does. Any changes or updates should be applied there, as well (and
-vice versa).
+This stylesheet "relativizes" sizes: It overrides sizes/lengths defined in terms
+of `px`, `pt` etc. in the stylesheets that are automatically applied by Markdeep
+with lenghts defined in terms of `rem`. This enables scaling the entire document
+simply by adjusting the `<html>` element's font size – exactly what's required
+to enable
+
+* fullscreen presentations via https://github.com/doersino/markdeep-slides,
+* adjustable base font sizes in https://github.com/doersino/markdeep-thesis,
+* and more!
+
+The conversion rule is simple: `⟨N⟩px` ⟼ `calc(⟨N⟩rem / var(--rf))`, where
+`--rf` is the base font size the original `px` measurements are assumed to be
+relative to. In fact, `--rf` is the browser default, `16px`. (Note that I
+would've preferred to define `--rf: calc(1rem / 16px)` and then use it like
+`calc(⟨N⟩px * var(--rf))`, but `calc` disappointingly, yet understandably, can't
+deal with "rem per pixel" units in current browsers.)
+
+When applied to a standard Markdeep document, this stylesheet is designed *not
+to yield any visual changes* (unless you change the root font size from its
+`16px` default, that is).
+
+--------------------------------------------------------------------------------
+
+* Compatible with Markdeep 1.07.
+* See https://github.com/doersino/markdeep-relative-sizes for updates.
+* Licensed under then BSD 2-Clause "Simplified" License, see
+  https://github.com/doersino/markdeep-relative-sizes/blob/master/LICENSE.
 
 */
 
@@ -12,22 +34,16 @@ vice versa).
     --rf: 16;
 }
 
-/********************************/
-/* Relativize "BODY_STYLESHEET" */
-/********************************/
-
+/* Relativize CSS generated via "BODY_STYLESHEET" variable */
 body {
     padding: calc(20rem / var(--rf));
 }
 
 
-/***************************/
-/* Relativize "STYLESHEET" */
-/***************************/
-
+/* Relativize CSS generated via "STYLESHEET" variable */
 .md code,
 .md pre {
-    font-size: calc(13.43rem / var(--rf));  /* actually: codeFontSize */
+    font-size: calc(13.43rem / var(--rf));
 }
 
 .md div.title {
@@ -94,10 +110,10 @@ h6,
     padding: calc(15rem / var(--rf)) 0 calc(3rem / var(--rf));
 }
 
-/* diagrams are scaled differently */
+/* Note that diagrams are scaled differently */
 /* .md svg.diagram {
-    font-size: calc(13.43rem / var(--rf));  /* actually: codeFontSize
-    stroke-width: calc(2rem / var(--rf));  /* actually: STROKE_WIDTH
+    font-size: calc(13.43rem / var(--rf));
+    stroke-width: calc(2rem / var(--rf));
 } */
 
 .md h1,
@@ -216,10 +232,8 @@ h6,
 }
 
 
-/*********************************************************************/
-/* Relativize "Add more spacing before the title in a long document" */
-/*********************************************************************/
-
+/* Relativize CSS generated near "Add more spacing before the title in a long
+document" comment */
 div.title {
     padding-top: calc(40rem / var(--rf));
 }
@@ -229,10 +243,8 @@ div.afterTitles {
 }
 
 
-/***************************************************************/
-/* Relativize "Creates a style sheet containing elements like" */
-/***************************************************************/
-
+/* Relativize CSS generated near "Creates a style sheet containing elements
+like:" comment */
 .md h1::before,
 .md h2::before,
 .md h3::before,
