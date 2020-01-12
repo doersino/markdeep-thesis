@@ -1,5 +1,7 @@
 * md thesis release: emit better error if footnote def not found
 * improve demo and re-gen pdf
+* some way of managing references (bibtex-style thing)?
+* some way of linking to sections with numbers (remember the manual step i had to do)?
 
 future work:
 * keep scroll position in local storage instead of window name
@@ -10,11 +12,10 @@ future work:
 * make links in footnotes create a new footnote somehow? not super important
     * idea: put footnote content in display: none element right after footnote reference, then bindery should be able to pick up on contained links
 
-
-## release
-
 * test the entire thing with the markdeep feature demo, fix whatever issues crop up, document which markdeep features aren't supported
 * document that markdeep includes (for individual chapters, e.g. thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?) don't work as of now
+* write readme
+* make an upgrade.md like for -slides: bindery https://unpkg.com/browse/bindery@2.2.9/dist/, etc.
 
 ```
 I've made another¹ thing that bends Markdeep to my will:
@@ -26,6 +27,3 @@ https://github.com/doersino/markdeep-thesis
 
 ¹ Previously: https://github.com/doersino/markdeep-slides
 ```
-
-upgrade.md:
-bindery https://unpkg.com/browse/bindery@2.2.9/dist/

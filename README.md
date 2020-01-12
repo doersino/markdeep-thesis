@@ -26,8 +26,14 @@ TODO etc.
 
 ## License
 
-TODO this tool
+TODO bindery below, fonts PT Serif, Poppins, Iosevka Web, PT Sans Narrow, Aleo https://google-webfonts-helper.herokuapp.com, https://fonts.google.com/attribution, also iosevka which is not on google fonts yet (basically mirror what i've done for -slides)
 
-TODO markdeep, bindery, mathjax
-TODO iosekva
-TODO stuff from google fonts: https://google-webfonts-helper.herokuapp.com, https://fonts.google.com/attribution
+You may use this repository's contents under the terms of the *BSD 2-Clause "Simplified" License*, see `LICENSE`.
+
+However, the subdirectory `markdeep-thesis/lib/` contains **third-party software with its own licenses**:
+
+* Morgan McGuire's **Markdeep** is *also* licensed under the *BSD 2-Clause "Simplified" License*, see [here](https://casual-effects.com/markdeep/#license).
+* Markdeep includes Ivan Sagalaev's **highlight.js** with its *BSD 3-Clause License*, see [here](https://github.com/highlightjs/highlight.js/blob/master/LICENSE).
+* TODO bindery
+* **MathJax** is licensed under the *Apache License 2.0*, see [here](https://github.com/mathjax/MathJax/blob/master/LICENSE).
+* All included **webfonts** (TODO list fonts used) are licensed under the *SIL Open Font License*, see [here](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
