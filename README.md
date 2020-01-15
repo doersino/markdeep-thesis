@@ -16,6 +16,8 @@ TODO
     * custom aspect ratio/paper formats: a4, letter, ...
         * => try this out!
     * good styling for readability etc.
+* note that there is no bibtex-style way of managing references – you need to do the formatting manually. this is certainly a feature that would be neat to integrate
+* also would be neat (although markdeep should take care of this, really): some way of linking to sections with numbers (remember the manual step i had to do)?
 
 TODO see markdeep-slides readme for reference
 

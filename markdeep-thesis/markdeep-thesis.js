@@ -111,7 +111,15 @@ function processEndnotes() {
 
         // get endnote contents
         var endnoteName = element.getAttribute("href").substr(1);
-        var endnote = document.querySelector("a[name=\"" + endnoteName + "\"]").parentNode;
+        try {
+            var endnote = document.querySelector("a[name=\"" + endnoteName + "\"]").parentNode;
+        } catch (error) {
+            var msg = "Definition of footnote reference '[^" + endnoteName + "]' not found";
+            element.innerText = msg;
+            element.setAttribute("style", "color: red !important");
+            console.log(msg);
+            return;
+        }
 
         // store for later removal (don't remove yet because there might, in
         // theory, be multiple references to this endnote)
