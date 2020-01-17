@@ -32,6 +32,11 @@ body {
     padding: 0;
     font-family: var(--body-font);
     color: black;
+    hyphens: auto;
+}
+
+code, .title-page, a.url, h1, h2, h3, h4 {
+    hyphens: none;
 }
 
 hr:not(.ignore) {
@@ -44,11 +49,6 @@ hr.ignore {
     margin-left: 25%;
     margin-top: 2em;
     margin-bottom: 2em;
-}
-
-p {
-    /*text-indent: 1.2em;*/ /* TODO revisit – this is a bit complicated: should the indent be missing after figures? or just figures without caption? etc., also see https://www.thebookdesigner.com/2012/04/paragraphing-style/ */
-    /*hyphens: auto;*/ /* TODO not really necessary, works only in chrome */
 }
 
 
@@ -196,7 +196,6 @@ a.url {
     font-size: 3em;
     line-height: 1em;
     margin-bottom: 2.5rem;
-    /transform: rotate(-10deg);  /* TODO */
 }
 
 .md h2,
@@ -450,8 +449,6 @@ code, .md code {
 }
 
 
-
-
 /* fancy quotes */
 .md blockquote.fancyquote .author {
     display: block;
@@ -464,6 +461,26 @@ code, .md code {
     font-size: 3rem;
     vertical-align: -0.4em;
     font-family: var(--fancyquote-font);
+}
+
+/* tables */
+.md table {
+    font-size: inherit;
+}
+.md table.table th {
+    background-color: #666;
+    color: white;
+    border: 0;
+    border-bottom: var(--hairline-width) solid black;
+    border-right: var(--hairline-width) solid black;
+}
+.md table.table td {
+    border: 0;
+    border-right: var(--hairline-width) solid black;
+}
+.md table.table th:last-child,
+.md table.table td:last-child {
+    border-right: 0;
 }
 
 
@@ -541,7 +558,7 @@ a[href^="#listing_"] {
 .📖-running-header {
     top: 1cm;
     font-size: var(--small-font-size);
-    font-family: var(--heading-font);  /* TODO use reference font? */
+    font-family: var(--heading-font);
 }
 
 /* Bindery stuff */
