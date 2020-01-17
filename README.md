@@ -2,7 +2,12 @@
 
 *Write your (under)graduate thesis with Markdeep and typeset it right in your browser.*
 
-* TODO some words: markdeep, bindery, chrome print dialog, used this tool (with some quick-and-dirty modifications – way easier than writing complex latex macros) for my own thesis
+* Supports **all features [Markdeep](https://casual-effects.com/markdeep/) has to offer** – diagrams, math, fancy quotes, footnotes, citations, admonitions, and all the standard Markdown stuff.
+* Fills in **page numbers**, generates a nice-looking **table of contents** and supports **footnotes** courtesy of [Bindery](https://evanbrooks.info/bindery/).
+* A **highly readable layout** but if you don't like it or want to adjust stuff: **Style your thesis with CSS!** LaTeX is great, but things can get tricky if you really want to make a `documentclass` your own.
+* You can **convert your thesis into a PDF file** ready for printing via your browser's built-in print tools – see "Exporting to PDF" below for more information.
+
+![](screenshot.png)
 
 #### 💻 [Try out a demo thesis](https://doersino.github.io/markdeep-thesis/demo.md.html) and take a look at its [Markdeep source code](demo.md.html).
 
@@ -103,11 +108,11 @@ Got an idea on how to improve something? Ran into unexpected behavior? Found a b
 ### Notes
 
 * The first two pages of the document – the title page and the empty page after it – are intentionally lacking page numbers. Page numbers commence with "1" on page 3 of the document.
-* Markdeep's endnotes are converted into footnotes by this tool.
-* Note that this tool includes no fancy (e.g. BibTeX-style) way of managing references – it doesn't extend Markdeep's capabilities in this respect. You'll need to manually make sure that your formatting is consistent if that's something you or your advisor cares about. (This is certainly a feature that would be neat to integrate!)
+* This tool converts Markdeep's endnotes into footnotes.
+* Similarly, the target URLs of links specified using Markdown are shown in footnotes.
+* Note that Markdeep's [`insert` functionality](https://casual-effects.com/markdeep/features.md.html#including/insertingotherdocuments) does not play well with this tool.
+* Also note that this tool includes no fancy (e.g. BibTeX-style) way of managing references – it doesn't extend Markdeep's capabilities in this respect. You'll need to manually make sure that your formatting is consistent if that's something you or your advisor cares about. (This is certainly a feature that would be neat to integrate!)
 * It would also be neat (although Markdeep should ideally include this functionality) to have a way of linking to sections such that the link markup is automatically replaced with section numbers.
-* TODO links create footnotes
-* TODO document that markdeep includes (for individual chapters, e.g. thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?) don't work as of now
 
 
 ### License
