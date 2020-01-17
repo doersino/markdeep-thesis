@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Poppins';
+	font-weight: 400;
+	font-style: normal;
+	src: url('Poppins-4.003-GoogleFonts-OTF/Poppins-Regular.otf') format('opentype'),
+		 url('Poppins-4.003-GoogleFonts-TTF/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Poppins';
+	font-weight: 400;
+	font-style: italic;
+	src: url('Poppins-4.003-GoogleFonts-OTF/Poppins-Italic.otf') format('opentype'),
+		 url('Poppins-4.003-GoogleFonts-TTF/Poppins-Italic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Poppins';
+	font-weight: 700;
+	font-style: normal;
+	src: url('Poppins-4.003-GoogleFonts-OTF/Poppins-Bold.otf') format('opentype'),
+		 url('Poppins-4.003-GoogleFonts-TTF/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Poppins';
+	font-weight: 700;
+	font-style: italic;
+	src: url('Poppins-4.003-GoogleFonts-OTF/Poppins-BoldItalic.otf') format('opentype'),
+		 url('Poppins-4.003-GoogleFonts-TTF/Poppins-BoldItalic.ttf') format('truetype');
+}

@@ -1,34 +1,116 @@
 # markdeep-thesis
 
-TODO
+*Write your (under)graduate thesis with Markdeep and typeset it right in your browser.*
 
-* no page number on first two pages (title page and intentionally left blank)
-* this is kinda fragile
-* only one style: what i used for my own msc thesis, might not really be standard across the world
-* liable to break with markdeep and bindery updates if they change the generated markup
-* advertise markdeep-slides
-* only print in chrome etc.
-* (figure out why chrome seems to forget *part* of the styling (h1 sizes, <code> visibility, admonition title border-bottom, etc.) when entering print mode)
-    * => print in Chrome via the browser menu item, not cmp+P!
-* major things addressed by this work:
-    * page breaking, with custom header/footer/page number, i.e. not the ones automatically inserted by the browser in print view, which are ugly
-    * footnotes at the bottom of the corresponding pages instead of markdeep's default endnotes
-    * custom aspect ratio/paper formats: a4, letter, ...
-        * => try this out!
-    * good styling for readability etc.
-* note that there is no bibtex-style way of managing references – you need to do the formatting manually. this is certainly a feature that would be neat to integrate
-* also would be neat (although markdeep should take care of this, really): some way of linking to sections with numbers (remember the manual step i had to do)?
+* TODO some words: markdeep, bindery, chrome print dialog, used this tool (with some quick-and-dirty modifications – way easier than writing complex latex macros) for my own thesis
 
-TODO see markdeep-slides readme for reference
+#### 💻 [Try out a demo thesis](https://doersino.github.io/markdeep-thesis/demo.md.html) and take a look at its [Markdeep source code](demo.md.html).
+
+*Also, check out [markdeep-slides](https://github.com/doersino/markdeep-slides) and [markdeep-diagram-drafting-board](https://github.com/doersino/markdeep-diagram-drafting-board)!*
 
 ## Getting started
 
-TODO etc.
+### Setup
+
+This repository contains **copies of all dependencies** (Markdeep, Bindery, MathJax, and the webfonts used in the default layout) by design – it'll **work offline** just fine.
+
+#### 📦 Clone this repository or [download a ZIP](https://github.com/doersino/markdeep-thesis/archive/master.zip).
+
+Then simply...
+
+1. **navigate** to `demo.md.html`,
+2. **open** it in your text editor and browser of choice,
+3. **fill in** your data in the `titlePage` variable, and
+4. **start writing your thesis**. Easy!
+
+TODO note on print
 
 
-## License
+### Options
 
-TODO bindery below, fonts PT Serif, Poppins, Iosevka Web, PT Sans Narrow, Aleo https://google-webfonts-helper.herokuapp.com, https://fonts.google.com/attribution, also iosevka which is not on google fonts yet (basically mirror what i've done for -slides)
+At the bottom of `demo.md.html`, smack in the middle of where a bunch of essential JavaScript files are loaded, you'll find a set of options. Their default values are:
+
+```html
+<script>
+var markdeepThesisOptions = {
+
+    // Default view during authoring: "print", "preview", or "flipbook".
+    view: "print",
+
+    // Let `markdeep-thesis` know about the `titlePage` variable set during
+    // step 3 of the setup instructions above.
+    titlePage: titlePage,
+
+    // Base font size, in `pt`. Everything is defined relative to this value.
+    fontSize: 10.5,
+
+    // Page/paper size: the default is A4.
+    pageSize: {width: '21cm', height: '29.7cm'},
+
+    // Margins between content and edge of paper. A bit wide, but in the spirit
+    // of (La)TeX, I guess.
+    pageMargins: {top: '2.5cm', inner: '3.5cm', outer: '2.5cm', bottom: '2.5cm'},
+
+    // Extra rules passed to Bindery's `Bindery.makeBook` function. Useful for
+    // preventing page breaks: `Bindery.PageBreak({selector: '.someClass',
+    // position: 'avoid'})`. See
+    // https://evanbrooks.info/bindery/docs/#flowing-content
+    // for more info.
+    extraBinderyRules: [],
+
+    // Definition of running header, see:
+    // https://evanbrooks.info/bindery/docs/#runningheader
+    runningHeader: (p => `${p.number}`),
+
+    // Scale factor for markdeep diagrams.
+    markdeepDiagramScale: 1.0,
+
+    // A list of input formats MathJax will be configured for: "TeX", "MathML"
+    // and/or "AsciiMath".
+    mathJax: ["TeX"],
+
+    // A number of hooks that you can utilize for custom pre- or postprocessing
+    // steps. No-ops by default.
+    hookAfterMarkdeep:               Function.prototype,
+    hookAfterMarkdeepPostprocessing: Function.prototype,
+    hookAfterMathJax:                Function.prototype,
+    hookAfterMathJaxPostprocessing:  Function.prototype,
+    hookAfterBindery:                Function.prototype
+};
+</script>
+```
+
+**Modify them to your liking**, but don't decrease the font size too much (your advisor won't appreciate having to use a magnifying glass). Additionally, you can tweak the layout by overriding CSS definitions or modifying `markdeep-thesis/style.css` in-place.
+
+
+### Exporting to PDF
+
+It's best to **use Chrome for generating a PDF version** of your thesis – it respects the page size that you've configured (unlike all other browsers). In Chrome's print window, *set "Margins" to "None"* and *make sure to keep the "Background graphics" option enabled*.
+
+**Important:** I haven't been able to figure out why, but **you *must* open the print window via `File > Print...`**, not <kbd>⌘/ctrl</kbd>+<kbd>P</kbd>. If you use that keyboard shortcut, Chrome seems to occasionally forget part of the styling (such as heading sizes, visibility of code blocks, Markdeep admonition borders, etc.) when entering print mode. Again, no clue why (if you can figure it out, [please let me know](https://github.com/doersino/markdeep-thesis/issues)).
+
+
+## Contributing
+
+Got an idea on how to improve something? Ran into unexpected behavior? Found a bug? (Maybe even fixed that bug?)
+
+*Please [file an issue](https://github.com/doersino/markdeep-thesis/issues) or send a pull request! I'll be glad to take a look at it.*
+
+**I'd love to [hear from you](https://hejnoah.com/about.html) (or take a peek at your thesis) if you've used this tool in practice.**
+
+
+---
+
+
+### Notes
+
+* The first two pages of the document – the title page and the empty page after it – are intentionally lacking page numbers. Page numbers commence with "1" on page 3 of the document.
+* Markdeep's endnotes are converted into footnotes by this tool.
+* Note that this tool includes no fancy (e.g. BibTeX-style) way of managing references – it doesn't extend Markdeep's capabilities in this respect. You'll need to manually make sure that your formatting is consistent if that's something you or your advisor cares about. (This is certainly a feature that would be neat to integrate!)
+* It would also be neat (although Markdeep should ideally include this functionality) to have a way of linking to sections such that the link markup is automatically replaced with section numbers.
+
+
+### License
 
 You may use this repository's contents under the terms of the *BSD 2-Clause "Simplified" License*, see `LICENSE`.
 
@@ -36,6 +118,6 @@ However, the subdirectory `markdeep-thesis/lib/` contains **third-party software
 
 * Morgan McGuire's **Markdeep** is *also* licensed under the *BSD 2-Clause "Simplified" License*, see [here](https://casual-effects.com/markdeep/#license).
 * Markdeep includes Ivan Sagalaev's **highlight.js** with its *BSD 3-Clause License*, see [here](https://github.com/highlightjs/highlight.js/blob/master/LICENSE).
-* TODO bindery
+* **Bindery** is used in accordance with its *MIT License*, see [here](https://github.com/evnbr/bindery/blob/master/LICENSE).
 * **MathJax** is licensed under the *Apache License 2.0*, see [here](https://github.com/mathjax/MathJax/blob/master/LICENSE).
-* All included **webfonts** (TODO list fonts used) are licensed under the *SIL Open Font License*, see [here](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).
+* All included **webfonts** (PT Serif, Poppins, Iosevka, PT Sans Narrow, Aleo) are licensed under the *SIL Open Font License*, see [here](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).

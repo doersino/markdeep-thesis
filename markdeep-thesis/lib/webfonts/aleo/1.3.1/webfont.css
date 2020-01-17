@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Aleo';
+	font-weight: 400;
+	font-style: normal;
+	src: url('otf/Aleo-Regular.otf') format('opentype'),
+		 url('ttf/Aleo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Aleo';
+	font-weight: 400;
+	font-style: italic;
+	src: url('otf/Aleo-Italic.otf') format('opentype'),
+		 url('ttf/Aleo-Italic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Aleo';
+	font-weight: 700;
+	font-style: normal;
+	src: url('otf/Aleo-Bold.otf') format('opentype'),
+		 url('ttf/Aleo-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Aleo';
+	font-weight: 700;
+	font-style: italic;
+	src: url('otf/Aleo-BoldItalic.otf') format('opentype'),
+		 url('ttf/Aleo-BoldItalic.ttf') format('truetype');
+}

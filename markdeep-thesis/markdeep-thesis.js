@@ -55,9 +55,11 @@ function renderTitlePage() {
         return;
     }
 
+    // converts \n line breaks into <br>
     function e(n) {
         return (n || "").trim().split("\n").join("<br>");
     }
+
     var titlePageMarkup = `
     <div class="title-page">
         <div class="title-top">
@@ -74,18 +76,9 @@ function renderTitlePage() {
         <div class="title-bottom">
     `
     if (options.titlePage.reviewers) {
-        titlePageMarkup += `
-
-                <div class="thesis-reviewer">
-                    Reviewers:
-                </div>
-        `  // TODO handle case where no reviewers set, or single reviewer
+        titlePageMarkup += `<div class="thesis-reviewer">Reviewer` + (options.titlePage.reviewers.length == 1 ? "" : "s") + `:</div>`;
         options.titlePage.reviewers.forEach(function (r) {
-            titlePageMarkup += `
-                <div class="thesis-reviewer">
-                    ${e(r)}
-                </div>
-            `
+            titlePageMarkup += `<div class="thesis-reviewer">${e(r)}</div>`
         });
     }
 
@@ -234,7 +227,8 @@ function solidifyCodeLineNumbers() {
 // to absoulute pixel values, which can't easily be scaled with css. so we
 // need to move this width and height information into a new viewbox
 // attribute, then we can set a new width and height depending on the desired
-// zoom factor
+// zoom factor. note this this functionality is similar to a part of markdeep-
+// slides
 function scaleDiagrams() {
     // this factor works well as a baseline
     var zoom = options.markdeepDiagramScale;
@@ -256,7 +250,6 @@ function scaleDiagrams() {
 // for reference, see https://docs.mathjax.org/en/v1.1-latest/startup.html#startup-sequence
 // and https://github.com/mathjax/mathjax-docs/wiki/Event-when-typesetting-is-done%3F-Rescaling-after-rendering...
 function loadMathJaxAndBindery() {
-    // TODO options.mathJax
     var extensions = [];
     var jax = [];
     options.mathJax.forEach(o => {
@@ -314,7 +307,6 @@ function postprocessMathJax() {
 }
 
 // loads bindery with the appropriate options
-// TODO expose some of these to the user of markdeep-thesis?
 function loadBindery() {
     var view;
     switch (options.view) {
@@ -394,12 +386,13 @@ function loadBindery() {
 
 // restore scroll position once bindery appears to be done and another 100ms
 // (for good measure) have passed by
-// TODO keep scroll position in local storage instead of window name
 function tryRestoringScrollPosition() {
     var to = setInterval(function() {
         var retry = true;
         try {
-            retry = document.querySelector(".📖-root").classList.contains("📖-in-progress");  // this class disappears when bindery is done – hacky, but i didn't find another way of determining this
+
+            // this class disappears when bindery is done – hacky, but i didn't find another way of determining this
+            retry = document.querySelector(".📖-root").classList.contains("📖-in-progress");
         } catch(e) {}
 
         if (!retry && window.name.search("^\\d+$") == 0) {
@@ -407,13 +400,12 @@ function tryRestoringScrollPosition() {
             options.hookAfterBindery();
             setTimeout(function() {
                 window.scrollTo(0, window.name);
-            }, 100);  // <- this constant might need adjusting for more complex documents!
+            }, 100);  // <- this constant might need adjusting for more complex documents (although it worked for my 100-page thesis)
         }
-    }, 10);  // retry every 10ms (overkill, but doesn't seem to hurt)
+    }, 10);  // retry every 10ms (overkill, but doesn't seem to matter)
 }
 
 // store scroll position before unloading the page
-// TODO keep scroll position in local storage instead of window name
 window.onbeforeunload = function() {
     window.name = window.pageYOffset;
 };
