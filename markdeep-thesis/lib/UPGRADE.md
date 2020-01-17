@@ -12,6 +12,7 @@ When upgrading any of these dependencies, keep the following in mind:
 
 ## Bindery
 
+* Download new versions of the required files from [here](https://unpkg.com/browse/bindery@2.2.9/dist/).
 * Check if anything breaks.
 
 
