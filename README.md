@@ -23,8 +23,6 @@ Then simply...
 3. **fill in** your data in the `titlePage` variable, and
 4. **start writing your thesis**. Easy!
 
-TODO note on print
-
 
 ### Options
 
@@ -108,6 +106,7 @@ Got an idea on how to improve something? Ran into unexpected behavior? Found a b
 * Markdeep's endnotes are converted into footnotes by this tool.
 * Note that this tool includes no fancy (e.g. BibTeX-style) way of managing references – it doesn't extend Markdeep's capabilities in this respect. You'll need to manually make sure that your formatting is consistent if that's something you or your advisor cares about. (This is certainly a feature that would be neat to integrate!)
 * It would also be neat (although Markdeep should ideally include this functionality) to have a way of linking to sections such that the link markup is automatically replaced with section numbers.
+* TODO links create footnotes
 * TODO document that markdeep includes (for individual chapters, e.g. thesis.md.html, 01-title.md, 02-abstract.md, 03-introduction.md, ..., 99-bibliography.md?) don't work as of now
 
 
