@@ -109,6 +109,7 @@ Got an idea on how to improve something? Ran into unexpected behavior? Found a b
 ### Notes
 
 * The first two pages of the document – the title page and the empty page after it – are intentionally lacking page numbers. Page numbers commence with "1" on page 3 of the document.
+* A horizontal rule `---` forces a page break or two: The content will continue on the next odd-numbered page. (`<span class="pagebreak"></span>` forces a simple page break.) If you want to insert a *visible* horizontal rule that does not result in any page breaks, type `<hr class="ignore">`.
 * This tool converts Markdeep's endnotes into footnotes.
 * Similarly, the target URLs of links specified using Markdown are shown in footnotes.
 * Note that Markdeep's [`insert` functionality](https://casual-effects.com/markdeep/features.md.html#including/insertingotherdocuments) does not play well with this tool.

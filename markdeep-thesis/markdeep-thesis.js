@@ -282,7 +282,6 @@ function loadMathJaxAndBindery() {
         });
         MathJax.Hub.Startup.onload();
         MathJax.Hub.Register.StartupHook("End",function () {
-            //console.log(document.querySelector(".md"));
             options.hookAfterMathJax();
             postprocessMathJax();
             options.hookAfterMathJaxPostprocessing();
@@ -294,9 +293,9 @@ function loadMathJaxAndBindery() {
     document.getElementsByTagName("head")[0].appendChild(script);
 }
 
-// pulls generated svgs into the text where they should be placed, then removes
-// any trace elements (haha) mathjax has left behind – this seems to help
-// bindery avoid mistakes when page breaking
+// pulls generated math svgs into the text where they should be placed, then
+// remove any trace elements (haha) mathjax has left behind – this seems to help
+// bindery avoid mistakes related to page breaking
 function postprocessMathJax() {
     var svgs = document.querySelectorAll(".MathJax_SVG svg");
     svgs.forEach(function (element) {
@@ -353,7 +352,11 @@ function loadBindery() {
             Bindery.PageReference({
                 selector: '.longTOC li',
                 replace: (element, number) => {
-                    var pageNum = number;  // no need to subtract 2 here since the modified page object from the RunningHeader setting above seems to be reused here
+
+                    // no need to subtract 2 here since the modified page object
+                    // from the RunningHeader setting above seems to be reused
+                    // here
+                    var pageNum = number;
 
                     element.innerHTML += `<span class='num'>${pageNum}</span>`;
                     return element;
@@ -380,7 +383,6 @@ function loadBindery() {
         ],
     });
 
-    //console.log(book);
     tryRestoringScrollPosition();
 }
 
@@ -391,7 +393,8 @@ function tryRestoringScrollPosition() {
         var retry = true;
         try {
 
-            // this class disappears when bindery is done – hacky, but i didn't find another way of determining this
+            // this class disappears when bindery is done – hacky, but i didn't
+            // find another way of determining this
             retry = document.querySelector(".📖-root").classList.contains("📖-in-progress");
         } catch(e) {}
 
@@ -400,7 +403,8 @@ function tryRestoringScrollPosition() {
             options.hookAfterBindery();
             setTimeout(function() {
                 window.scrollTo(0, window.name);
-            }, 100);  // <- this constant might need adjusting for more complex documents (although it worked for my 100-page thesis)
+            }, 100);  // <- this constant might need adjusting for more complex
+                      //    documents (although it worked for my 100-page thesis)
         }
     }, 10);  // retry every 10ms (overkill, but doesn't seem to matter)
 }
