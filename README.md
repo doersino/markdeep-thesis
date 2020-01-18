@@ -1,11 +1,11 @@
 # markdeep-thesis
 
-*Write your (under)graduate thesis with Markdeep and typeset it right in your browser.*
+*Write your (under)graduate thesis with [Markdeep](https://casual-effects.com/markdeep/) and typeset it right in your browser.*
 
 * Supports **all features [Markdeep](https://casual-effects.com/markdeep/) has to offer** – diagrams, math, fancy quotes, footnotes, citations, admonitions, and all the standard Markdown stuff.
 * Fills in **page numbers**, generates a nice-looking **table of contents** and supports **footnotes** courtesy of [Bindery](https://evanbrooks.info/bindery/).
-* A **highly readable layout** but if you don't like it or want to adjust stuff: **Style your thesis with CSS!** LaTeX is great, but things can get tricky if you really want to make a `documentclass` your own.
-* You can **convert your thesis into a PDF file** ready for printing via your browser's built-in print tools – see "Exporting to PDF" below for more information.
+* A **highly readable layout** – but if you don't like it or want to adjust things: **Style your thesis with CSS!** LaTeX is great, but things can get tricky if you really want to make a `documentclass` your own.
+* Your browser's built-in print tools allow you to **export your thesis to a PDF file** ready for printing – see "Exporting to PDF" below for more information.
 
 #### 💻 [Try out a demo thesis](https://doersino.github.io/markdeep-thesis/demo.md.html) and take a look at its [Markdeep source code](demo.md.html).
 
@@ -91,7 +91,7 @@ var markdeepThesisOptions = {
 
 It's best to **use Chrome for generating a PDF version** of your thesis – it respects the page size that you've configured (unlike all other browsers). In Chrome's print window, *set "Margins" to "None"* and *make sure to keep the "Background graphics" option enabled*.
 
-**Important:** I haven't been able to figure out why, but **you *must* open the print window via `File > Print...`**, not <kbd>⌘/ctrl</kbd>+<kbd>P</kbd>. If you use that keyboard shortcut, Chrome seems to occasionally forget part of the styling (such as heading sizes, visibility of code blocks, Markdeep admonition borders, etc.) when entering print mode. Again, no clue why (if you can figure it out, [please let me know](https://github.com/doersino/markdeep-thesis/issues)).
+**Important: You *must* open the print window via `File > Print...`**, not <kbd>⌘/ctrl</kbd>+<kbd>P</kbd>. If you use that keyboard shortcut, Chrome seems to occasionally forget part of the styling (such as heading sizes, visibility of code blocks, Markdeep admonition borders, etc.) when entering print mode. I've got no clue why this happens (if you can figure it out, [please let me know](https://github.com/doersino/markdeep-thesis/issues)).
 
 
 ## Contributing
@@ -110,7 +110,7 @@ Got an idea on how to improve something? Ran into unexpected behavior? Found a b
 
 * The first two pages of the document – the title page and the empty page after it – are intentionally lacking page numbers. Page numbers commence with "1" on page 3 of the document.
 * A horizontal rule `---` forces a page break or two: The content will continue on the next odd-numbered page. (`<span class="pagebreak"></span>` forces a simple page break.) If you want to insert a *visible* horizontal rule that does not result in any page breaks, type `<hr class="ignore">`.
-* This tool converts Markdeep's endnotes into footnotes.
+* This tool converts Markdeep's endnotes into footnotes. Multiple references to an endnote turn into multiple, distinct footnotes.
 * Similarly, the target URLs of links specified using Markdown are shown in footnotes.
 * Note that Markdeep's [`insert` functionality](https://casual-effects.com/markdeep/features.md.html#including/insertingotherdocuments) does not play well with this tool.
 * Also note that this tool includes no fancy (e.g. BibTeX-style) way of managing references – it doesn't extend Markdeep's capabilities in this respect. You'll need to manually make sure that your formatting is consistent if that's something you or your advisor cares about. (This is certainly a feature that would be neat to integrate!)
