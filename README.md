@@ -2,8 +2,6 @@
 
 *Write your (under)graduate thesis with Markdeep and typeset it right in your browser.*
 
-<img align="right" width="400" src="screenshot.png">
-
 * Supports **all features [Markdeep](https://casual-effects.com/markdeep/) has to offer** – diagrams, math, fancy quotes, footnotes, citations, admonitions, and all the standard Markdown stuff.
 * Fills in **page numbers**, generates a nice-looking **table of contents** and supports **footnotes** courtesy of [Bindery](https://evanbrooks.info/bindery/).
 * A **highly readable layout** but if you don't like it or want to adjust stuff: **Style your thesis with CSS!** LaTeX is great, but things can get tricky if you really want to make a `documentclass` your own.
@@ -12,6 +10,8 @@
 #### 💻 [Try out a demo thesis](https://doersino.github.io/markdeep-thesis/demo.md.html) and take a look at its [Markdeep source code](demo.md.html).
 
 *Also, check out [markdeep-slides](https://github.com/doersino/markdeep-slides) and [markdeep-diagram-drafting-board](https://github.com/doersino/markdeep-diagram-drafting-board)!*
+
+![My own Master's thesis, essentially the impetus for building this tool.](screenshot.png)
 
 
 ## Getting started
