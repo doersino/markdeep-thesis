@@ -28,5 +28,5 @@ When upgrading any of these dependencies, keep the following in mind:
     * Aleo from https://github.com/AlessioLaiso/aleo
     * Iosevka from https://github.com/be5invis/Iosevka
     * Poppins from https://github.com/itfoundry/poppins
-    * PT Sans Narrow & PT Serif from https://google-webfonts-helper.herokuapp.com/fonts
+    * PT Sans Narrow & PT Serif from https://google-webfonts-helper.herokuapp.com/fonts, see also https://fonts.google.com/attribution
 * Update their import paths in `../style.css`.
