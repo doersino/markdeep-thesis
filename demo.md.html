@@ -435,21 +435,21 @@ This has been the best thing you've read today.
 <link rel="stylesheet" href="markdeep-thesis/style.css">
 <script src="markdeep-thesis/lib/bindery/2.2.9/bindery.min.js"></script>
 <script>
-    var markdeepThesisOptions = {
-          view: "print"
-        , titlePage: titlePage
-        , fontSize: 10.5
-        , runningHeader: function (page) {
-              if (page.isLeft) {
-                  if (page.heading.h1 != null) {
-                      return `${page.number}⁓${page.heading.h1}`  // alternatives: ⸺, ⸻
-                  }
-                  return `${page.number}`
-              } else {
-                  return `Noah Doersing⁓${page.number}`;
-              }
-          }
-        , markdeepDiagramScale: 0.8
+    markdeepThesisOptions = {
+        view: "print",
+        titlePage: titlePage,
+        fontSize: 10.5,
+        runningHeader: function (page) {
+            if (page.isLeft) {
+                if (page.heading.h1 != null) {
+                    return `${page.number}⁓${page.heading.h1}`  // alternatives: ⸺, ⸻
+                }
+                return `${page.number}`
+            } else {
+                return `Noah Doersing⁓${page.number}`;
+            }
+        },
+        markdeepDiagramScale: 0.8
     }
 </script>
 <script src="markdeep-thesis/markdeep-thesis.js"></script>

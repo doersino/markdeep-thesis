@@ -32,11 +32,11 @@ Then simply...
 
 ### Options
 
-At the bottom of `demo.md.html`, smack in the middle of where a bunch of essential JavaScript files are loaded, you'll find a set of options. Their default values are:
+At the bottom of `demo.md.html`, smack in the middle of where a bunch of essential JavaScript files are loaded, you'll find a set of options. Their default values (each of which is automatically applied if you *omit* the corresponding option) are:
 
 ```html
 <script>
-var markdeepThesisOptions = {
+markdeepThesisOptions = {
 
     // Default view during authoring: "print", "preview", or "flipbook".
     view: "print",

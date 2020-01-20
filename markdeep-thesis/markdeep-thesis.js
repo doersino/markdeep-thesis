@@ -273,7 +273,7 @@ function loadMathJaxAndBindery() {
 
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "markdeep-thesis/lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
+    script.src = "markdeep-thesis/lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
 
     var config = `
         MathJax.Hub.Config({
