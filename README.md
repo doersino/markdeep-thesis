@@ -69,10 +69,6 @@ markdeepThesisOptions = {
     // Scale factor for markdeep diagrams.
     markdeepDiagramScale: 1.0,
 
-    // A list of input formats MathJax will be configured for: "TeX", "MathML"
-    // and/or "AsciiMath".
-    mathJax: ["TeX"],
-
     // A number of hooks that you can utilize for custom pre- or postprocessing
     // steps. No-ops by default.
     hookAfterMarkdeep:               Function.prototype,

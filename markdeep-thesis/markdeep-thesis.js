@@ -19,7 +19,6 @@ function processMarkdeepThesisOptions() {
         , extraBinderyRules: []  // this option is why bindery must be loaded before the options are defined in demo.md.html
         , runningHeader: (p => `${p.number}`)
         , markdeepDiagramScale: 1.0
-        , mathJax: ["TeX"]
         , hookAfterMarkdeep: Function.prototype  // turns out this is a good way of specifying a noop function: https://stackoverflow.com/a/33458430
         , hookAfterMarkdeepPostprocessing: Function.prototype
         , hookAfterMathJax: Function.prototype
@@ -250,36 +249,11 @@ function scaleDiagrams() {
 // for reference, see https://docs.mathjax.org/en/v1.1-latest/startup.html#startup-sequence
 // and https://github.com/mathjax/mathjax-docs/wiki/Event-when-typesetting-is-done%3F-Rescaling-after-rendering...
 function loadMathJaxAndBindery() {
-    var extensions = [];
-    var jax = [];
-    options.mathJax.forEach(o => {
-        switch (o) {
-            case "TeX":
-                extensions.push("tex2jax.js");
-                jax.push("input/TeX");
-                break;
-
-            case "MathML":
-                extensions.push("mml2jax.js");
-                jax.push("input/MathML");
-                break;
-
-            case "AsciiMath":
-                extensions.push("asciimath2jax.js");
-                jax.push("input/AsciiMath");
-                break;
-        }
-    });
-
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "markdeep-thesis/lib/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_SVG";
 
     var config = `
-        MathJax.Hub.Config({
-            extensions: ["${extensions.join("\",\"")}"],
-            jax: ["${jax.join("\",\"")}", "output/SVG"]
-        });
         MathJax.Hub.Startup.onload();
         MathJax.Hub.Register.StartupHook("End",function () {
             options.hookAfterMathJax();
@@ -288,8 +262,8 @@ function loadMathJaxAndBindery() {
             loadBindery();
         });
     `;
-
     script.text = config;
+
     document.getElementsByTagName("head")[0].appendChild(script);
 }
 
