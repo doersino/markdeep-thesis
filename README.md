@@ -7,7 +7,7 @@
 * A **highly readable layout** – but if you don't like it or want to adjust things: **Style your thesis with CSS!** LaTeX is great, but things can get tricky if you really want to make a `documentclass` your own.
 * Your browser's built-in print tools allow you to **export your thesis to a PDF file** ready for printing – see "Exporting to PDF" below for more information.
 
-#### 💻 [Try out a demo thesis](https://doersino.github.io/markdeep-thesis/demo.md.html) and take a look at its [Markdeep source code](demo.md.html).
+#### 💻 [Try out a demo thesis](https://doersino.github.io/markdeep-thesis/demo.md.html), see the [exported PDF](demo.md.html.pdf) and take a look at its [Markdeep source code](demo.md.html).
 
 *Also, check out [markdeep-slides](https://github.com/doersino/markdeep-slides) and [markdeep-diagram-drafting-board](https://github.com/doersino/markdeep-diagram-drafting-board)!*
 
