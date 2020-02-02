@@ -87,8 +87,6 @@ markdeepThesisOptions = {
 
 It's best to **use Chrome for generating a PDF version** of your thesis – it respects the page size that you've configured (unlike all other browsers). In Chrome's print window, *set "Margins" to "None"* and *make sure to keep the "Background graphics" option enabled*.
 
-**Important: You *must* open the print window via `File > Print...`**, not <kbd>⌘/ctrl</kbd>+<kbd>P</kbd>. If you use that keyboard shortcut, Chrome seems to occasionally forget part of the styling (such as heading sizes, visibility of code blocks, Markdeep admonition borders, etc.) when entering print mode. I've got no clue why this happens (if you can figure it out, [please let me know](https://github.com/doersino/markdeep-thesis/issues)).
-
 
 ## Contributing
 

@@ -7,13 +7,13 @@ When upgrading any of these dependencies, keep the following in mind:
 
 * Add support (and maybe an example in the demo) for any newly added constructs.
 * Get the new `relativize.css` from [here](https://github.com/doersino/markdeep-relative-sizes).
-* Update the include path at the bottom of the demo to match the new version.
+* Update the include path in the `applyStyles` function of `../markdeep-thesis.js` to match the new version.
 
 
 ## Bindery
 
 * Download new versions of the required files from [here](https://unpkg.com/browse/bindery@2.2.9/dist/).
-* Check if anything breaks.
+* Check if anything breaks (*especially* in the printed PDF).
 
 
 ## MathJax

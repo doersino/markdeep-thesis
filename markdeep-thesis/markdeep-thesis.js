@@ -37,6 +37,7 @@ function processMarkdeepThesisOptions() {
 }
 
 function postprocessMarkdeep() {
+    applyStyles();
     renderTitlePage();
     processEndnotes();
     processTOCAndSectionHeadings();
@@ -47,6 +48,17 @@ function postprocessMarkdeep() {
     document.querySelectorAll(".md p").forEach(e => e.innerHTML.trim() == "" ? e.remove() : null);
 
     options.hookAfterMarkdeepPostprocessing();
+}
+
+// if these styles are defined in the .md.html document instead of here, Chrome
+// confuses style sheet precedence during printing to PDF (but *not* during
+// normal page display, for whatever weirdo reason) such that, for example,
+// headings aren't the correct sizes and a whole bunch of margins are messed up
+function applyStyles() {
+    document.head.innerHTML += `
+        <link rel="stylesheet" href="markdeep-thesis/lib/markdeep-relative-sizes/1.07/relativize.css">
+        <link rel="stylesheet" href="markdeep-thesis/style.css">'
+    `;
 }
 
 function renderTitlePage() {
