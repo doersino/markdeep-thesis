@@ -483,6 +483,11 @@ code, .md code {
     border-right: 0;
 }
 
+/* diagrams */
+.md svg.diagram {
+    font-size: 13.5px;  /* the relative font size introduced in markdeep 1.09 will otherwise clash with diagram scaling as implemented here, yielding grotesquely large font sizes */
+}
+
 
 /* page break fixes */
 p.📖-continues {
