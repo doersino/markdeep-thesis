@@ -56,7 +56,7 @@ function postprocessMarkdeep() {
 // headings aren't the correct sizes and a whole bunch of margins are messed up
 function applyStyles() {
     document.head.innerHTML += `
-        <link rel="stylesheet" href="markdeep-thesis/lib/markdeep-relative-sizes/1.09/relativize.css">
+        <link rel="stylesheet" href="markdeep-thesis/lib/markdeep-relative-sizes/1.11/relativize.css">
         <link rel="stylesheet" href="markdeep-thesis/style.css">'
     `;
 }
