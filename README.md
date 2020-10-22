@@ -11,7 +11,9 @@
 
 *Also, check out [markdeep-slides](https://github.com/doersino/markdeep-slides) and [markdeep-diagram-drafting-board](https://github.com/doersino/markdeep-diagram-drafting-board)!*
 
-![My own Master's thesis, essentially the impetus for building this tool.](screenshot.png)
+![](screenshot.png)
+
+*Pages of [my own Master's thesis](https://github.com/doersino/UnicodeMathML/blob/master/docs/doersing-unicodemath-to-mathml.pdf), which provided the impetus for building this tool.*
 
 
 ## Getting started
