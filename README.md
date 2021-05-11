@@ -13,7 +13,7 @@
 
 ![](screenshot.png)
 
-*Pages of [my own Master's thesis](https://github.com/doersino/UnicodeMathML/blob/master/docs/doersing-unicodemath-to-mathml.pdf), which provided the impetus for building this tool.*
+*Pages of [my own Master's thesis](https://github.com/doersino/UnicodeMathML/blob/master/docs/doersing-unicodemath-to-mathml.pdf), which provided the impetus for building this tool. (In case you're curious as to how this image was generated, you'll surely be delighted to know that I've written [a blog post about it](https://excessivelyadequate.com/posts/scattered.html).)*
 
 
 ## Getting started
