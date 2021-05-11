@@ -386,6 +386,7 @@ function tryRestoringScrollPosition() {
 
         if (!retry && window.name.search("^\\d+$") == 0) {
             clearInterval(to);
+            makeTOCLinksWorkAgain();
             options.hookAfterBindery();
             setTimeout(function() {
                 window.scrollTo(0, window.name);
@@ -393,6 +394,24 @@ function tryRestoringScrollPosition() {
                       //    documents (although it worked for my 100-page thesis)
         }
     }, 10);  // retry every 10ms (overkill, but doesn't seem to matter)
+}
+
+// since Bindery makes a copy of the document during processing and merely hides
+// the original/leftover document, the original target anchors stick around,
+// which breaks internal links, say, in the table of contents or links to the
+// bibliography – this fixes that!
+// (via https://github.com/doersino/markdeep-thesis/issues/5)
+function makeTOCLinksWorkAgain() {
+
+    // leftover original document after Bindery has processed it
+    let hiddenDocument = document.querySelector('body > span.md');
+
+    // select all target anchors...
+    hiddenDocument.querySelectorAll("a.target").forEach(e => {
+
+        // ...and un-target-ify them
+        e.setAttribute("name", "");
+    });
 }
 
 // store scroll position before unloading the page
