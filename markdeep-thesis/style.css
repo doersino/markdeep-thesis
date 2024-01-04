@@ -9,7 +9,7 @@
     --heading-font: "Poppins";
     --code-font: "Iosevka";
     --reference-font: "PT Sans Narrow";
-    --fancyquote-font: "Aleo";
+    --fancyquote-font: "PT Serif"; /* "Aleo"; */
 
     --base-font-size: 10.5pt;
     --small-font-size: 0.8rem;
@@ -202,14 +202,28 @@ a.url {
 .md .nonumberh2 {
     font-size: 1.5em;
 }
-
+/*bolded header 3 to distinguish with header 4*/
 .md h3,
-.md .nonumberh3,
+.md .nonumberh3 {
+    font-size: 1em;
+    font-weight: 600;
+}
+/*Remove toc number display on header 3*/
+.md h3::before {
+    display: none;
+}
+
 .md h4,
 .md .nonumberh4 {
     font-size: 1em;
     font-weight: normal;
 }
+/*Remove toc number display on header 4*/
+.md h4::before {
+    display: none;
+}
+
+
 h2 + p,
 .nonumberh2 + p,
 h3 + p,
@@ -219,6 +233,9 @@ h4 + p,
     text-indent: 0;
 }
 
+@media print {
+.phb {height: 279.4mm; width: 215.9mm;} 
+}
 
 /* table of contents */
 /* via https://www.w3.org/Style/Examples/007/leaders.en.html */
@@ -266,10 +283,14 @@ h4 + p,
     min-width: 2.2em;
     margin-left: 1.4em;
 }
+/* force level 3 headings not to show up in the toc */
+.md .longTOC .level3 {
+    display: none;
+}/* obviously, toc number won't show since level 3 heading has set 'display: none;'
 .md .longTOC .level3 .tocNumber {
     min-width: 2.9em;
     margin-left: 3.6em;
-}
+}*/
 /* level 4 headings don't show up in the toc
 .md .longTOC .level4 .tocNumber {
     min-width: 3.3em;
