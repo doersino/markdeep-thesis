@@ -1,0 +1,599 @@
+@import url('lib/webfonts/google-fonts/pt-serif/webfont.css');
+@import url('lib/webfonts/poppins/4.003/webfont.css');
+@import url('lib/webfonts/iosevka/2.3.1/webfont.css');
+@import url('lib/webfonts/google-fonts/pt-sans-narrow/webfont.css');
+@import url('lib/webfonts/aleo/1.3.1/webfont.css');
+
+:root {
+    --body-font: "PT Serif";
+    --heading-font: "Poppins";
+    --code-font: "Iosevka";
+    --reference-font: "PT Sans Narrow";
+    --fancyquote-font: "PT Serif"; /* "Aleo"; */
+
+    --base-font-size: 10.5pt;
+    --small-font-size: 0.8rem;
+    --inline-code-font-size: 0.96em;  /* since iosevka has a slightly higher x-height than pt serif */
+    --code-listing-font-size: var(--small-font-size);
+
+    --hairline-width: 1px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--base-font-size);
+}
+
+body {
+    max-width: 100%;
+    padding: 0;
+    font-family: var(--body-font);
+    color: black;
+    hyphens: auto;
+}
+
+code, .title-page, a.url, h1, h2, h3, h4 {
+    hyphens: none;
+}
+
+hr:not(.ignore) {
+    display: none;
+}
+hr.ignore {
+    border: 0;
+    border-bottom: var(--hairline-width) solid black;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+
+/* various kinds of links */
+.md a, a {
+    color: black !important; /* change this when presenting digitally, I suppose? */
+    text-decoration: none;
+    font-family: inherit;
+}
+/*a[href^="http"] {
+    text-decoration: underline !important;
+    text-decoration-style: wavy;
+}*/
+a:hover {
+    text-decoration: underline;
+}
+a.url {
+    font-family: var(--code-font);
+    font-size: var(--inline-code-font-size);
+}
+.md a.target {  /* remove extra space before headings */
+    position: absolute;  /* or display: hidden; */
+}
+
+
+/* lists */
+.md ol {
+    padding-left: 2rem;  /* this is otherwise defined in terms of px by the browser.*/
+}
+.md ul {
+    padding-left: 2rem;
+}
+.md li {
+    text-align: justify !important;
+}
+
+/* various */
+.md img {
+    max-width: 100%;
+}
+.md div.imagecaption {
+    margin: 0.5rem 0 0;  /* no margin-bottom since images are in div.image, which has display: inline-block, preventing margin collapse */
+}
+.md div.tablecaption,
+.md div.listingcaption {
+    margin: 0.5rem 0 1rem;
+}
+
+
+/* title page */
+.title-page {
+    height: calc(100% - var(--bindery-margin-top) - var(--bindery-margin-bottom));
+    margin: var(--bindery-margin-top) var(--bindery-margin-outer) var(--bindery-margin-outer) var(--bindery-margin-inner);
+
+    /* evenly space children */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.title-page .title-top {
+    text-align: center;
+}
+.title-page .title-institution {
+    font-size: 1.25rem;
+}
+.title-page .title-institution-extra {
+    margin-top: 0.2rem;
+}
+.title-page .title-kind {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+.title-page .title-title {
+    display: block;
+    font-family: var(--heading-font);
+    font-weight: bold;
+    font-size: 3rem;
+    line-height: 1em;
+    text-align: left;
+}
+.title-page .title-subtitle {
+    display: block;
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    line-height: 1em;
+    text-align: left;
+    margin-top: 1rem;
+}
+.title-page .title-author {
+    font-size: 1.4rem;
+    margin: 2rem 0;
+}
+.title-page .title-date {
+    font-style: italic;
+}
+.title-bottom {
+    font-size: var(--small-font-size);
+    font-family: var(--reference-font);
+    text-align: center;
+}
+.title-bottom .thesis-reviewer {
+    text-align: left;
+    display: inline-block;
+    margin-right: 2em;
+    vertical-align: top;
+}
+.title-bottom .thesis-reviewer:first-child {
+    font-weight: bold;
+}
+
+
+/* headings */
+.md h1,
+.md .nonumberh1,
+.md h2,
+.md .nonumberh2,
+.md h3,
+.md .nonumberh3,
+.md h4,
+.md .nonumberh4,
+.md .tocHeader {
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    border: 0;
+    margin: 2rem 0 1rem;
+    padding: 0;
+    color: inherit;
+    text-align: left;
+}
+
+.md h1,
+.md .nonumberh1,
+.md .tocHeader {
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+    font-size: 4em;
+    line-height: 1em;
+    font-weight: normal;
+}
+
+.md h1::before {
+    display: block;
+    font-weight: 800;
+    color: #999;
+    font-size: 3em;
+    line-height: 1em;
+    margin-bottom: 2.5rem;
+}
+
+.md h2,
+.md .nonumberh2 {
+    font-size: 1.5em;
+}
+/*bolded header 3 to distinguish with header 4*/
+.md h3,
+.md .nonumberh3 {
+    font-size: 1em;
+    font-weight: 600;
+}
+/*Remove toc number display on header 3*/
+.md h3::before {
+    display: none;
+}
+
+.md h4,
+.md .nonumberh4 {
+    font-size: 1em;
+    font-weight: normal;
+}
+/*Remove toc number display on header 4*/
+.md h4::before {
+    display: none;
+}
+
+
+h2 + p,
+.nonumberh2 + p,
+h3 + p,
+.nonumberh3 + p,
+h4 + p,
+.nonumberh4 + p {
+    text-indent: 0;
+}
+
+@media print {
+.phb {height: 279.4mm; width: 215.9mm;} 
+}
+
+/* table of contents */
+/* via https://www.w3.org/Style/Examples/007/leaders.en.html */
+.longTOC ol {
+    max-width: 40em;
+    padding: 0;
+    overflow-x: hidden;
+    list-style: none
+}
+.longTOC ol li:after {
+    font-weight: normal;
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    content:
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+        "· · · · · · · · · · · · · · · · · · · · "
+}
+.longTOC ol span:first-child {
+    padding-right: 0.33em;
+    background: white;
+}
+.longTOC ol span + span {
+    float: right;
+    background: white;
+    position: relative;
+    z-index: 1;
+    width: 2.1em;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.md .longTOC .tocNumber {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+}
+.md .longTOC .level1 .tocNumber {
+    min-width: 1.4em;
+}
+.md .longTOC .level2 .tocNumber {
+    min-width: 2.2em;
+    margin-left: 1.4em;
+}
+/* force level 3 headings not to show up in the toc */
+.md .longTOC .level3 {
+    display: none;
+}/* obviously, toc number won't show since level 3 heading has set 'display: none;'
+.md .longTOC .level3 .tocNumber {
+    min-width: 2.9em;
+    margin-left: 3.6em;
+}*/
+/* level 4 headings don't show up in the toc
+.md .longTOC .level4 .tocNumber {
+    min-width: 3.3em;
+    margin-left: 5.6em;
+}*/
+.md .longTOC .level1 { /* override styles set by markdeep */
+    font-weight: 600;
+    padding-top: 0;
+    margin: 0;
+}
+.longTOC a {
+    color: inherit !important;
+    padding-right: 0.4em;
+}
+
+
+/* code listings */
+code, .md code {
+    font-family: var(--code-font) !important;
+    font-size: var(--inline-code-font-size);
+}
+.md pre.listing {
+    font-size: var(--code-listing-font-size);
+    resize: none;  /* remove resizability indicator */
+    overflow: visible;
+    border-top: var(--hairline-width) solid #ccc;
+    border-bottom: var(--hairline-width) solid #ccc;
+    background-color: #f8f8f8;
+    padding: 0.25rem 0.5rem;
+}
+.md pre.listing code {
+    white-space: pre-wrap;
+}
+.md pre.listing .linenumbers span.line {
+    margin-left: -0.5rem; /* <- -X */
+}
+.md pre.listing .linenumbers span.line:before {
+    width: 1rem;
+    margin-left: -1.5rem;
+    padding-right: 0.5rem;  /* <- X */
+}
+
+/* highlight.js/src/styles/github.css */
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+
+/* admonitions */
+.admonition p {
+    text-indent: 0;
+}
+.md .admonition {
+    padding: .3rem .6rem;
+    border-left-width: calc(2 * var(--hairline-width)) !important;
+    background-color: #e4eefe;
+    border-color: #a6c7fd;
+    border-radius: 0;
+}
+.md .admonition::before {
+    display: none !important;
+}
+.md .admonition-title {
+    font-size: var(--small-font-size);
+    font-family: var(--heading-font);
+    font-weight: 500;
+    margin: -.3rem -.6rem -.6rem -.6rem;
+    padding: .2rem .6rem .2rem;
+    border-width: 0;
+    text-transform: uppercase;
+    background-color: #a6c7fd;
+}
+.md .admonition.tip {
+    background-color: #ddf7e1;
+    border-color: #91e39c;
+}
+.md .admonition.tip .admonition-title {
+    background-color: #91e39c;
+}
+.md .admonition.warn,
+.md .admonition.warning {
+    background-color: #ffebd8;
+    border-color: #fec288;
+}
+.md .admonition.warn .admonition-title,
+.md .admonition.warning .admonition-title {
+    background-color: #fec288;
+}
+.md .admonition.error {
+    background-color: #ffdce2;
+    border-color: #fe8da2;
+}
+.md .admonition.error .admonition-title {
+    background-color: #fe8da2;
+}
+
+
+/* fancy quotes */
+.md blockquote.fancyquote .author {
+    display: block;
+}
+.md blockquote.fancyquote {
+    font-family: var(--fancyquote-font);
+}
+.md blockquote.fancyquote::before,
+.md span.fancyquote::after {
+    font-size: 3rem;
+    vertical-align: -0.4em;
+    font-family: var(--fancyquote-font);
+}
+
+/* tables */
+.md table {
+    font-size: inherit;
+}
+.md table.table th {
+    background-color: #666;
+    color: white;
+    border: 0;
+    border-bottom: var(--hairline-width) solid black;
+    border-right: var(--hairline-width) solid black;
+}
+.md table.table td {
+    border: 0;
+    border-right: var(--hairline-width) solid black;
+}
+.md table.table th:last-child,
+.md table.table td:last-child {
+    border-right: 0;
+}
+
+/* diagrams */
+.md svg.diagram {
+    font-size: 13.5px;  /* the relative font size introduced in markdeep 1.09 will otherwise clash with diagram scaling as implemented here, yielding grotesquely large font sizes */
+}
+
+
+/* page break fixes */
+p.📖-continues {
+    text-align-last: justify;
+}
+p.📖-continuation {
+    text-indent: 0;
+}
+span.fancyquote.📖-continues:after {
+    display: none;
+}
+blockquote.fancyquote.📖-continuation:before {
+    display: none;
+}
+.md pre.listing.📖-continues {
+    border-bottom: none;
+}
+.md pre.listing.📖-continuation {
+    border-top: none;
+}
+
+/* working around a bindery bug, see https://github.com/evnbr/bindery/issues/62 */
+.📖-continuation {
+    list-style: initial !important;
+}
+ol.📖-continuation {
+    list-style: decimal !important;
+}
+li.📖-continuation:first-child {
+    list-style: none !important;
+}
+
+
+/* footnotes, citations/bibliography and other kinds of references */
+.bindery-sup {
+    font-family: var(--reference-font);
+    vertical-align: top;
+    position: relative;
+    top: -0.4em;
+    font-size: 0.7em;
+}
+.📖-footnote {
+    font-size: var(--small-font-size);
+    line-height: 1.4em;
+}
+.📖-footnote:first-child:before {
+    content: "⸻⸻";
+    font-size: 1rem;
+    letter-spacing: -0.1em;
+    display: block;
+}
+.📖-footnote .target {
+    position: absolute;
+}
+.📖-footnote > sup:first-child {
+    font-family: var(--reference-font);
+}
+a[href^="#citation-"],
+a[href^="#figure_"],
+a[href^="#table_"],
+a[href^="#listing_"] {
+    font-family: var(--reference-font);
+}
+.bib > b:nth-child(2),
+.imagecaption > b:nth-child(2),
+.tablecaption > b:nth-child(2),
+.listingcaption > b:nth-child(2) {
+    font-family: var(--reference-font);
+}
+
+
+/* page numbers */
+.📖-running-header {
+    top: 1cm;
+    font-size: var(--small-font-size);
+    font-family: var(--heading-font);
+}
+
+/* Bindery stuff */
+.📖-flow-box {
+    z-index: 100000; /* makes inspecting elements in the safari dev tools way less painful */
+}
+
+/* Markdeep stuff */
+.markdeepFooter {
+    display: none;  /* sorry morgan */
+}
+
